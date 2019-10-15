@@ -97,9 +97,7 @@
 		2D6A18D4235684C800E29D3D /* Marvel */ = {
 			isa = PBXGroup;
 			children = (
-				2D6A18D5235684C800E29D3D /* AppDelegate.swift */,
-				2D6A19052356877200E29D3D /* SceneDelegate.swift */,
-				2D6A18D9235684C800E29D3D /* ViewController.swift */,
+				2D6A19082356897200E29D3D /* Source */,
 				2D6A18DE235684CB00E29D3D /* Assets.xcassets */,
 				2D6A18E0235684CB00E29D3D /* LaunchScreen.storyboard */,
 				2D6A18E3235684CB00E29D3D /* Info.plist */,
@@ -123,6 +121,16 @@
 				2D6A18F9235684CC00E29D3D /* Info.plist */,
 			);
 			path = MarvelUITests;
+			sourceTree = "<group>";
+		};
+		2D6A19082356897200E29D3D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2D6A18D5235684C800E29D3D /* AppDelegate.swift */,
+				2D6A19052356877200E29D3D /* SceneDelegate.swift */,
+				2D6A18D9235684C800E29D3D /* ViewController.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
