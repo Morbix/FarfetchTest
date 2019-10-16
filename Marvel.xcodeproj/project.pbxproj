@@ -15,6 +15,7 @@
 		2D6A19062356877300E29D3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A19052356877200E29D3D /* SceneDelegate.swift */; };
 		2D6A190E23568F1700E29D3D /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A190D23568F1600E29D3D /* String+MD5.swift */; };
 		2D6A1910235691CD00E29D3D /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A190F235691CD00E29D3D /* MD5Tests.swift */; };
+		2D6A19122356930100E29D3D /* MarvelKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A19112356930100E29D3D /* MarvelKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		2D6A190923568EB800E29D3D /* Marvel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Marvel-Bridging-Header.h"; sourceTree = "<group>"; };
 		2D6A190D23568F1600E29D3D /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		2D6A190F235691CD00E29D3D /* MD5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Tests.swift; sourceTree = "<group>"; };
+		2D6A19112356930100E29D3D /* MarvelKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				2D6A18DE235684CB00E29D3D /* Assets.xcassets */,
 				2D6A18E0235684CB00E29D3D /* LaunchScreen.storyboard */,
 				2D6A18E3235684CB00E29D3D /* Info.plist */,
+				2D6A19112356930100E29D3D /* MarvelKeys.swift */,
 			);
 			path = Marvel;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				2D6A18DA235684C800E29D3D /* ViewController.swift in Sources */,
 				2D6A18D6235684C800E29D3D /* AppDelegate.swift in Sources */,
 				2D6A190E23568F1700E29D3D /* String+MD5.swift in Sources */,
+				2D6A19122356930100E29D3D /* MarvelKeys.swift in Sources */,
 				2D6A19062356877300E29D3D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
