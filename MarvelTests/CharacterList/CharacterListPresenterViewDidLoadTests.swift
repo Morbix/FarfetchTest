@@ -179,7 +179,6 @@ private extension ResultHeroes {
             heroes.append(Heroe())
             times -= 1
         }
-        print(heroes)
         return .success(heroes)
     }
 
