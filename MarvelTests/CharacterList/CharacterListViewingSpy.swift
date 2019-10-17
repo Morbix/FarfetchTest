@@ -5,12 +5,13 @@ final class CharacterListViewingSpy: CharacterListViewing {
     func reset() {
         showSceneSpinnerCalled = false
         removeSceneSpinnerCalled = false
+        showCharacteresTableCalled = false
         hideCharactersTableCalled = false
         hideRetryOptionCalled = false
         showRetryOptionCalled = false
         showRetryCellCalled = false
-        showEmptyFeebackCalled = false
         hideRetryCellCalled = false
+        showEmptyFeebackCalled = false
     }
 
     private(set) var showSceneSpinnerCalled: Bool = false
@@ -23,13 +24,14 @@ final class CharacterListViewingSpy: CharacterListViewing {
         removeSceneSpinnerCalled = true
     }
 
+    private(set) var showCharacteresTableCalled: Bool = false
+    func showCharacteresTable() {
+        showCharacteresTableCalled = true
+    }
+
     private(set) var hideCharactersTableCalled: Bool = false
     func hideCharactersTable() {
         hideCharactersTableCalled = true
-    }
-    private(set) var hideRetryOptionCalled: Bool = false
-    func hideRetryOption() {
-        hideRetryOptionCalled = true
     }
 
     private(set) var showRetryOptionCalled: Bool = false
@@ -37,19 +39,24 @@ final class CharacterListViewingSpy: CharacterListViewing {
         showRetryOptionCalled = true
     }
 
+    private(set) var hideRetryOptionCalled: Bool = false
+    func hideRetryOption() {
+        hideRetryOptionCalled = true
+    }
+
     private(set) var showRetryCellCalled: Bool = false
     func showRetryCell() {
         showRetryCellCalled = true
     }
 
-    private(set) var showEmptyFeebackCalled: Bool = false
-    func showEmptyFeeback() {
-        showEmptyFeebackCalled = true
-    }
-
     private(set) var hideRetryCellCalled: Bool = false
     func hideRetryCell() {
         hideRetryCellCalled = true
+    }
+
+    private(set) var showEmptyFeebackCalled: Bool = false
+    func showEmptyFeeback() {
+        showEmptyFeebackCalled = true
     }
 
 }

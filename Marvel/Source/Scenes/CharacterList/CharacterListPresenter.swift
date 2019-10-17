@@ -1,10 +1,11 @@
 import Foundation
 
-struct Heroe {}
+struct Heroe: Equatable {}
 
 protocol CharacterListViewing {
     func showSceneSpinner()
     func removeSceneSpinner()
+    func showCharacteresTable()
     func hideCharactersTable()
     func showRetryOption()
     func hideRetryOption()
@@ -40,13 +41,18 @@ final class CharacterListPresenter {
             view.removeSceneSpinner()
 
             switch result {
-            case .success(_):
-                if dataStore.characters.isEmpty {
-                    view.showEmptyFeeback()
-                    view.hideRetryOption()
-                    view.hideCharactersTable()
+            case .success(let items):
+                if items.isEmpty {
+                    if dataStore.characters.isEmpty {
+                        view.showEmptyFeeback()
+                        view.hideRetryOption()
+                        view.hideCharactersTable()
+                    } else {
+                        view.hideRetryCell()
+                    }
                 } else {
-                    view.hideRetryCell()
+                    view.showCharacteresTable()
+                    dataStore.characters.append(contentsOf: items)
                 }
             case .failure(_):
                 if dataStore.characters.isEmpty {

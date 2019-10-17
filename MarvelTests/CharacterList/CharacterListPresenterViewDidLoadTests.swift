@@ -125,17 +125,35 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
     // MARK: - GetCharacters Returns Characters
 
-    func testWhenGetCharactersReturnsWithCharactersAndDataStoreIsEmpty() {
-        XCTAssert(false)
-        // show table
-        // append items on data store
-        // items.count on data store equal result.count
+    func testUpdateInterfaceWhenGetCharactersReturnsWithCharactersAndDataStoreIsEmpty() {
+        dataStoreSpy.characters = []
+
+        fetcherSpy.getCharactersCompletionPassed?(.fixtureAnySuccess)
+
+        XCTAssertEqual(viewingSpy.showCharacteresTableCalled, true)
     }
 
-    func testWhenGetCharactersReturnsWithCharactersAndDataStoreIsNotEmpty() {
-        XCTAssert(false)
-        // append items on data store
-        // items.count on data store equal before + result.count
+    func testUpdateDataStoreWhenGetCharactersReturnsWithCharactersAndDataStoreIsEmpty() {
+        dataStoreSpy.characters = []
+        let newItems: [Heroe] = [.init()]
+        let result: ResultHeroes = .success(newItems)
+
+        fetcherSpy.getCharactersCompletionPassed?(result)
+
+        XCTAssertEqual(dataStoreSpy.characters.count, newItems.count)
+        XCTAssertEqual(dataStoreSpy.characters, newItems)
+    }
+
+    func testUpdateDataStoreWhenGetCharactersReturnsWithCharactersAndDataStoreIsNotEmpty() {
+        dataStoreSpy.characters = [.init()]
+        let beforeCount = dataStoreSpy.characters.count
+        let newItems: [Heroe] = [.init()]
+        let result: ResultHeroes = .success(newItems)
+
+        fetcherSpy.getCharactersCompletionPassed?(result)
+
+        XCTAssertEqual(dataStoreSpy.characters.count, beforeCount + newItems.count)
+        XCTAssertEqual(Array(dataStoreSpy.characters.dropFirst(beforeCount)), newItems)
     }
 }
 
