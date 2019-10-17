@@ -3,10 +3,12 @@ import XCTest
 
 final class CharacterListPresenterTests: XCTestCase {
 
+    private let fetcherSpy = CharacterListFetcherSpy()
     private let dataStoreSpy = CharacterListDataStore()
     private let viewingSpy = CharacterListViewingSpy()
     private lazy var sut = CharacterListPresenter(
-        dataStore: dataStoreSpy
+        dataStore: dataStoreSpy,
+        fetcher: fetcherSpy
     )
 
     func testDataStorePassedOnContructor() {
@@ -29,4 +31,20 @@ final class CharacterListPresenterTests: XCTestCase {
         XCTAssertEqual(viewingSpy.showSceneSpinnerCalled, true)
     }
 
+    func testViewDidLoadShouldAskForCharacters() {
+        sut.viewDidLoad(view: viewingSpy)
+
+        XCTAssertEqual(fetcherSpy.getCharactersCalled, true)
+    }
+
+}
+
+final class CharacterListFetcherSpy: CharacterListFetcher {
+
+    private(set) var getCharactersCalled: Bool = false
+    private(set) var getCharactersCompletionPassed: ((Result<Heroe, Error>) -> Void)? = nil
+    func getCharacters(_ completion: @escaping (Result<Heroe, Error>) -> Void) {
+        getCharactersCalled = true
+        getCharactersCompletionPassed = completion
+    }
 }
