@@ -6,13 +6,16 @@ protocol CharacterListViewing {
     func showSceneSpinner()
     func removeSceneSpinner()
     func hideCharactersTable()
-    func hideRetryOption()
     func showRetryOption()
+    func hideRetryOption()
     func showRetryCell()
+    func hideRetryCell()
+    func showEmptyFeeback()
 }
 
+typealias ResultHeroes = Result<[Heroe], Error>
 protocol CharacterListFetcher: class {
-    func getCharacters(_ completion: @escaping (Result<[Heroe], Error>) -> Void)
+    func getCharacters(_ completion: @escaping (ResultHeroes) -> Void)
 }
 
 final class CharacterListPresenter {
@@ -32,17 +35,25 @@ final class CharacterListPresenter {
         setupInitialState()
 
         fetcher.getCharacters { [dataStore] result in
-            dataStore.view?.removeSceneSpinner()
+            guard let view = dataStore.view else { return }
+
+            view.removeSceneSpinner()
 
             switch result {
             case .success(_):
-                break
+                if dataStore.characters.isEmpty {
+                    view.showEmptyFeeback()
+                    view.hideRetryOption()
+                    view.hideCharactersTable()
+                } else {
+                    view.hideRetryCell()
+                }
             case .failure(_):
                 if dataStore.characters.isEmpty {
-                    dataStore.view?.hideCharactersTable()
-                    dataStore.view?.showRetryOption()
+                    view.hideCharactersTable()
+                    view.showRetryOption()
                 } else {
-                    dataStore.view?.showRetryCell()
+                    view.showRetryCell()
                 }
             }
         }

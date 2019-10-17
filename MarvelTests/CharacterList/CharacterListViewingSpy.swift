@@ -9,6 +9,8 @@ final class CharacterListViewingSpy: CharacterListViewing {
         hideRetryOptionCalled = false
         showRetryOptionCalled = false
         showRetryCellCalled = false
+        showEmptyFeebackCalled = false
+        hideRetryCellCalled = false
     }
 
     private(set) var showSceneSpinnerCalled: Bool = false
@@ -39,4 +41,15 @@ final class CharacterListViewingSpy: CharacterListViewing {
     func showRetryCell() {
         showRetryCellCalled = true
     }
+
+    private(set) var showEmptyFeebackCalled: Bool = false
+    func showEmptyFeeback() {
+        showEmptyFeebackCalled = true
+    }
+
+    private(set) var hideRetryCellCalled: Bool = false
+    func hideRetryCell() {
+        hideRetryCellCalled = true
+    }
+
 }
