@@ -31,18 +31,11 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
     // MARK: - GetCharacters Returns Any
 
-    func testCallNothingIfViewIsNil() throws {
+    func testCallNothingIfViewIsNil() {
         dataStoreSpy.view = nil
         viewingSpy.reset()
 
-        let possibleResults: [ResultHeroes] = [
-            .success([.init()]),
-            .success([]),
-            .failure(NSError.init())
-        ]
-        let ramdomResult = try XCTUnwrap(possibleResults.randomElement())
-        let completion = try XCTUnwrap(fetcherSpy.getCharactersCompletionPassed)
-        completion(ramdomResult)
+        fetcherSpy.getCharactersCompletionPassed?(.fixtureRamdom)
 
         XCTAssertFalse(viewingSpy.showSceneSpinnerCalled)
         XCTAssertFalse(viewingSpy.removeSceneSpinnerCalled)
@@ -54,58 +47,45 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertFalse(viewingSpy.hideRetryCellCalled)
     }
 
-    func testRemoveSpinnerWhenGetCharactersReturnsWithAnyResult() throws {
-        let possibleResults: [ResultHeroes] = [
-            .success([.init()]),
-            .success([]),
-            .failure(NSError.init())
-        ]
-        let ramdomResult = try XCTUnwrap(possibleResults.randomElement())
-        let completion = try XCTUnwrap(fetcherSpy.getCharactersCompletionPassed)
-        completion(ramdomResult)
+    func testRemoveSpinnerWhenGetCharactersReturnsWithAnyResult() {
+        viewingSpy.reset()
+
+        fetcherSpy.getCharactersCompletionPassed?(.fixtureRamdom)
 
         XCTAssertEqual(viewingSpy.removeSceneSpinnerCalled, true)
     }
 
     // MARK: - GetCharacters Returns An Error
 
-    func testUpdateInterfaceWhenGetCharactersReturnsWithErrorAndDataStoreIsEmpty() throws {
-        let result: ResultHeroes = .failure(NSError.init())
+    func testUpdateInterfaceWhenGetCharactersReturnsWithErrorAndDataStoreIsEmpty() {
         dataStoreSpy.characters = []
         viewingSpy.reset()
 
-        let completion = try XCTUnwrap(fetcherSpy.getCharactersCompletionPassed)
-        completion(result)
+        fetcherSpy.getCharactersCompletionPassed?(.fixtureAnyFailure)
 
         XCTAssertEqual(viewingSpy.hideCharactersTableCalled, true)
         XCTAssertEqual(viewingSpy.showRetryOptionCalled, true)
-
         XCTAssertEqual(viewingSpy.showRetryCellCalled, false)
     }
 
-    func testUpdateInterfaceWhenGetCharactersReturnsWithErrorAndDataStoreIsNotEmpty() throws {
-        let result: ResultHeroes = .failure(NSError.init())
+    func testUpdateInterfaceWhenGetCharactersReturnsWithErrorAndDataStoreIsNotEmpty() {
         dataStoreSpy.characters = [.init()]
         viewingSpy.reset()
 
-        let completion = try XCTUnwrap(fetcherSpy.getCharactersCompletionPassed)
-        completion(result)
+        fetcherSpy.getCharactersCompletionPassed?(.fixtureAnyFailure)
 
         XCTAssertEqual(viewingSpy.showRetryCellCalled, true)
-
         XCTAssertEqual(viewingSpy.hideCharactersTableCalled, false)
         XCTAssertEqual(viewingSpy.showRetryOptionCalled, false)
     }
 
     // MARK: - GetCharacters Returns Success But Empty
 
-    func testUpdateInterfaceWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsEmpty() throws {
-        let result: ResultHeroes = .success([])
+    func testUpdateInterfaceWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsEmpty() {
         dataStoreSpy.characters = []
         viewingSpy.reset()
 
-        let completion = try XCTUnwrap(fetcherSpy.getCharactersCompletionPassed)
-        completion(result)
+        fetcherSpy.getCharactersCompletionPassed?(.fixtureEmptySuccess)
 
         XCTAssertEqual(viewingSpy.showEmptyFeebackCalled, true)
         XCTAssertEqual(viewingSpy.hideRetryOptionCalled, true)
@@ -113,13 +93,11 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(viewingSpy.hideRetryCellCalled, false)
     }
 
-    func testUpdateInterfaceWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsNotEmpty() throws {
-        let result: ResultHeroes = .success([])
+    func testUpdateInterfaceWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsNotEmpty() {
         dataStoreSpy.characters = [.init()]
         viewingSpy.reset()
 
-        let completion = try XCTUnwrap(fetcherSpy.getCharactersCompletionPassed)
-        completion(result)
+        fetcherSpy.getCharactersCompletionPassed?(.fixtureEmptySuccess)
 
         XCTAssertEqual(viewingSpy.hideRetryCellCalled, true)
         XCTAssertEqual(viewingSpy.showEmptyFeebackCalled, false)
@@ -127,23 +105,19 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(viewingSpy.hideCharactersTableCalled, false)
     }
 
-    func testDataStoreWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsEmpty() throws {
-        let result: ResultHeroes = .success([])
+    func testDataStoreWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsEmpty() {
         dataStoreSpy.characters = []
 
-        let completion = try XCTUnwrap(fetcherSpy.getCharactersCompletionPassed)
-        completion(result)
+        fetcherSpy.getCharactersCompletionPassed?(.fixtureEmptySuccess)
 
         XCTAssertEqual(dataStoreSpy.characters.isEmpty, true)
     }
 
-    func testDataStoreWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsNotEmpty() throws {
-        let result: ResultHeroes = .success([])
+    func testDataStoreWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsNotEmpty() {
         dataStoreSpy.characters = [.init()]
         let beforeCount = dataStoreSpy.characters.count
 
-        let completion = try XCTUnwrap(fetcherSpy.getCharactersCompletionPassed)
-        completion(result)
+        fetcherSpy.getCharactersCompletionPassed?(.fixtureEmptySuccess)
 
         XCTAssertEqual(dataStoreSpy.characters.count, beforeCount)
         XCTAssertEqual(dataStoreSpy.characters.isEmpty, false)
@@ -162,5 +136,32 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssert(false)
         // append items on data store
         // items.count on data store equal before + result.count
+    }
+}
+
+// MARK: - ResultHeroes Fixtures
+
+private extension ResultHeroes {
+
+    static var fixtureAnyFailure: ResultHeroes {
+        return .failure(NSError())
+    }
+
+    static var fixtureEmptySuccess: ResultHeroes {
+        return .success([])
+    }
+
+    static var fixtureAnySuccess: ResultHeroes {
+        return .success([.init()])
+    }
+
+    static var fixtureRamdom: ResultHeroes {
+        let possibilities: [ResultHeroes] = [
+            fixtureAnyFailure,
+            fixtureEmptySuccess,
+            fixtureAnySuccess
+        ]
+
+        return possibilities.randomElement() ?? fixtureAnyFailure
     }
 }
