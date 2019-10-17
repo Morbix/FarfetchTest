@@ -99,7 +99,6 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
         XCTAssertEqual(viewingSpy.showEmptyFeebackCalled, true)
         XCTAssertEqual(viewingSpy.hideCharactersTableCalled, true)
-        // XCTAssertEqual(viewingSpy.hideRetryCellCalled, false)
     }
 
     func testDataStoreWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsEmpty() {
