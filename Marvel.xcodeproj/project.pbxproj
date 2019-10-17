@@ -15,11 +15,14 @@
 		2D6A190E23568F1700E29D3D /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A190D23568F1600E29D3D /* String+MD5.swift */; };
 		2D6A1910235691CD00E29D3D /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A190F235691CD00E29D3D /* MD5Tests.swift */; };
 		2D6A19122356930100E29D3D /* MarvelKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A19112356930100E29D3D /* MarvelKeys.swift */; };
-		2D6A19142356A46D00E29D3D /* CharacterListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A19132356A46D00E29D3D /* CharacterListPresenterTests.swift */; };
+		2D6A19142356A46D00E29D3D /* CharacterListPresenterBaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A19132356A46D00E29D3D /* CharacterListPresenterBaseTestCase.swift */; };
 		2D6A19192356AC9A00E29D3D /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A19182356AC9A00E29D3D /* CharacterListPresenter.swift */; };
 		2D6A191B2356ACCB00E29D3D /* CharacterListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A191A2356ACCB00E29D3D /* CharacterListDataStore.swift */; };
 		2D6A191D2356AD6100E29D3D /* MirrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A191C2356AD6100E29D3D /* MirrorExtension.swift */; };
 		2D6A191F2356AD9800E29D3D /* CharacterListViewingSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A191E2356AD9800E29D3D /* CharacterListViewingSpy.swift */; };
+		2DDDEE5A2357EEC100E7E53D /* CharacterListFetcherSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDEE592357EEC100E7E53D /* CharacterListFetcherSpy.swift */; };
+		2DDDEE5C2357EF7800E7E53D /* CharacterListPresenterInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDEE5B2357EF7800E7E53D /* CharacterListPresenterInitTests.swift */; };
+		2DDDEE5E2357EF8F00E7E53D /* CharacterListPresenterViewDidLoadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDEE5D2357EF8F00E7E53D /* CharacterListPresenterViewDidLoadTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,11 +58,14 @@
 		2D6A190D23568F1600E29D3D /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		2D6A190F235691CD00E29D3D /* MD5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Tests.swift; sourceTree = "<group>"; };
 		2D6A19112356930100E29D3D /* MarvelKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelKeys.swift; sourceTree = "<group>"; };
-		2D6A19132356A46D00E29D3D /* CharacterListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterTests.swift; sourceTree = "<group>"; };
+		2D6A19132356A46D00E29D3D /* CharacterListPresenterBaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterBaseTestCase.swift; sourceTree = "<group>"; };
 		2D6A19182356AC9A00E29D3D /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
 		2D6A191A2356ACCB00E29D3D /* CharacterListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataStore.swift; sourceTree = "<group>"; };
 		2D6A191C2356AD6100E29D3D /* MirrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorExtension.swift; sourceTree = "<group>"; };
 		2D6A191E2356AD9800E29D3D /* CharacterListViewingSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewingSpy.swift; sourceTree = "<group>"; };
+		2DDDEE592357EEC100E7E53D /* CharacterListFetcherSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListFetcherSpy.swift; sourceTree = "<group>"; };
+		2DDDEE5B2357EF7800E7E53D /* CharacterListPresenterInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterInitTests.swift; sourceTree = "<group>"; };
+		2DDDEE5D2357EF8F00E7E53D /* CharacterListPresenterViewDidLoadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterViewDidLoadTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,8 +185,11 @@
 		2D6A19202356ADC000E29D3D /* CharacterList */ = {
 			isa = PBXGroup;
 			children = (
-				2D6A19132356A46D00E29D3D /* CharacterListPresenterTests.swift */,
+				2D6A19132356A46D00E29D3D /* CharacterListPresenterBaseTestCase.swift */,
+				2DDDEE5B2357EF7800E7E53D /* CharacterListPresenterInitTests.swift */,
+				2DDDEE5D2357EF8F00E7E53D /* CharacterListPresenterViewDidLoadTests.swift */,
 				2D6A191E2356AD9800E29D3D /* CharacterListViewingSpy.swift */,
+				2DDDEE592357EEC100E7E53D /* CharacterListFetcherSpy.swift */,
 			);
 			path = CharacterList;
 			sourceTree = "<group>";
@@ -330,8 +339,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D6A191D2356AD6100E29D3D /* MirrorExtension.swift in Sources */,
-				2D6A19142356A46D00E29D3D /* CharacterListPresenterTests.swift in Sources */,
+				2D6A19142356A46D00E29D3D /* CharacterListPresenterBaseTestCase.swift in Sources */,
+				2DDDEE5C2357EF7800E7E53D /* CharacterListPresenterInitTests.swift in Sources */,
 				2D6A191F2356AD9800E29D3D /* CharacterListViewingSpy.swift in Sources */,
+				2DDDEE5E2357EF8F00E7E53D /* CharacterListPresenterViewDidLoadTests.swift in Sources */,
+				2DDDEE5A2357EEC100E7E53D /* CharacterListFetcherSpy.swift in Sources */,
 				2D6A1910235691CD00E29D3D /* MD5Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
