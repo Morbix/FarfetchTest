@@ -79,7 +79,17 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(viewingSpy.showRetryOptionCalled, false)
     }
 
-    // MARK: - GetCharacters Returns Success But Empty
+    // MARK: - GetCharacters Returns Success
+
+    func testUpdateInterfaceWhenGetCharactersReturnsWithAnySuccesResult() {
+        dataStoreSpy.characters = [.init()]
+        viewingSpy.reset()
+
+        fetcherSpy.getCharactersCompletionPassed?(.fixtureAnySuccess)
+
+        XCTAssertEqual(viewingSpy.hideRetryCellCalled, true)
+        XCTAssertEqual(viewingSpy.hideRetryOptionCalled, true)
+    }
 
     func testUpdateInterfaceWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsEmpty() {
         dataStoreSpy.characters = []
@@ -88,21 +98,8 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         fetcherSpy.getCharactersCompletionPassed?(.fixtureEmptySuccess)
 
         XCTAssertEqual(viewingSpy.showEmptyFeebackCalled, true)
-        XCTAssertEqual(viewingSpy.hideRetryOptionCalled, true)
         XCTAssertEqual(viewingSpy.hideCharactersTableCalled, true)
-        XCTAssertEqual(viewingSpy.hideRetryCellCalled, false)
-    }
-
-    func testUpdateInterfaceWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsNotEmpty() {
-        dataStoreSpy.characters = [.init()]
-        viewingSpy.reset()
-
-        fetcherSpy.getCharactersCompletionPassed?(.fixtureEmptySuccess)
-
-        XCTAssertEqual(viewingSpy.hideRetryCellCalled, true)
-        XCTAssertEqual(viewingSpy.showEmptyFeebackCalled, false)
-        XCTAssertEqual(viewingSpy.hideRetryOptionCalled, false)
-        XCTAssertEqual(viewingSpy.hideCharactersTableCalled, false)
+        // XCTAssertEqual(viewingSpy.hideRetryCellCalled, false)
     }
 
     func testDataStoreWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsEmpty() {
@@ -123,12 +120,12 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(dataStoreSpy.characters.isEmpty, false)
     }
 
-    // MARK: - GetCharacters Returns Characters
-
     func testUpdateInterfaceWhenGetCharactersReturnsWithCharactersAndDataStoreIsEmpty() {
         dataStoreSpy.characters = []
+        let newItems: [Heroe] = [.init()]
+        let result: ResultHeroes = .success(newItems)
 
-        fetcherSpy.getCharactersCompletionPassed?(.fixtureAnySuccess)
+        fetcherSpy.getCharactersCompletionPassed?(result)
 
         XCTAssertEqual(viewingSpy.showCharacteresTableCalled, true)
     }
@@ -162,7 +159,13 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 private extension ResultHeroes {
 
     static var fixtureAnyFailure: ResultHeroes {
-        return .failure(NSError())
+        return .failure(
+            NSError(
+                domain: .init(),
+                code: .init(),
+                userInfo: nil
+            )
+        )
     }
 
     static var fixtureEmptySuccess: ResultHeroes {
@@ -170,7 +173,14 @@ private extension ResultHeroes {
     }
 
     static var fixtureAnySuccess: ResultHeroes {
-        return .success([.init()])
+        var times = (0..<3).randomElement() ?? 0
+        var heroes = [Heroe]()
+        while times > 0 {
+            heroes.append(Heroe())
+            times -= 1
+        }
+        print(heroes)
+        return .success(heroes)
     }
 
     static var fixtureRamdom: ResultHeroes {

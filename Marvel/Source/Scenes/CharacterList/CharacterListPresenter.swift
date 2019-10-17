@@ -42,14 +42,12 @@ final class CharacterListPresenter {
 
             switch result {
             case .success(let items):
-                if items.isEmpty {
-                    if dataStore.characters.isEmpty {
-                        view.showEmptyFeeback()
-                        view.hideRetryOption()
-                        view.hideCharactersTable()
-                    } else {
-                        view.hideRetryCell()
-                    }
+                view.hideRetryCell()
+                view.hideRetryOption()
+
+                if items.isEmpty && dataStore.characters.isEmpty {
+                    view.showEmptyFeeback()
+                    view.hideCharactersTable()
                 } else {
                     view.showCharacteresTable()
                     dataStore.characters.append(contentsOf: items)
