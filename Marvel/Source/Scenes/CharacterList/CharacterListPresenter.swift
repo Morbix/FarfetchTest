@@ -52,7 +52,7 @@ final class CharacterListPresenter {
                     dataStore.characters.append(contentsOf: items)
                     view.includeCharacters(items.map(HeroeCellModel.init))
                 }
-            case .failure(_):
+            case .failure:
                 if dataStore.characters.isEmpty {
                     view.hideCharactersTable()
                     view.showRetryOption()
