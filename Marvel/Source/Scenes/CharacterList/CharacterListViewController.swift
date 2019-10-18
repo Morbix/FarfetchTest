@@ -3,6 +3,7 @@ import UIKit
 final class CharacterListViewController: UIViewController {
 
     private let presenter: CharacterListPresenter
+    private let tableManager: CharacterListTableManager = .init()
     private lazy var elements: CharacterListViewElements = CharacterListViewElements(
         parentFrame: view.frame
     )
@@ -18,7 +19,8 @@ final class CharacterListViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        elements.tableView.dataSource = self
+
+        tableManager.attach(on: elements.tableView)
 
         setupSubviews()
         setupRetryStackLayout()
@@ -48,21 +50,6 @@ final class CharacterListViewController: UIViewController {
         elements.emptyFeedbackLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         elements.emptyFeedbackLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         elements.emptyFeedbackLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-    }
-}
-
-extension CharacterListViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        cell.textLabel?.text = "\(indexPath.row)"
-
-        return cell
     }
 }
 
@@ -113,6 +100,7 @@ extension CharacterListViewController: CharacterListViewing {
     }
 
     func includeCharacters(_ characters: [HeroeCellModel]) {
-        
+        tableManager.heroes.append(contentsOf: characters)
+        elements.tableView.reloadData()
     }
 }

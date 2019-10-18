@@ -31,7 +31,9 @@ extension SceneDelegate: CharacterListFetcher {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             let error = NSError(domain: .init(), code: .init(), userInfo: nil)
             //completion(.failure(error))
-            completion(.success([]))
+            completion(.success([
+                .init(name: "abc")
+            ]))
         }
     }
 }

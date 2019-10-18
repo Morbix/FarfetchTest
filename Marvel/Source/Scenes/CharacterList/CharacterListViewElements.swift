@@ -12,7 +12,6 @@ final class CharacterListViewElements {
         let tableView = UITableView()
         tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         tableView.frame = frame
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
 
