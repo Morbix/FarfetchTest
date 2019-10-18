@@ -11,7 +11,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = scene as? UIWindowScene else { return }
 
         let navigationController = UINavigationController(
-            rootViewController: CharacterListViewController()
+            rootViewController: CharacterListViewController(
+                presenter: CharacterListPresenter(
+                    dataStore: CharacterListDataStore(),
+                    fetcher: self
+                )
+            )
         )
 
         window = UIWindow(windowScene: scene)
@@ -19,4 +24,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
 
+}
+
+extension SceneDelegate: CharacterListFetcher {
+    func getCharacters(_ completion: @escaping (ResultHeroes) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let error = NSError(domain: .init(), code: .init(), userInfo: nil)
+            completion(.failure(error))
+        }
+    }
 }
