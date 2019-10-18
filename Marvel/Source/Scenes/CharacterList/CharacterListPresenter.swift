@@ -1,7 +1,5 @@
 import Foundation
 
-struct Heroe: Equatable {}
-
 protocol CharacterListViewing {
     func showSceneSpinner()
     func removeSceneSpinner()
@@ -12,6 +10,7 @@ protocol CharacterListViewing {
     func showRetryCell()
     func hideRetryCell()
     func showEmptyFeeback()
+    func includeCharacters(_ characters: [HeroeCellModel])
 }
 
 typealias ResultHeroes = Result<[Heroe], Error>
@@ -51,6 +50,7 @@ final class CharacterListPresenter {
                 } else {
                     view.showCharacteresTable()
                     dataStore.characters.append(contentsOf: items)
+                    view.includeCharacters(items.map(HeroeCellModel.init))
                 }
             case .failure(_):
                 if dataStore.characters.isEmpty {
@@ -67,5 +67,11 @@ final class CharacterListPresenter {
         dataStore.view?.hideRetryOption()
         dataStore.view?.hideCharactersTable()
         dataStore.view?.showSceneSpinner()
+    }
+}
+
+private extension HeroeCellModel {
+    init(heroe: Heroe) {
+        self.init(name: heroe.name)
     }
 }

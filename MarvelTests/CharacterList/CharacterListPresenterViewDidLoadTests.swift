@@ -29,7 +29,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(fetcherSpy.getCharactersCalled, true)
     }
 
-    // MARK: - GetCharacters Returns Any
+    // MARK: GetCharacters Returns Any
 
     func testCallNothingIfViewIsNil() {
         dataStoreSpy.view = nil
@@ -55,7 +55,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(viewingSpy.removeSceneSpinnerCalled, true)
     }
 
-    // MARK: - GetCharacters Returns An Error
+    // MARK: GetCharacters Returns An Error
 
     func testUpdateInterfaceWhenGetCharactersReturnsWithErrorAndDataStoreIsEmpty() {
         dataStoreSpy.characters = []
@@ -79,7 +79,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(viewingSpy.showRetryOptionCalled, false)
     }
 
-    // MARK: - GetCharacters Returns Success
+    // MARK: GetCharacters Returns Success
 
     func testUpdateInterfaceWhenGetCharactersReturnsWithAnySuccesResult() {
         dataStoreSpy.characters = [.init()]
@@ -150,6 +150,53 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
         XCTAssertEqual(dataStoreSpy.characters.count, beforeCount + newItems.count)
         XCTAssertEqual(Array(dataStoreSpy.characters.dropFirst(beforeCount)), newItems)
+    }
+
+    // MARK: Update Table With Characteres
+
+    func testUpdateTableWith1Character() {
+        let newItems: [Heroe] = [
+            .init(name: "item 1")
+        ]
+        let result: ResultHeroes = .success(newItems)
+
+        fetcherSpy.getCharactersCompletionPassed?(result)
+
+        XCTAssertEqual(viewingSpy.includeCharactersCalled, true)
+        XCTAssertEqual(viewingSpy.charactersPassed?.count, 1)
+
+        let item1 = viewingSpy.charactersPassed?.first
+        XCTAssertEqual(item1?.name, "item 1")
+    }
+
+    func testUpdateTableWith3Characteres() {
+        let newItems: [Heroe] = [
+            .init(name: "item 1"),
+            .init(name: "item 2"),
+            .init(name: "item 3")
+        ]
+        let result: ResultHeroes = .success(newItems)
+
+        fetcherSpy.getCharactersCompletionPassed?(result)
+
+        XCTAssertEqual(viewingSpy.includeCharactersCalled, true)
+        XCTAssertEqual(viewingSpy.charactersPassed?.count, 3)
+
+        let item1 = viewingSpy.charactersPassed?[safe: 0]
+        XCTAssertEqual(item1?.name, "item 1")
+
+        let item2 = viewingSpy.charactersPassed?[safe: 1]
+        XCTAssertEqual(item2?.name, "item 2")
+
+        let item3 = viewingSpy.charactersPassed?[safe: 2]
+        XCTAssertEqual(item3?.name, "item 3")
+    }
+}
+
+// MARK: - Heroe Dummy
+private extension Heroe {
+    init() {
+        self.init(name: .init())
     }
 }
 
