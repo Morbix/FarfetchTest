@@ -22,6 +22,7 @@ final class CharacterListViewController: UIViewController {
 
         setupSubviews()
         setupRetryStackLayout()
+        setupEmptyFeedbackLayout()
 
         presenter.viewDidLoad(view: self)
     }
@@ -32,6 +33,7 @@ final class CharacterListViewController: UIViewController {
         view.addSubview(elements.tableView)
         view.addSubview(elements.spinner)
         view.addSubview(elements.retryStack)
+        view.addSubview(elements.emptyFeedbackLabel)
     }
 
     private func setupRetryStackLayout() {
@@ -39,6 +41,13 @@ final class CharacterListViewController: UIViewController {
         elements.retryStack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         elements.retryStack.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         elements.retryStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+    }
+
+    private func setupEmptyFeedbackLayout() {
+        elements.emptyFeedbackLabel.translatesAutoresizingMaskIntoConstraints = false
+        elements.emptyFeedbackLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        elements.emptyFeedbackLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        elements.emptyFeedbackLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
     }
 }
 
@@ -58,6 +67,7 @@ extension CharacterListViewController: UITableViewDataSource {
 }
 
 extension CharacterListViewController: CharacterListViewing {
+
     func setSceneTitle(_ title: String) {
         self.title = title
     }
@@ -95,10 +105,14 @@ extension CharacterListViewController: CharacterListViewing {
     }
 
     func showEmptyFeeback() {
+        elements.emptyFeedbackLabel.isHidden = false
+    }
 
+    func hideEmptyFeedback() {
+        elements.emptyFeedbackLabel.isHidden = true
     }
 
     func includeCharacters(_ characters: [HeroeCellModel]) {
-
+        
     }
 }

@@ -21,6 +21,10 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(viewingSpy.hideRetryOptionCalled, true)
     }
 
+    func testHideEmptyFeeedback() {
+        XCTAssertEqual(viewingSpy.hideEmptyFeedbackCalled, true)
+    }
+
     func testShowSceneSpinner() {
         XCTAssertEqual(viewingSpy.showSceneSpinnerCalled, true)
     }

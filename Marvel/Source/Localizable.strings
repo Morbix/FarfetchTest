@@ -1,3 +1,4 @@
 "retry_message" = "I've called for the Heroes, but nobody answered. =[";
 "retry_button_title" = "Try again";
 "marvel_heroes" = "Marvel Heroes";
+"empty_feedback_message" = "There are no Heroes to show. This is the real life.";

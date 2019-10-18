@@ -30,7 +30,8 @@ extension SceneDelegate: CharacterListFetcher {
     func getCharacters(_ completion: @escaping (ResultHeroes) -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             let error = NSError(domain: .init(), code: .init(), userInfo: nil)
-            completion(.failure(error))
+            //completion(.failure(error))
+            completion(.success([]))
         }
     }
 }

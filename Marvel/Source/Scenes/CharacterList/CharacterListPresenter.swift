@@ -10,6 +10,7 @@ protocol CharacterListViewing {
     func showRetryCell()
     func hideRetryCell()
     func showEmptyFeeback()
+    func hideEmptyFeedback()
     func includeCharacters(_ characters: [HeroeCellModel])
     func setSceneTitle(_ title: String)
 }
@@ -69,6 +70,7 @@ final class CharacterListPresenter {
         dataStore.view?.hideRetryOption()
         dataStore.view?.hideCharactersTable()
         dataStore.view?.showSceneSpinner()
+        dataStore.view?.hideEmptyFeedback()
     }
 }
 

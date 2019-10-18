@@ -59,6 +59,11 @@ final class CharacterListViewingSpy: CharacterListViewing {
         showEmptyFeebackCalled = true
     }
 
+    private(set) var hideEmptyFeedbackCalled: Bool = false
+    func hideEmptyFeedback() {
+        hideEmptyFeedbackCalled = true
+    }
+
     private(set) var includeCharactersCalled: Bool = false
     private(set) var charactersPassed: [HeroeCellModel]? = nil
     func includeCharacters(_ characters: [HeroeCellModel]) {

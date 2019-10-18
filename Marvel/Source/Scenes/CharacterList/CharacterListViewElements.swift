@@ -57,4 +57,14 @@ final class CharacterListViewElements {
         stack.alignment = .center
         return stack
     }()
+
+    lazy var emptyFeedbackLabel: UILabel = {
+        let label = UILabel()
+        label.text = "empty_feedback_message".localized()
+        label.textColor = .darkGray
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
 }
