@@ -11,6 +11,7 @@ protocol CharacterListViewing {
     func hideRetryCell()
     func showEmptyFeeback()
     func includeCharacters(_ characters: [HeroeCellModel])
+    func setSceneTitle(_ title: String)
 }
 
 typealias ResultHeroes = Result<[Heroe], Error>
@@ -64,6 +65,7 @@ final class CharacterListPresenter {
     }
 
     private func setupInitialState() {
+        dataStore.view?.setSceneTitle("marvel_heroes".localized())
         dataStore.view?.hideRetryOption()
         dataStore.view?.hideCharactersTable()
         dataStore.view?.showSceneSpinner()

@@ -17,7 +17,6 @@ final class CharacterListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Marvel Heroes"
         view.backgroundColor = .white
         elements.tableView.dataSource = self
 
@@ -59,6 +58,10 @@ extension CharacterListViewController: UITableViewDataSource {
 }
 
 extension CharacterListViewController: CharacterListViewing {
+    func setSceneTitle(_ title: String) {
+        self.title = title
+    }
+
     func showSceneSpinner() {
         elements.spinner.startAnimating()
     }

@@ -65,4 +65,11 @@ final class CharacterListViewingSpy: CharacterListViewing {
         includeCharactersCalled = true
         charactersPassed = characters
     }
+
+    private(set) var setSceneTitleCalled: Bool = false
+    private(set) var titlePassed: String? = nil
+    func setSceneTitle(_ title: String) {
+        setSceneTitleCalled = true
+        titlePassed = title
+    }
 }

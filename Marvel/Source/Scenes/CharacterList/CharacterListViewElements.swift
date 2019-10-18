@@ -27,7 +27,7 @@ final class CharacterListViewElements {
     lazy var retryButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
-        button.setTitle("Try again", for: .normal)
+        button.setTitle("retry_button_title".localized(), for: .normal)
         button.setTitleColor(.darkGray, for: .normal)
         button.setTitleColor(.lightGray, for: .highlighted)
         button.layer.cornerRadius = 8
@@ -40,7 +40,7 @@ final class CharacterListViewElements {
 
     lazy var retryLabel: UILabel = {
         let label = UILabel()
-        label.text = "I've called for the Heroes, but nobody answered. =["
+        label.text = "retry_message".localized()
         label.textColor = .darkGray
         label.textAlignment = .center
         label.numberOfLines = 0

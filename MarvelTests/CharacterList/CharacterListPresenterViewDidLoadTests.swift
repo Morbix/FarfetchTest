@@ -29,6 +29,11 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(fetcherSpy.getCharactersCalled, true)
     }
 
+    func testSetSceneTitle() {
+        XCTAssertEqual(viewingSpy.setSceneTitleCalled, true)
+        XCTAssertEqual(viewingSpy.titlePassed, "Marvel Heroes")
+    }
+
     // MARK: GetCharacters Returns Any
 
     func testCallNothingIfViewIsNil() {
