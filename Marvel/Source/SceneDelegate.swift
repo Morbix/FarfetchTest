@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             rootViewController: CharacterListViewController(
                 presenter: CharacterListPresenter(
                     dataStore: CharacterListDataStore(),
-                    fetcher: self
+                    fetcher: MarvelCharactersService()
                 )
             )
         )
@@ -24,16 +24,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
 
-}
-
-extension SceneDelegate: CharacterListFetcher {
-    func getCharacters(_ completion: @escaping (ResultHeroes) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let error = NSError(domain: .init(), code: .init(), userInfo: nil)
-            //completion(.failure(error))
-            completion(.success([
-                .init(name: "abc")
-            ]))
-        }
-    }
 }
