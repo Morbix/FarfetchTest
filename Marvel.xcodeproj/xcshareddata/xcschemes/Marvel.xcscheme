@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D6A18D1235684C800E29D3D"
+               BlueprintIdentifier = "451B78A1A7FD162975A7201FB389DEC4"
                BuildableName = "Marvel.app"
                BlueprintName = "Marvel"
                ReferencedContainer = "container:Marvel.xcodeproj">
@@ -26,13 +26,19 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldUseLaunchSchemeArgsEnv = "NO"
       codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "testingMode"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D6A18D1235684C800E29D3D"
+            BlueprintIdentifier = "451B78A1A7FD162975A7201FB389DEC4"
             BuildableName = "Marvel.app"
             BlueprintName = "Marvel"
             ReferencedContainer = "container:Marvel.xcodeproj">
@@ -43,7 +49,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D6A18E7235684CB00E29D3D"
+               BlueprintIdentifier = "09797C8C69E80EB70D468CC4CA4F0CF5"
                BuildableName = "MarvelTests.xctest"
                BlueprintName = "MarvelTests"
                ReferencedContainer = "container:Marvel.xcodeproj">
@@ -53,7 +59,7 @@
             skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D6A18F2235684CC00E29D3D"
+               BlueprintIdentifier = "1CB180A1916DE28ADDB0059CFC9D3F3F"
                BuildableName = "MarvelUITests.xctest"
                BlueprintName = "MarvelUITests"
                ReferencedContainer = "container:Marvel.xcodeproj">
@@ -75,7 +81,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D6A18D1235684C800E29D3D"
+            BlueprintIdentifier = "451B78A1A7FD162975A7201FB389DEC4"
             BuildableName = "Marvel.app"
             BlueprintName = "Marvel"
             ReferencedContainer = "container:Marvel.xcodeproj">
@@ -92,7 +98,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D6A18D1235684C800E29D3D"
+            BlueprintIdentifier = "451B78A1A7FD162975A7201FB389DEC4"
             BuildableName = "Marvel.app"
             BlueprintName = "Marvel"
             ReferencedContainer = "container:Marvel.xcodeproj">

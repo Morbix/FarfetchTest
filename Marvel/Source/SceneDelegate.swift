@@ -8,6 +8,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
 
+        // To avoid increase the code coverage without have tests written
+        guard !CommandLine.arguments.contains("testingMode") else { return }
+
         guard let scene = scene as? UIWindowScene else { return }
 
         let navigationController = UINavigationController(
