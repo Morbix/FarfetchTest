@@ -18,7 +18,7 @@ extension MarvelCharactersService: CharacterListFetcher {
 
     func getCharacters(_ completion: @escaping (ResultHeroes) -> Void) {
 
-        let builder = URLRequestBuilder(with: .marvelDomainAPI)
+        let request = URLRequestBuilder(with: .marvelDomainAPI)
             .appendPath("v1")
             .appendPath("public")
             .appendPath("characters")
@@ -26,12 +26,9 @@ extension MarvelCharactersService: CharacterListFetcher {
             .appendQueryParameter("limit", value: 20)
             .setHTTPMethod(.get)
             .appendMarvelAuth()
+            .build()
 
-        guard let request = builder.build() else {
-            return completion(.failure(NSError.unexpectedFailure))
-        }
-
-        sender.sendRequest(with: request, returnType: CharactersResponse.self) { taskResult in
+        sender.sendRequest(with: request!, returnType: CharactersResponse.self) { taskResult in
             let finalResult: ResultHeroes
 
             switch taskResult {
