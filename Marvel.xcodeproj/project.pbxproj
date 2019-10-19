@@ -38,6 +38,7 @@
 		0EC4AF83D92AD5D54FD0C34A9C3F87FE /* URLDomain+MarvelDomainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89C7281E73C58B0D348C27A136A8C2B /* URLDomain+MarvelDomainAPI.swift */; };
 		BF0C1152A00539E7A5AB9C0B44BCBF12 /* URLRequestBuilder+MarvelAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B6A16F4037B18248932721230973C /* URLRequestBuilder+MarvelAuth.swift */; };
 		987BD234462AC264BE9BF41F5607EEC2 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126B194500289CC30B22CB7ACE8A7247 /* URLRequestBuilder.swift */; };
+		DEBAB99B5CD8D56F1A43117533C70CD3 /* URLRequestBuilderMarvelAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF3789978CEBF504D8C73318FE2E7E2 /* URLRequestBuilderMarvelAuthTests.swift */; };
 		DC268602F464EECABA273B77A9AA6040 /* URLRequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95D35E9B1BF313CC1DB19023B19EBE /* URLRequestBuilderTests.swift */; };
 		C37666F1322891E1C30D75C48CA2EE7D /* URLSession+ResumeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4811C53E1266C231488205D2C95B172 /* URLSession+ResumeTask.swift */; };
 /* End PBXBuildFile section */
@@ -98,6 +99,7 @@
 		E89C7281E73C58B0D348C27A136A8C2B /* URLDomain+MarvelDomainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLDomain+MarvelDomainAPI.swift"; sourceTree = "<group>"; };
 		B14B6A16F4037B18248932721230973C /* URLRequestBuilder+MarvelAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequestBuilder+MarvelAuth.swift"; sourceTree = "<group>"; };
 		126B194500289CC30B22CB7ACE8A7247 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
+		DEF3789978CEBF504D8C73318FE2E7E2 /* URLRequestBuilderMarvelAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilderMarvelAuthTests.swift; sourceTree = "<group>"; };
 		3C95D35E9B1BF313CC1DB19023B19EBE /* URLRequestBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilderTests.swift; sourceTree = "<group>"; };
 		C4811C53E1266C231488205D2C95B172 /* URLSession+ResumeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ResumeTask.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +198,7 @@
 				CC0F8588AE935B2E3E5D89CF2721F09F /* _Extensions */,
 				0C2C13C4D255DA1D0683D3C586C260EC /* Info.plist */,
 				CEBAE9A6293D17E3DBA7F91DCCC03326 /* MD5Tests.swift */,
+				DEF3789978CEBF504D8C73318FE2E7E2 /* URLRequestBuilderMarvelAuthTests.swift */,
 				3C95D35E9B1BF313CC1DB19023B19EBE /* URLRequestBuilderTests.swift */,
 			);
 			path = MarvelTests;
@@ -447,6 +450,7 @@
 				5BF6E664DDA80D46A01F69F966E756AB /* CollectionExtension.swift in Sources */,
 				EB48DE3008EACD5C493B6703AB3236C2 /* MD5Tests.swift in Sources */,
 				C8E969BF5420DEB7DD901151919B036E /* MirrorExtension.swift in Sources */,
+				DEBAB99B5CD8D56F1A43117533C70CD3 /* URLRequestBuilderMarvelAuthTests.swift in Sources */,
 				DC268602F464EECABA273B77A9AA6040 /* URLRequestBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

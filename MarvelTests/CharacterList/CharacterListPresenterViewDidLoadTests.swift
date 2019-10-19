@@ -42,7 +42,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
     func testCallNothingIfViewIsNil() {
         dataStoreSpy.view = nil
-        //viewingSpy.reset()
+        viewingSpy.reset()
 
         fetcherSpy.getCharactersCompletionPassed?(.fixtureRamdom)
 
@@ -57,7 +57,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
     }
 
     func testRemoveSpinnerWhenGetCharactersReturnsWithAnyResult() {
-        //viewingSpy.reset()
+        viewingSpy.reset()
 
         fetcherSpy.getCharactersCompletionPassed?(.fixtureRamdom)
 

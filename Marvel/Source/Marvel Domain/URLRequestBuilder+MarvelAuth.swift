@@ -2,11 +2,11 @@ import Foundation
 
 extension URLRequestBuilder {
 
-    func appendMarvelAuth(date: Date = Date()) -> URLRequestBuilder {
+    func appendMarvelAuth(date: Date = Date(),
+                          privateKey: String = MarvelKeys.private,
+                          publicKey: String = MarvelKeys.public) -> URLRequestBuilder {
         
         let timestamp = Int(date.timeIntervalSince1970)
-        let privateKey = MarvelKeys.private
-        let publicKey = MarvelKeys.public
         let hash = "\(timestamp)\(privateKey)\(publicKey)".md5
 
         return self
