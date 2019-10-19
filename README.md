@@ -10,8 +10,6 @@ Test starting: 2019-10-15 <br>
 Test deadline: 2019-10-21 <br>
 Time coding: +- Xh
 
----
-
 ## Setup
 - After cloning the project, add a file called `MarvelKeys.swift` inside the same folder the main `Info.plist`; 
 - Add the following content to this file with your respective keys:
@@ -23,8 +21,6 @@ enum MarvelKeys {
 ```
 
 That's all. Open Xcode and Run. 
-
----
 
 ### README TODO
 - Badges
