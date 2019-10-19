@@ -1,10 +1,10 @@
 import Foundation
 
-extension URLSession {
+extension URLSession: RequestSender {
 
-    func resumeTask<T: Decodable>(with request: URLRequest,
-                                  returnType: T.Type,
-                                  completion: @escaping (Result<T, Error>) -> Void) {
+    func sendRequest<T: Decodable>(with request: URLRequest,
+                                   returnType: T.Type,
+                                   completion: @escaping (Result<T, Error>) -> Void) {
 
         let task = dataTask(with: request) { data, _, error in
             guard let data = data, !data.isEmpty else {

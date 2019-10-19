@@ -43,8 +43,8 @@
 		987BD234462AC264BE9BF41F5607EEC2 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126B194500289CC30B22CB7ACE8A7247 /* URLRequestBuilder.swift */; };
 		DEBAB99B5CD8D56F1A43117533C70CD3 /* URLRequestBuilderMarvelAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF3789978CEBF504D8C73318FE2E7E2 /* URLRequestBuilderMarvelAuthTests.swift */; };
 		DC268602F464EECABA273B77A9AA6040 /* URLRequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95D35E9B1BF313CC1DB19023B19EBE /* URLRequestBuilderTests.swift */; };
-		C37666F1322891E1C30D75C48CA2EE7D /* URLSession+ResumeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4811C53E1266C231488205D2C95B172 /* URLSession+ResumeTask.swift */; };
-		AD088A15D355A54DCADEA06E0CD03F91 /* URLSessionResumeTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E14A0C792220B75D1E806F40601197 /* URLSessionResumeTaskTests.swift */; };
+		C425A0851A7006675AC044390992A4BF /* URLSession+RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C1603C1BA58FD15902D247472D29C0 /* URLSession+RequestSender.swift */; };
+		0E6DDB2260ED2220EE1E44FE405659F5 /* URLSessionRequestSenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814BD14052742CC299F02E6CC08677CA /* URLSessionRequestSenderTests.swift */; };
 		6B6FDBD551012E40FE6291D15FDBFD89 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5C1B5FE396150DE716764F7E252B5 /* ViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,8 +109,8 @@
 		126B194500289CC30B22CB7ACE8A7247 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
 		DEF3789978CEBF504D8C73318FE2E7E2 /* URLRequestBuilderMarvelAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilderMarvelAuthTests.swift; sourceTree = "<group>"; };
 		3C95D35E9B1BF313CC1DB19023B19EBE /* URLRequestBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilderTests.swift; sourceTree = "<group>"; };
-		C4811C53E1266C231488205D2C95B172 /* URLSession+ResumeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+ResumeTask.swift"; sourceTree = "<group>"; };
-		D8E14A0C792220B75D1E806F40601197 /* URLSessionResumeTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionResumeTaskTests.swift; sourceTree = "<group>"; };
+		47C1603C1BA58FD15902D247472D29C0 /* URLSession+RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+RequestSender.swift"; sourceTree = "<group>"; };
+		814BD14052742CC299F02E6CC08677CA /* URLSessionRequestSenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRequestSenderTests.swift; sourceTree = "<group>"; };
 		19E5C1B5FE396150DE716764F7E252B5 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +139,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		027A4AF6D4F42258C9B64F59EB6C728A /* _Utils */ = {
+			isa = PBXGroup;
+			children = (
+				80B2E0DD317591C64D17AEFFB9E3C44F /* CollectionExtension.swift */,
+				E69AE2A38C3D0501AAA347D7DC3098C6 /* MirrorExtension.swift */,
+				7EA6551C2A8C3AE97D3831D6343A63D3 /* URLProtocolMock.swift */,
+				19E5C1B5FE396150DE716764F7E252B5 /* ViewExtensions.swift */,
+			);
+			path = _Utils;
+			sourceTree = "<group>";
+		};
 		0AA0023FAAF918CE441919A17726E080 /* CharacterList */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,7 +223,7 @@
 				12DD1B56BAF7451527D81FCD56F0A4D5 /* URLDomainMarvelDomainTests.swift */,
 				DEF3789978CEBF504D8C73318FE2E7E2 /* URLRequestBuilderMarvelAuthTests.swift */,
 				3C95D35E9B1BF313CC1DB19023B19EBE /* URLRequestBuilderTests.swift */,
-				D8E14A0C792220B75D1E806F40601197 /* URLSessionResumeTaskTests.swift */,
+				814BD14052742CC299F02E6CC08677CA /* URLSessionRequestSenderTests.swift */,
 			);
 			path = MarvelTests;
 			sourceTree = "<group>";
@@ -260,7 +271,7 @@
 				930A80012F97E68EA8EA7AEBA7E78B4E /* ErrorResponse.swift */,
 				3EECF9339B9EE3F1A11FE6BDFEE364AA /* NSError+UnexpectedError.swift */,
 				126B194500289CC30B22CB7ACE8A7247 /* URLRequestBuilder.swift */,
-				C4811C53E1266C231488205D2C95B172 /* URLSession+ResumeTask.swift */,
+				47C1603C1BA58FD15902D247472D29C0 /* URLSession+RequestSender.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -272,17 +283,6 @@
 				AD8B88A17580618BED5938810D367010 /* String+MD5.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		027A4AF6D4F42258C9B64F59EB6C728A /* _Utils */ = {
-			isa = PBXGroup;
-			children = (
-				80B2E0DD317591C64D17AEFFB9E3C44F /* CollectionExtension.swift */,
-				E69AE2A38C3D0501AAA347D7DC3098C6 /* MirrorExtension.swift */,
-				7EA6551C2A8C3AE97D3831D6343A63D3 /* URLProtocolMock.swift */,
-				19E5C1B5FE396150DE716764F7E252B5 /* ViewExtensions.swift */,
-			);
-			path = _Utils;
 			sourceTree = "<group>";
 		};
 		EAA524E8A6E35E6A8B519BA4B75F17AF = {
@@ -470,7 +470,7 @@
 				C898BFB180E591E43B8EF988B0CEF2B0 /* URLProtocolMock.swift in Sources */,
 				DEBAB99B5CD8D56F1A43117533C70CD3 /* URLRequestBuilderMarvelAuthTests.swift in Sources */,
 				DC268602F464EECABA273B77A9AA6040 /* URLRequestBuilderTests.swift in Sources */,
-				AD088A15D355A54DCADEA06E0CD03F91 /* URLSessionResumeTaskTests.swift in Sources */,
+				0E6DDB2260ED2220EE1E44FE405659F5 /* URLSessionRequestSenderTests.swift in Sources */,
 				6B6FDBD551012E40FE6291D15FDBFD89 /* ViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,7 +498,7 @@
 				0EC4AF83D92AD5D54FD0C34A9C3F87FE /* URLDomain+MarvelDomainAPI.swift in Sources */,
 				BF0C1152A00539E7A5AB9C0B44BCBF12 /* URLRequestBuilder+MarvelAuth.swift in Sources */,
 				987BD234462AC264BE9BF41F5607EEC2 /* URLRequestBuilder.swift in Sources */,
-				C37666F1322891E1C30D75C48CA2EE7D /* URLSession+ResumeTask.swift in Sources */,
+				C425A0851A7006675AC044390992A4BF /* URLSession+RequestSender.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

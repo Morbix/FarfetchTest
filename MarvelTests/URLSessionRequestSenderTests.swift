@@ -1,7 +1,7 @@
 import XCTest
 @testable import Marvel
 
-final class URLSessionResumeTaskTests: XCTestCase {
+final class URLSessionRequestSenderTests: XCTestCase {
 
     private let completionSpy = CompletionSpy<DecodableStub>()
     private let request = URLRequest(
@@ -17,7 +17,7 @@ final class URLSessionResumeTaskTests: XCTestCase {
     func testFailureWithoutErrorAndWithoutData() {
         URLProtocolMock.stubs[request] = nil
 
-        sut.resumeTask(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
+        sut.sendRequest(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
 
         wait(for: [completionSpy.testExpectation], timeout: 1)
 
@@ -32,7 +32,7 @@ final class URLSessionResumeTaskTests: XCTestCase {
             NSError(domain: "domain", code: 999, userInfo: nil)
         )
 
-        sut.resumeTask(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
+        sut.sendRequest(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
 
         wait(for: [completionSpy.testExpectation], timeout: 1)
 
@@ -46,7 +46,7 @@ final class URLSessionResumeTaskTests: XCTestCase {
         let data = try XCTUnwrap("some data".data(using: .utf8))
         URLProtocolMock.stubs[request] = .success(data)
 
-        sut.resumeTask(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
+        sut.sendRequest(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
 
         wait(for: [completionSpy.testExpectation], timeout: 1)
 
@@ -62,7 +62,7 @@ final class URLSessionResumeTaskTests: XCTestCase {
         )
         URLProtocolMock.stubs[request] = .success(data)
 
-        sut.resumeTask(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
+        sut.sendRequest(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
 
         wait(for: [completionSpy.testExpectation], timeout: 1)
 
@@ -78,7 +78,7 @@ final class URLSessionResumeTaskTests: XCTestCase {
         )
         URLProtocolMock.stubs[request] = .success(data)
 
-        sut.resumeTask(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
+        sut.sendRequest(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
 
         wait(for: [completionSpy.testExpectation], timeout: 1)
 

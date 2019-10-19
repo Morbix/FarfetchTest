@@ -1,10 +1,16 @@
 import Foundation
 
-final class MarvelCharactersService {
-    private let session: URLSession
+protocol RequestSender {
+    func sendRequest<T: Decodable>(with request: URLRequest,
+                                   returnType: T.Type,
+                                   completion: @escaping (Result<T, Error>) -> Void)
+}
 
-    init(session: URLSession = .shared) {
-        self.session = session
+final class MarvelCharactersService {
+    private let sender: RequestSender
+
+    init(sender: RequestSender = URLSession.shared) {
+        self.sender = sender
     }
 }
 
@@ -25,7 +31,7 @@ extension MarvelCharactersService: CharacterListFetcher {
             return completion(.failure(NSError.unexpectedFailure))
         }
 
-        session.resumeTask(with: request, returnType: CharactersResponse.self) { taskResult in
+        sender.sendRequest(with: request, returnType: CharactersResponse.self) { taskResult in
             let finalResult: ResultHeroes
 
             switch taskResult {
