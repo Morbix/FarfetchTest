@@ -3,6 +3,7 @@ import XCTest
 
 class CharacterListTableManagerBaseTestCase: XCTestCase {
 
+    let delegateSpy = CharacterListTableManagerDelegateSpy()
     let tableSpy = UITableViewMock()
     let sut = CharacterListTableManager()
 

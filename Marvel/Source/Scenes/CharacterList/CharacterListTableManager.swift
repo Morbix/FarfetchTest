@@ -1,8 +1,13 @@
 import UIKit
 
+protocol CharacterListTableManagerDelegate: class {
+    func tableDidReachRegionAroundTheEnd()
+}
+
 final class CharacterListTableManager: NSObject {
 
     var heroes: [HeroCellModel] = .init()
+    weak var delegate: CharacterListTableManagerDelegate?
 
     /**
     Receives the UITableView that this manager will implement the Delegate & DataSource and will register all the cells.
@@ -50,6 +55,18 @@ extension CharacterListTableManager: UITableViewDelegate {
 
 extension CharacterListTableManager: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        if scrollView.contentSize.height < scrollView.frame.height {
+            return
+        }
+
+        var position = scrollView.contentSize.height
+        position -= scrollView.frame.height
+        position -= scrollView.contentOffset.y
+
+        let target = scrollView.contentSize.height/10
+
+        if position < target {
+            delegate?.tableDidReachRegionAroundTheEnd()
+        }
     }
 }
