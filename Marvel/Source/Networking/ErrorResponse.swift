@@ -1,6 +1,6 @@
 import Foundation
 
-struct ErrorResponse: Decodable {
+struct ErrorResponse: Codable {
     let code: Int
     let status: String
 }

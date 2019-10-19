@@ -7,7 +7,7 @@ extension URLSession {
                                   completion: @escaping (Result<T, Error>) -> Void) {
 
         let task = dataTask(with: request) { data, _, error in
-            guard let data = data else {
+            guard let data = data, !data.isEmpty else {
                 return completion(.failure(error ?? NSError.unexpectedFailure))
             }
 
