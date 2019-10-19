@@ -9,7 +9,7 @@ final class URLRequestBuilder {
     }
 
     private let domain: URLDomain
-    private var pathes: [String] = []
+    private var paths: [String] = []
     private var queryParameters: [String: String] = [:]
     private var method: HTTPMethod = .get
 
@@ -20,7 +20,7 @@ final class URLRequestBuilder {
     // MARK: Commands
 
     func appendPath(_ path: String) -> URLRequestBuilder {
-        pathes.append(path)
+        paths.append(path)
         return self
     }
 
@@ -43,7 +43,7 @@ final class URLRequestBuilder {
             }
         }
 
-        let allPathes = pathes
+        let allPaths = paths
             .reduce("", separatedBy("/"))
 
         let allQParams = queryParameters
@@ -52,7 +52,7 @@ final class URLRequestBuilder {
             .reduce("", separatedBy("&"))
             .dropFirst()
 
-        let urlString = "\(domain)\(allPathes)\(allQParams.count > 0 ? "?\(allQParams)" : "")"
+        let urlString = "\(domain)\(allPaths)\(allQParams.count > 0 ? "?\(allQParams)" : "")"
 
         if let url = URL(string: urlString) {
             var urlRequest = URLRequest(url: url)

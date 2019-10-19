@@ -49,7 +49,7 @@ final class URLRequestBuilderTests: XCTestCase {
         )
     }
 
-    func testAppendingPathes() {
+    func testAppendingPaths() {
         let request = builder
             .appendPath("somepath1")
             .appendPath("somepath2")
