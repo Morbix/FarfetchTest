@@ -13,6 +13,7 @@ protocol CharacterListViewing {
     func hideEmptyFeedback()
     func includeCharacters(_ characters: [HeroCellModel])
     func setSceneTitle(_ title: String)
+    func showLoadingCell()
 }
 
 typealias ResultHeroes = Result<[Hero], Error>
@@ -62,6 +63,15 @@ final class CharacterListPresenter {
                     view.showRetryCell()
                 }
             }
+        }
+    }
+
+    func tableDidReachRegionAroundTheEnd() {
+        add tests for it
+        #warning("validate if it is not already loading or retry is not already appearing")
+        if !dataStore.isLoading {
+            dataStore.isLoading = true
+            dataStore.view?.showLoadingCell()
         }
     }
 

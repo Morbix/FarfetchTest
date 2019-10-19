@@ -38,8 +38,11 @@ extension MarvelCharactersService: CharacterListFetcher {
                 finalResult = .failure(error)
             }
 
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 completion(finalResult)
+            }
+            DispatchQueue.main.async {
+                //completion(finalResult)
             }
         }
     }

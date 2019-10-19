@@ -3,3 +3,5 @@
 "marvel_heroes" = "Marvel Heroes";
 "empty_feedback_message" = "There are no Heroes to show. This is the real life.";
 "unexpected_failure" = "Unexpected failure";
+"loading_cell_message" = "Loading...";
+"retry_cell_message" = "Touch here to try again!";

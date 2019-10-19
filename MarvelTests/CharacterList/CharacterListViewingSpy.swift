@@ -12,6 +12,7 @@ final class CharacterListViewingSpy: CharacterListViewing {
         showRetryCellCalled = false
         hideRetryCellCalled = false
         showEmptyFeebackCalled = false
+        showLoadingCellCalled = false
     }
 
     private(set) var showSceneSpinnerCalled: Bool = false
@@ -76,5 +77,10 @@ final class CharacterListViewingSpy: CharacterListViewing {
     func setSceneTitle(_ title: String) {
         setSceneTitleCalled = true
         titlePassed = title
+    }
+
+    private(set) var showLoadingCellCalled: Bool = false
+    func showLoadingCell() {
+        showLoadingCellCalled = true
     }
 }

@@ -13,6 +13,7 @@
 		C5490790175609B0D311DB2C3241FE96 /* CharacterListFetcherSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43E5D3C5F0A57F715E680DB69ACC10 /* CharacterListFetcherSpy.swift */; };
 		C2E51A0F594CA1767A3C659D1C61077D /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11DB871CDBB53FFAEE643B6633D9F3F /* CharacterListPresenter.swift */; };
 		E0C9DD87320455DC6B87F01579A55FAC /* CharacterListPresenterBaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7245838078F4A096B2007228145A5C19 /* CharacterListPresenterBaseTestCase.swift */; };
+		352E06E225FB6D4419526BD4F224275E /* CharacterListPresenterEndOfTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C5F1D2F2DC5D4B8AB201B2FD5AA33 /* CharacterListPresenterEndOfTableTests.swift */; };
 		0C525E2D6830F37CE4D405399EC1F0FE /* CharacterListPresenterViewDidLoadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC936E963B0644E992D3999153A06D /* CharacterListPresenterViewDidLoadTests.swift */; };
 		83449BB97D08323A1BB5D9F511F2058A /* CharacterListTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B381D9E60A69ECC16CE39C84442ECE /* CharacterListTableManager.swift */; };
 		0FF2105314DDBF69F0F7930D1E431E25 /* CharacterListTableManagerBaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F09093C8DC88311181E079E14494E /* CharacterListTableManagerBaseTestCase.swift */; };
@@ -79,6 +80,7 @@
 		8C43E5D3C5F0A57F715E680DB69ACC10 /* CharacterListFetcherSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListFetcherSpy.swift; sourceTree = "<group>"; };
 		C11DB871CDBB53FFAEE643B6633D9F3F /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
 		7245838078F4A096B2007228145A5C19 /* CharacterListPresenterBaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterBaseTestCase.swift; sourceTree = "<group>"; };
+		FB9C5F1D2F2DC5D4B8AB201B2FD5AA33 /* CharacterListPresenterEndOfTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterEndOfTableTests.swift; sourceTree = "<group>"; };
 		79BC936E963B0644E992D3999153A06D /* CharacterListPresenterViewDidLoadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterViewDidLoadTests.swift; sourceTree = "<group>"; };
 		98B381D9E60A69ECC16CE39C84442ECE /* CharacterListTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableManager.swift; sourceTree = "<group>"; };
 		3E3F09093C8DC88311181E079E14494E /* CharacterListTableManagerBaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableManagerBaseTestCase.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				8C43E5D3C5F0A57F715E680DB69ACC10 /* CharacterListFetcherSpy.swift */,
 				7245838078F4A096B2007228145A5C19 /* CharacterListPresenterBaseTestCase.swift */,
+				FB9C5F1D2F2DC5D4B8AB201B2FD5AA33 /* CharacterListPresenterEndOfTableTests.swift */,
 				79BC936E963B0644E992D3999153A06D /* CharacterListPresenterViewDidLoadTests.swift */,
 				0B91ED5E0C26190475521CBCB8BE56CC /* CharacterListViewElementsTests.swift */,
 				5EF66FF2BDC84BEA8810BF509EBE50B5 /* CharacterListViewingSpy.swift */,
@@ -501,6 +504,7 @@
 			files = (
 				C5490790175609B0D311DB2C3241FE96 /* CharacterListFetcherSpy.swift in Sources */,
 				E0C9DD87320455DC6B87F01579A55FAC /* CharacterListPresenterBaseTestCase.swift in Sources */,
+				352E06E225FB6D4419526BD4F224275E /* CharacterListPresenterEndOfTableTests.swift in Sources */,
 				0C525E2D6830F37CE4D405399EC1F0FE /* CharacterListPresenterViewDidLoadTests.swift in Sources */,
 				0FF2105314DDBF69F0F7930D1E431E25 /* CharacterListTableManagerBaseTestCase.swift in Sources */,
 				66EB6E81BE9D6595D91ABACA74E182B3 /* CharacterListTableManagerDataSourceTests.swift in Sources */,

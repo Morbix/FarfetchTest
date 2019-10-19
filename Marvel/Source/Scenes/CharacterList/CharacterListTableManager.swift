@@ -6,6 +6,11 @@ protocol CharacterListTableManagerDelegate: class {
 
 final class CharacterListTableManager: NSObject {
 
+    enum State {
+        case loading, retry, hidden
+    }
+
+    var lastCellState: State = .hidden
     var heroes: [HeroCellModel] = .init()
     weak var delegate: CharacterListTableManagerDelegate?
 
@@ -27,18 +32,38 @@ final class CharacterListTableManager: NSObject {
 extension CharacterListTableManager: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        return 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return heroes.count
+        if section == 0 {
+            return heroes.count
+        } else {
+            switch lastCellState {
+            case .loading, .retry:
+                return 1
+            case .hidden:
+                return 0
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        if heroes.count > indexPath.row {
-            cell.textLabel?.text = heroes[indexPath.row].name
+        if indexPath.section == 0 {
+            if heroes.count > indexPath.row {
+                cell.textLabel?.text = heroes[indexPath.row].name
+            }
+        } else {
+            if lastCellState == .loading {
+                cell.textLabel?.text = "loading_cell_message".localized()
+            }
+
+            if lastCellState == .retry {
+                cell.textLabel?.text = "retry_cell_message".localized()
+            }
         }
 
         return cell
