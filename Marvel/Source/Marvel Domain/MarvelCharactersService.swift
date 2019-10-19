@@ -18,6 +18,7 @@ extension MarvelCharactersService: CharacterListFetcher {
             .appendPath("characters")
             .appendQueryParameter("orderBy", value: "name")
             .appendQueryParameter("limit", value: 20)
+            .setHTTPMethod(.get)
             .appendMarvelAuth()
 
         guard let request = builder.build() else {

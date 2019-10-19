@@ -25,7 +25,7 @@ final class URLRequestBuilder {
     }
 
     func appendQueryParameter(_ key: String, value: @autoclosure () -> Any) -> URLRequestBuilder {
-        queryParameters[key] = "\(value())"
+        queryParameters[key] = "\(value())".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         return self
     }
 
@@ -48,10 +48,13 @@ final class URLRequestBuilder {
 
         let allQParams = queryParameters
             .map(separatedBy("="))
+            .sorted()
             .reduce("", separatedBy("&"))
             .dropFirst()
 
-        if let url = URL(string: "\(domain)\(allPathes)?\(allQParams)") {
+        let urlString = "\(domain)\(allPathes)\(allQParams.count > 0 ? "?\(allQParams)" : "")"
+
+        if let url = URL(string: urlString) {
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = method.rawValue
             return urlRequest
