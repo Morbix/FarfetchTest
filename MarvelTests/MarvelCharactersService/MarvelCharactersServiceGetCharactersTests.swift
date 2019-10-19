@@ -119,7 +119,7 @@ private class CompletionSpy {
     let testExpectation = XCTestExpectation(description: "completion")
 
     private(set) var completionCalled: Bool = false
-    private(set) var heroesPassed: [Heroe]? = nil
+    private(set) var heroesPassed: [Hero]? = nil
     private(set) var errorPassed: Error? = nil
     private(set) var isMainThread: Bool = false
     func completion(_ result: ResultHeroes) {

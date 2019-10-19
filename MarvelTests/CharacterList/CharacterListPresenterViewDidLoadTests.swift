@@ -130,7 +130,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
     func testUpdateInterfaceWhenGetCharactersReturnsWithCharactersAndDataStoreIsEmpty() {
         dataStoreSpy.characters = []
-        let newItems: [Heroe] = [.init()]
+        let newItems: [Hero] = [.init()]
         let result: ResultHeroes = .success(newItems)
 
         fetcherSpy.getCharactersCompletionPassed?(result)
@@ -140,7 +140,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
     func testUpdateDataStoreWhenGetCharactersReturnsWithCharactersAndDataStoreIsEmpty() {
         dataStoreSpy.characters = []
-        let newItems: [Heroe] = [.init()]
+        let newItems: [Hero] = [.init()]
         let result: ResultHeroes = .success(newItems)
 
         fetcherSpy.getCharactersCompletionPassed?(result)
@@ -152,7 +152,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
     func testUpdateDataStoreWhenGetCharactersReturnsWithCharactersAndDataStoreIsNotEmpty() {
         dataStoreSpy.characters = [.init()]
         let beforeCount = dataStoreSpy.characters.count
-        let newItems: [Heroe] = [.init()]
+        let newItems: [Hero] = [.init()]
         let result: ResultHeroes = .success(newItems)
 
         fetcherSpy.getCharactersCompletionPassed?(result)
@@ -164,7 +164,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
     // MARK: Update Table With Characteres
 
     func testUpdateTableWith1Character() {
-        let newItems: [Heroe] = [
+        let newItems: [Hero] = [
             .init(name: "item 1")
         ]
         let result: ResultHeroes = .success(newItems)
@@ -179,7 +179,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
     }
 
     func testUpdateTableWith3Characteres() {
-        let newItems: [Heroe] = [
+        let newItems: [Hero] = [
             .init(name: "item 1"),
             .init(name: "item 2"),
             .init(name: "item 3")
@@ -202,8 +202,8 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
     }
 }
 
-// MARK: - Heroe Dummy
-private extension Heroe {
+// MARK: - Hero Dummy
+private extension Hero {
     init() {
         self.init(name: .init())
     }
@@ -229,9 +229,9 @@ private extension ResultHeroes {
 
     static var fixtureAnySuccess: ResultHeroes {
         var times = (0..<3).randomElement() ?? 0
-        var heroes = [Heroe]()
+        var heroes = [Hero]()
         while times > 0 {
-            heroes.append(Heroe())
+            heroes.append(Hero())
             times -= 1
         }
         return .success(heroes)

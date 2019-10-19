@@ -99,7 +99,7 @@ extension CharacterListViewController: CharacterListViewing {
         elements.emptyFeedbackLabel.isHidden = true
     }
 
-    func includeCharacters(_ characters: [HeroeCellModel]) {
+    func includeCharacters(_ characters: [HeroCellModel]) {
         tableManager.heroes.append(contentsOf: characters)
         elements.tableView.reloadData()
     }

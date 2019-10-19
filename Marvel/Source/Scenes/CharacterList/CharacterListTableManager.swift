@@ -2,7 +2,7 @@ import UIKit
 
 final class CharacterListTableManager: NSObject {
 
-    var heroes: [HeroeCellModel] = .init()
+    var heroes: [HeroCellModel] = .init()
 
     /**
     Receives the UITableView that this manager will implement the Delegate & DataSource and will register all the cells.

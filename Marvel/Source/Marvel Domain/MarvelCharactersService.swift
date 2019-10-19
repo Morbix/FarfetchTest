@@ -33,7 +33,7 @@ extension MarvelCharactersService: CharacterListFetcher {
 
             switch taskResult {
             case .success(let response):
-                finalResult = .success(response.data.results.map(Heroe.init))
+                finalResult = .success(response.data.results.map(Hero.init))
             case .failure(let error):
                 finalResult = .failure(error)
             }
@@ -45,7 +45,7 @@ extension MarvelCharactersService: CharacterListFetcher {
     }
 }
 
-private extension Heroe {
+private extension Hero {
     init(response: CharactersResponse.Hero) {
         self.name = response.name
     }

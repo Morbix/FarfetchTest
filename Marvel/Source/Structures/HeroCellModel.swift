@@ -1,5 +1,5 @@
 import Foundation
 
-struct Heroe: Equatable {
+struct HeroCellModel {
     let name: String
 }

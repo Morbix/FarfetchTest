@@ -11,11 +11,11 @@ protocol CharacterListViewing {
     func hideRetryCell()
     func showEmptyFeeback()
     func hideEmptyFeedback()
-    func includeCharacters(_ characters: [HeroeCellModel])
+    func includeCharacters(_ characters: [HeroCellModel])
     func setSceneTitle(_ title: String)
 }
 
-typealias ResultHeroes = Result<[Heroe], Error>
+typealias ResultHeroes = Result<[Hero], Error>
 protocol CharacterListFetcher: class {
     func getCharacters(_ completion: @escaping (ResultHeroes) -> Void)
 }
@@ -52,7 +52,7 @@ final class CharacterListPresenter {
                 } else {
                     view.showCharacteresTable()
                     dataStore.characters.append(contentsOf: items)
-                    view.includeCharacters(items.map(HeroeCellModel.init))
+                    view.includeCharacters(items.map(HeroCellModel.init))
                 }
             case .failure:
                 if dataStore.characters.isEmpty {
@@ -74,8 +74,8 @@ final class CharacterListPresenter {
     }
 }
 
-private extension HeroeCellModel {
-    init(heroe: Heroe) {
-        self.init(name: heroe.name)
+private extension HeroCellModel {
+    init(hero: Hero) {
+        self.init(name: hero.name)
     }
 }
