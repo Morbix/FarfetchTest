@@ -1,27 +1,7 @@
 import XCTest
 @testable import Marvel
 
-final class CharacterListTableManagerTests: XCTestCase {
-
-    private let tableSpy = TableViewSpy()
-    private let sut = CharacterListTableManager()
-
-    func testStartWithEmptyHeroes() {
-        XCTAssertEqual(sut.heroes.isEmpty, true)
-    }
-
-    // MARK: Attach
-
-    func testAttach() {
-        XCTAssertNil(tableSpy.dataSource)
-
-        sut.attach(on: tableSpy)
-
-        XCTAssertTrue(tableSpy.dataSource === sut)
-        XCTAssertEqual(tableSpy.registerCalled, true)
-        XCTAssertEqual(tableSpy.cellClasses.containsClass(UITableViewCell.self), true)
-        XCTAssertEqual(tableSpy.identifiers.contains("Cell"), true)
-    }
+final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerBaseTestCase {
 
     // MARK: numberOf's
 
@@ -103,49 +83,5 @@ final class CharacterListTableManagerTests: XCTestCase {
         )
         XCTAssertNil(cell4.textLabel?.text)
     }
-}
 
-// MARK: - HeroCellModel Dummy
-private extension HeroCellModel {
-    init(_ index: Int) {
-        self.init(name: "Hero \(index)")
-    }
-}
-
-// MARK: - HeroCellModel Fixtures
-
-private extension HeroCellModel {
-    static var fixtureRamdomList: [HeroCellModel] {
-        let number = (0..<3).randomElement() ?? 0
-        return fixtureList.dropLast(number)
-    }
-
-    static var fixtureList: [HeroCellModel] {
-        return (0..<3).map(HeroCellModel.init)
-    }
-}
-
-// MARK: - TableViewSpy
-
-private class TableViewSpy: UITableView {
-    private(set) var registerCalled: Bool = false
-    private(set) var cellClasses: [AnyClass] = []
-    private(set) var identifiers: [String] = []
-    override func register(_ cellClass: AnyClass?, forCellReuseIdentifier identifier: String) {
-        registerCalled = true
-        if let cellClass = cellClass {
-            cellClasses.append(cellClass)
-        }
-        identifiers.append(identifier)
-    }
-
-    private(set) var dequeueReusableCellCalled: Bool = false
-    private(set) var identifierPassed: String? = nil
-    private(set) var indexPathPassed: IndexPath? = nil
-    override func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
-        dequeueReusableCellCalled = true
-        identifierPassed = identifier
-        indexPathPassed = indexPath
-        return UITableViewCell(style: .default, reuseIdentifier: "Cell")
-    }
 }

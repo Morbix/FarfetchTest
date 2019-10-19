@@ -11,6 +11,7 @@ final class CharacterListTableManager: NSObject {
     */
     func attach(on tableView: UITableView) {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
@@ -36,5 +37,19 @@ extension CharacterListTableManager: UITableViewDataSource {
         }
 
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension CharacterListTableManager: UITableViewDelegate {
+
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension CharacterListTableManager: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
     }
 }
