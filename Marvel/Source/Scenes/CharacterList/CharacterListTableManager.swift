@@ -19,6 +19,11 @@ final class CharacterListTableManager: NSObject {
 // MARK: - UITableViewDataSource
 
 extension CharacterListTableManager: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return heroes.count
     }
@@ -26,7 +31,9 @@ extension CharacterListTableManager: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        cell.textLabel?.text = heroes[indexPath.row].name
+        if heroes.count > indexPath.row {
+            cell.textLabel?.text = heroes[indexPath.row].name
+        }
 
         return cell
     }
