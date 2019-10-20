@@ -8,13 +8,14 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
     func testRequestPassed() throws {
         senderSpy.errorToReturn = NSError.unexpectedFailure
 
-        sut.getCharacters(completionSpy.completion)
+        sut.getCharacters(skip: 10, completionSpy.completion)
 
         XCTAssertEqual(senderSpy.requestPassed?.httpMethod, "GET")
         let url = try XCTUnwrap(senderSpy.requestPassed?.url)
         XCTAssertTrue(url.absoluteString.contains("https://gateway.marvel.com/v1/public/characters?"))
         XCTAssertTrue(url.absoluteString.contains("orderBy=name"))
         XCTAssertTrue(url.absoluteString.contains("limit=20"))
+        XCTAssertTrue(url.absoluteString.contains("offset=10"))
         XCTAssertTrue(url.absoluteString.contains("hash="))
         XCTAssertTrue(url.absoluteString.contains("apikey="))
         XCTAssertTrue(url.absoluteString.contains("ts="))

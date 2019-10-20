@@ -15,7 +15,7 @@ protocol CharacterListViewing {
 
 typealias ResultHeroes = Result<[Hero], Error>
 protocol CharacterListFetcher: class {
-    func getCharacters(_ completion: @escaping (ResultHeroes) -> Void)
+    func getCharacters(skip: Int, _ completion: @escaping (ResultHeroes) -> Void)
 }
 
 final class CharacterListPresenter {
@@ -34,7 +34,7 @@ final class CharacterListPresenter {
 
         setupInitialState()
 
-        fetcher.getCharacters { [dataStore] result in
+        fetcher.getCharacters(skip: 0) { [dataStore] result in
             guard let view = dataStore.view else { return }
 
             view.removeSceneSpinner()

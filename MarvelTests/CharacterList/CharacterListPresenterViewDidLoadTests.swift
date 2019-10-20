@@ -29,8 +29,9 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(viewingSpy.showSceneSpinnerCalled, true)
     }
 
-    func testAskForCharacters() {
+    func testAskForCharactersWithoutSkipping() {
         XCTAssertEqual(fetcherSpy.getCharactersCalled, true)
+        XCTAssertEqual(fetcherSpy.skipPassed, 0)
     }
 
     func testSetSceneTitle() {
