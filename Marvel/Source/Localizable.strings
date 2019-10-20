@@ -5,3 +5,7 @@
 "unexpected_failure" = "Unexpected failure";
 "loading_cell_message" = "Loading...";
 "retry_cell_message" = "Touch here to try again!";
+"appearance_in_comics" = "Appearance in Comics";
+"appearance_in_series" = "Appearance in Series";
+"appearance_in_stories" = "Appearance in Stories";
+"appearance_in_events" = "Appearance in Events";
