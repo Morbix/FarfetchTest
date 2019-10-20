@@ -68,6 +68,7 @@ extension CharacterListTableManager: UITableViewDataSource {
                 cell.textLabel?.text = "loading_cell_message".localized()
             }
 
+            #warning("don't forget to implement the retry touch")
             if store.lastCellState == .retry {
                 cell.textLabel?.text = "retry_cell_message".localized()
             }

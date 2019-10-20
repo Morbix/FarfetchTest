@@ -89,20 +89,6 @@ extension CharacterListViewController: CharacterListViewing {
         elements.retryStack.isHidden = true
     }
 
-//    func showRetryCell() {
-//        //tableManager.lastCellState = .retry
-//        elements.tableView.reloadData()
-//        //elements.tableView.reloadSections([1], with: .automatic)
-//        #warning("implement this")
-//    }
-//
-//    func hideRetryCell() {
-//        //tableManager.lastCellState = .none
-//        elements.tableView.reloadData()
-//        //elements.tableView.reloadSections([1], with: .automatic)
-//        #warning("implement this")
-//    }
-
     func showEmptyFeeback() {
         elements.emptyFeedbackLabel.isHidden = false
     }
@@ -110,11 +96,4 @@ extension CharacterListViewController: CharacterListViewing {
     func hideEmptyFeedback() {
         elements.emptyFeedbackLabel.isHidden = true
     }
-
-//    func showLoadingCell() {
-//        //tableManager.lastCellState = .loading
-//        elements.tableView.reloadData()
-//        //elements.tableView.reloadSections([1], with: .automatic)
-//        #warning("think if it is worth move reloading logic to manager")
-//    }
 }
