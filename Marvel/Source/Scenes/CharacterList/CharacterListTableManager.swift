@@ -52,21 +52,17 @@ extension CharacterListTableManager: UITableViewDataSource {
             if let hero = store.heroes[safe: indexPath.row] {
                 cell.textLabel?.text = hero.name
                 cell.textLabel?.textColor = .black
-
-                #warning("test this")
                 cell.accessoryType = hero.hasDetail ? .disclosureIndicator : .none
                 cell.selectionStyle = hero.hasDetail ? .gray : .none
             }
         } else {
             if store.lastCellState == .loading {
                 cell.textLabel?.text = "loading_cell_message".localized()
-                #warning("test this")
                 cell.selectionStyle = .none
             }
 
             if store.lastCellState == .retry {
                 cell.textLabel?.text = "retry_cell_message".localized()
-                #warning("test this")
                 cell.selectionStyle = .gray
             }
 

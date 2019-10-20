@@ -14,7 +14,6 @@ final class CharacterDetailTableManager: NSObject {
 
     func attach(on tableView: UITableView) {
         tableView.dataSource = self
-        #warning("test this")
         tableView.rowHeight = 58
     }
 }

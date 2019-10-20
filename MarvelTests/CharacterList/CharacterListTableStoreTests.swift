@@ -46,6 +46,24 @@ final class CharacterListTableStoreTests: XCTestCase {
 
         XCTAssertEqual(sut.heroes.count, 3)
     }
+
+    func testHasDetailForHeroes() {
+        dataStore.characters = [
+            .init(id: 1),
+            .init(id: 2, name: "", comics: [.init(name: "", description: "")], series: [], stories: [], events: []),
+            .init(id: 3, name: "", comics: [], series: [.init(name: "", description: "")], stories: [], events: []),
+            .init(id: 4, name: "", comics: [], series: [], stories: [.init(name: "", description: "")], events: []),
+            .init(id: 5, name: "", comics: [], series: [], stories: [], events: [.init(name: "", description: "")])
+        ]
+
+
+        XCTAssertEqual(sut.heroes[safe: 0]?.hasDetail, false)
+        XCTAssertEqual(sut.heroes[safe: 1]?.hasDetail, true)
+        XCTAssertEqual(sut.heroes[safe: 2]?.hasDetail, true)
+        XCTAssertEqual(sut.heroes[safe: 3]?.hasDetail, true)
+        XCTAssertEqual(sut.heroes[safe: 4]?.hasDetail, true)
+
+    }
 }
 
 // MARK: - Hero Dummy

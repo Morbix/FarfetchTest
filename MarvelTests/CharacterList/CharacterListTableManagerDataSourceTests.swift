@@ -95,7 +95,38 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
         XCTAssertNil(cell4.textLabel?.text)
     }
 
+    func testCellForRowForFirstSectionAccessoryTypeAndSelectionStyle() {
+        tableStoreSpy.heroes = [
+            .init(name: "", hasDetail: true),
+            .init(name: "", hasDetail: false),
+        ]
+
+        let cell1 = sut.tableView(tableSpy, cellForRowAt: IndexPath(
+            row: 0, section: 0)
+        )
+        XCTAssertEqual(cell1.accessoryType, .disclosureIndicator)
+        XCTAssertEqual(cell1.selectionStyle, .gray)
+
+        let cell2 = sut.tableView(tableSpy, cellForRowAt: IndexPath(
+            row: 1, section: 0)
+        )
+        XCTAssertEqual(cell2.accessoryType, .none)
+        XCTAssertEqual(cell2.selectionStyle, .none)
+    }
+
     // MARK: cellForRowAt for Second Section
+
+    func testCellForRowForSecondSectionSelectionStyle() {
+        tableStoreSpy.lastCellState = .retry
+
+        let cell1 = sut.tableView(tableSpy, cellForRowAt: IndexPath(row: 0, section: 1))
+        XCTAssertEqual(cell1.selectionStyle, .gray)
+
+        tableStoreSpy.lastCellState = .loading
+
+        let cell2 = sut.tableView(tableSpy, cellForRowAt: IndexPath(row: 0, section: 1))
+        XCTAssertEqual(cell2.selectionStyle, .none)
+    }
 
     func testCellForRowAtInSecondSectionWithStateHidden() {
         let viewModels = HeroCellModel.fixtureRamdomList

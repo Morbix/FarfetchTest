@@ -2,13 +2,9 @@
 
 
 
-## About Test
+## About the Test
 This repo contains the implementation of the Farfetch iOS Tech Test: <br>
 [iOS_Exercise.pdf](./iOS_Exercise.pdf)
-
-Test starting: 2019-10-15 <br>
-Test deadline: 2019-10-21 <br>
-Time coding: +- Xh
 
 ## Setup
 - After cloning the project, add a file called `MarvelKeys.swift` inside the same folder the main `Info.plist`; 
@@ -23,7 +19,6 @@ enum MarvelKeys {
 That's all. Open Xcode and Run. 
 
 ### README TODO
-- Badges
-- Describe architecture
-- Describe highlight points (error feedbacks)
-- Muter
+- Badges (coverage, muter)
+- Describe architecture (mvp, draw)
+- Describe highlight points (error feedbacks, datastore vs tablestore, strings localizable, avoid re-fetch content, navigate only if has detail, router testable, UIKitless)
