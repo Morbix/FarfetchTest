@@ -55,6 +55,7 @@ final class CharacterListViewController: UIViewController {
     }
 }
 
+#warning("Cover CharacterListViewing")
 extension CharacterListViewController: CharacterListViewing {
 
     func reloadData() {

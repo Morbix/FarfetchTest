@@ -9,6 +9,13 @@ final class CharacterListTableStoreTests: XCTestCase {
         fetcher: CharacterListFetcherSpy()
     )
 
+    func testLastCellState() throws {
+        let state = [State.none, State.retry, State.loading].randomElement()
+        dataStore.lastCellState = try XCTUnwrap(state)
+
+        XCTAssertEqual(sut.lastCellState, state)
+    }
+
     func testHeroesFor1Character() {
         dataStore.characters = [
             .init(id: 1)
