@@ -14,6 +14,7 @@ final class CharacterDetailPresenterAskForContentTests: CharacterDetailPresenter
 
         XCTAssertEqual(fetcherSpy.getContentCalled, true)
         XCTAssertEqual(fetcherSpy.typePassed, .comics)
+        XCTAssertEqual(fetcherSpy.characterIdPassed, 999)
     }
 
     func testDontAskForComicsWhenIsAvailableAndDescriptionIsPresent() {

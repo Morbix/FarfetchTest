@@ -10,7 +10,7 @@ enum ContentType: String {
 
 typealias ResultContent = Result<[Content], Error>
 protocol CharacterDetailFetcher {
-    func getContent(type: ContentType, completion: @escaping (ResultContent) -> Void)
+    func getContent(type: ContentType, characterId: Int, completion: @escaping (ResultContent) -> Void)
 }
 
 final class CharacterDetailPresenter {
@@ -29,8 +29,9 @@ final class CharacterDetailPresenter {
 
         dataStore.view?.setSceneTitle(dataStore.hero.name)
 
-        if dataStore.hero.comics.needFetchDescriptions {
-            fetcher.getContent(type: .comics) { result in
+        let hero = dataStore.hero
+        if hero.comics.needFetchDescriptions {
+            fetcher.getContent(type: .comics, characterId: hero.id) { result in
                 print(result)
             }
         }

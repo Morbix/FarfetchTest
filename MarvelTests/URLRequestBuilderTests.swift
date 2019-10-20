@@ -77,12 +77,12 @@ final class URLRequestBuilderTests: XCTestCase {
         let request = builder
             .appendQueryParameter("key1", value: "value 1")
             .appendQueryParameter("key2", value: 2)
-            .appendQueryParameter("key3", value: ErrorResponse(code: -1, status: "error"))
+            .appendQueryParameter("key3", value: WrapperResponse(code: -1, status: "error"))
             .build()
 
         XCTAssertEqual(
             request?.url?.absoluteString,
-            "https://www.marvel.com?key1=value%201&key2=2&key3=ErrorResponse(code%3A%20-1,%20status%3A%20%22error%22)"
+            "https://www.marvel.com?key1=value%201&key2=2&key3=WrapperResponse(code%3A%20-1,%20status%3A%20%22error%22)"
         )
     }
 }

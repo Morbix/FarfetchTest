@@ -12,7 +12,7 @@ extension URLSession: RequestSender {
             }
 
             guard let response = try? JSONDecoder().decode(returnType, from: data) else {
-                guard let response = try? JSONDecoder().decode(ErrorResponse.self, from: data) else {
+                guard let response = try? JSONDecoder().decode(WrapperResponse.self, from: data) else {
                     return completion(.failure(NSError.unexpectedFailure))
                 }
                 let error = NSError(

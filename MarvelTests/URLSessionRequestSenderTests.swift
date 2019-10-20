@@ -58,7 +58,7 @@ final class URLSessionRequestSenderTests: XCTestCase {
 
     func testSuccessWithErrorResponseFormat() throws {
         let data = try JSONEncoder().encode(
-            ErrorResponse(code: 999, status: "error message")
+            WrapperResponse(code: 999, status: "error message")
         )
         URLProtocolMock.stubs[request] = .success(data)
 

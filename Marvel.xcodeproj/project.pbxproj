@@ -36,7 +36,6 @@
 		C09298CA8E658D31C327CBB6676ADC99 /* CharacterListViewingSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF66FF2BDC84BEA8810BF509EBE50B5 /* CharacterListViewingSpy.swift */; };
 		584F30FC5C320F733E0A5C84262C45F7 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F89E3EC1C6E2DC6CED0117B6C90671 /* CharactersResponse.swift */; };
 		C368C90F8B555963B815872ED80CC718 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B2E0DD317591C64D17AEFFB9E3C44F /* CollectionExtension.swift */; };
-		F8FDF3F9EFC8BF188039AE9962105E22 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B63C4E52794C414CEC183B334F4EC /* ErrorResponse.swift */; };
 		3412AF49CE242C30F02F43C8177FBF80 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49723C9B82766E5759EFC40B9C44AFC5 /* Hero.swift */; };
 		F6C37AF87C1CE92A6A78AF8D09AFFBA5 /* HeroCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7148C357121CFC580666D2336D5294D7 /* HeroCellModel.swift */; };
 		B5DE82183B87B8FB8EAD989FC810C090 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F65102327F26D8C68947437F254831A /* LaunchScreen.storyboard */; };
@@ -65,6 +64,7 @@
 		C425A0851A7006675AC044390992A4BF /* URLSession+RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C1603C1BA58FD15902D247472D29C0 /* URLSession+RequestSender.swift */; };
 		0E6DDB2260ED2220EE1E44FE405659F5 /* URLSessionRequestSenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814BD14052742CC299F02E6CC08677CA /* URLSessionRequestSenderTests.swift */; };
 		6B6FDBD551012E40FE6291D15FDBFD89 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5C1B5FE396150DE716764F7E252B5 /* ViewExtensions.swift */; };
+		7A9BAE0031F9A04D75991EEABA6863FB /* WrapperResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7863DA022AB38C9FE4D57D91F713CE80 /* WrapperResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +115,6 @@
 		5EF66FF2BDC84BEA8810BF509EBE50B5 /* CharacterListViewingSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewingSpy.swift; sourceTree = "<group>"; };
 		06F89E3EC1C6E2DC6CED0117B6C90671 /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		80B2E0DD317591C64D17AEFFB9E3C44F /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
-		2D0B63C4E52794C414CEC183B334F4EC /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		49723C9B82766E5759EFC40B9C44AFC5 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		7148C357121CFC580666D2336D5294D7 /* HeroCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCellModel.swift; sourceTree = "<group>"; };
 		0C2C13C4D255DA1D0683D3C586C260EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -150,6 +149,7 @@
 		47C1603C1BA58FD15902D247472D29C0 /* URLSession+RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+RequestSender.swift"; sourceTree = "<group>"; };
 		814BD14052742CC299F02E6CC08677CA /* URLSessionRequestSenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRequestSenderTests.swift; sourceTree = "<group>"; };
 		19E5C1B5FE396150DE716764F7E252B5 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		7863DA022AB38C9FE4D57D91F713CE80 /* WrapperResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,10 +252,10 @@
 			isa = PBXGroup;
 			children = (
 				06F89E3EC1C6E2DC6CED0117B6C90671 /* CharactersResponse.swift */,
-				2D0B63C4E52794C414CEC183B334F4EC /* ErrorResponse.swift */,
 				D67F2231390ACF8598C9AF99BB24462B /* MarvelCharactersService.swift */,
 				E89C7281E73C58B0D348C27A136A8C2B /* URLDomain+MarvelDomainAPI.swift */,
 				B14B6A16F4037B18248932721230973C /* URLRequestBuilder+MarvelAuth.swift */,
+				7863DA022AB38C9FE4D57D91F713CE80 /* WrapperResponse.swift */,
 			);
 			path = "Marvel Domain";
 			sourceTree = "<group>";
@@ -593,7 +593,6 @@
 				50F2B3DD4945855082369C42B8C5B962 /* CharacterListViewController.swift in Sources */,
 				E25D518B97AA175154F5EA9D2749F18D /* CharacterListViewElements.swift in Sources */,
 				584F30FC5C320F733E0A5C84262C45F7 /* CharactersResponse.swift in Sources */,
-				F8FDF3F9EFC8BF188039AE9962105E22 /* ErrorResponse.swift in Sources */,
 				3412AF49CE242C30F02F43C8177FBF80 /* Hero.swift in Sources */,
 				F6C37AF87C1CE92A6A78AF8D09AFFBA5 /* HeroCellModel.swift in Sources */,
 				D9531C1F4A1AF4823CDDD93321707DB6 /* MarvelCharactersService.swift in Sources */,
@@ -607,6 +606,7 @@
 				BF0C1152A00539E7A5AB9C0B44BCBF12 /* URLRequestBuilder+MarvelAuth.swift in Sources */,
 				987BD234462AC264BE9BF41F5607EEC2 /* URLRequestBuilder.swift in Sources */,
 				C425A0851A7006675AC044390992A4BF /* URLSession+RequestSender.swift in Sources */,
+				7A9BAE0031F9A04D75991EEABA6863FB /* WrapperResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

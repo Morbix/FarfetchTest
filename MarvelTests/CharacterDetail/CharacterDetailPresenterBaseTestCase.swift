@@ -5,7 +5,7 @@ class CharacterDetailPresenterBaseTestCase: XCTestCase {
 
     let fetcherSpy = CharacterDetailFetcherSpy()
     let viewingSpy = CharacterDetailViewingSpy()
-    let hero = Hero()
+    let hero = Hero(id: 999)
     lazy var dataStoreSpy = CharacterDetailDataStore(
         hero: hero
     )

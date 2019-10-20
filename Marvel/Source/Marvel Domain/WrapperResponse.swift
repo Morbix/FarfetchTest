@@ -1,6 +1,6 @@
 import Foundation
 
-struct ErrorResponse: Codable {
+struct WrapperResponse: Codable {
     let code: Int
     let status: String
 }

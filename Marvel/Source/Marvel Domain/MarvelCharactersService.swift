@@ -14,6 +14,8 @@ final class MarvelCharactersService {
     }
 }
 
+// MARK: - CharacterListFetcher
+
 extension MarvelCharactersService: CharacterListFetcher {
 
     func getCharacters(skip: Int = 0, completion: @escaping (ResultHeroes) -> Void) {
@@ -63,5 +65,27 @@ private extension Hero {
 private extension Content {
     init(response: CharactersResponse.Data.Content.Item) {
         self.init(name: response.name)
+    }
+}
+
+// MARK: - CharacterDetailFetcher
+
+extension MarvelCharactersService: CharacterDetailFetcher {
+    func getContent(type: ContentType, characterId: Int, completion: @escaping (ResultContent) -> Void) {
+
+        let request = URLRequestBuilder(with: .marvelDomainAPI)
+            .appendPath("v1")
+            .appendPath("public")
+            .appendPath("characters")
+            .appendPath("\(characterId)")
+            .appendPath(type.rawValue)
+            .appendQueryParameter("limit", value: 20)
+            .setHTTPMethod(.get)
+            .appendMarvelAuth()
+            .build()
+
+        sender.sendRequest(with: request!, returnType: WrapperResponse.self) { taskResult in
+            print(taskResult)
+        }
     }
 }
