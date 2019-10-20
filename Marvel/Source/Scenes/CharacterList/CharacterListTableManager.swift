@@ -61,9 +61,7 @@ extension CharacterListTableManager: UITableViewDataSource {
         if indexPath.section == 0 {
             if store.heroes.count > indexPath.row {
                 cell.textLabel?.text = store.heroes[indexPath.row].name
-                #warning("test color")
                 cell.textLabel?.textColor = .black
-                #warning("test detail")
                 cell.accessoryType = .disclosureIndicator
             }
         } else {
