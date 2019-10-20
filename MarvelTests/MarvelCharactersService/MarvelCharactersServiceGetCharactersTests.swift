@@ -121,6 +121,7 @@ private class CompletionSpy {
 
     private(set) var completionCalled: Bool = false
     private(set) var heroesPassed: [Hero]? = nil
+    private(set) var totalPassed: Int? = nil
     private(set) var errorPassed: Error? = nil
     private(set) var isMainThread: Bool = false
     func completion(_ result: ResultHeroes) {
@@ -130,8 +131,9 @@ private class CompletionSpy {
         completionCalled = true
 
         switch result {
-        case .success(let heroes):
+        case .success(let (heroes, total)):
             heroesPassed = heroes
+            totalPassed = total
         case .failure(let error):
             errorPassed = error
         }

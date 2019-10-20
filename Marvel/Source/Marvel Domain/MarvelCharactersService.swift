@@ -18,7 +18,6 @@ extension MarvelCharactersService: CharacterListFetcher {
 
     func getCharacters(skip: Int = 0, completion: @escaping (ResultHeroes) -> Void) {
 
-        #warning("return the count and save to avoid enter in loop in the end")
         let request = URLRequestBuilder(with: .marvelDomainAPI)
             .appendPath("v1")
             .appendPath("public")
@@ -35,7 +34,8 @@ extension MarvelCharactersService: CharacterListFetcher {
 
             switch taskResult {
             case .success(let response):
-                finalResult = .success(response.data.results.map(Hero.init))
+                let data = response.data
+                finalResult = .success((data.results.map(Hero.init), data.total))
             case .failure(let error):
                 finalResult = .failure(error)
             }

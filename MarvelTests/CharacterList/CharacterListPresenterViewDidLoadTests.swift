@@ -97,6 +97,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         fetcherSpy.getCharactersCompletionPassed?(.fixtureAnySuccess)
 
         XCTAssertEqual(viewingSpy.hideRetryOptionCalled, true)
+        XCTAssertEqual(dataStoreSpy.totalAvailable, 999)
     }
 
     func testUpdateInterfaceWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsEmpty() {
@@ -109,6 +110,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(dataStoreSpy.characters.isEmpty, true)
         XCTAssertEqual(viewingSpy.showEmptyFeebackCalled, true)
         XCTAssertEqual(viewingSpy.hideCharactersTableCalled, true)
+        XCTAssertEqual(dataStoreSpy.totalAvailable, 0)
     }
 
     func testUpdateInterfaceWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsNotEmpty() {
@@ -122,12 +124,13 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(dataStoreSpy.characters.count, beforeCount)
         XCTAssertEqual(dataStoreSpy.characters.isEmpty, false)
         XCTAssertEqual(viewingSpy.showCharacteresTableCalled, true)
+        XCTAssertEqual(dataStoreSpy.totalAvailable, 0)
     }
 
     func testUpdateInterfaceWhenGetCharactersReturnsWithCharactersAndDataStoreIsEmpty() {
         dataStoreSpy.characters = []
         let newItems: [Hero] = [.init()]
-        let result: ResultHeroes = .success(newItems)
+        let result: ResultHeroes = .success((newItems, 100))
         viewingSpy.reset()
 
         fetcherSpy.getCharactersCompletionPassed?(result)
@@ -135,19 +138,21 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(viewingSpy.showCharacteresTableCalled, true)
         XCTAssertEqual(dataStoreSpy.characters.count, newItems.count)
         XCTAssertEqual(dataStoreSpy.characters, newItems)
+        XCTAssertEqual(dataStoreSpy.totalAvailable, 100)
     }
 
     func testUpdateDataStoreWhenGetCharactersReturnsWithCharactersAndDataStoreIsNotEmpty() {
         dataStoreSpy.characters = [.init()]
         let beforeCount = dataStoreSpy.characters.count
         let newItems: [Hero] = [.init()]
-        let result: ResultHeroes = .success(newItems)
+        let result: ResultHeroes = .success((newItems, 100))
 
         fetcherSpy.getCharactersCompletionPassed?(result)
 
         XCTAssertEqual(viewingSpy.showCharacteresTableCalled, true)
         XCTAssertEqual(dataStoreSpy.characters.count, beforeCount + newItems.count)
         XCTAssertEqual(Array(dataStoreSpy.characters.dropFirst(beforeCount)), newItems)
+        XCTAssertEqual(dataStoreSpy.totalAvailable, 100)
     }
 }
 // MARK: - Hero Dummy
@@ -172,7 +177,7 @@ private extension ResultHeroes {
     }
 
     static var fixtureEmptySuccess: ResultHeroes {
-        return .success([])
+        return .success(([], 0))
     }
 
     static var fixtureAnySuccess: ResultHeroes {
@@ -182,7 +187,7 @@ private extension ResultHeroes {
             heroes.append(Hero())
             times -= 1
         }
-        return .success(heroes)
+        return .success((heroes, 999))
     }
 
     static var fixtureRamdom: ResultHeroes {

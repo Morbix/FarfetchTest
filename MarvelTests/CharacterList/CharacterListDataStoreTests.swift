@@ -17,6 +17,10 @@ final class CharacterListDataStoreTests: XCTestCase {
         XCTAssertNil(sut.view)
     }
 
+    func testAvailableStartsEmpty() {
+        XCTAssertEqual(sut.totalAvailable, 0)
+    }
+
     // MARK: CharacterListTableStore
 
     func testHeroesFor1Character() {

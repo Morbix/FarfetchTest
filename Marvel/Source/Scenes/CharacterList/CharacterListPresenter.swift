@@ -13,7 +13,7 @@ protocol CharacterListViewing {
     func setSceneTitle(_ title: String)
 }
 
-typealias ResultHeroes = Result<[Hero], Error>
+typealias ResultHeroes = Result<([Hero], Int), Error>
 protocol CharacterListFetcher: class {
     func getCharacters(skip: Int, completion: @escaping (ResultHeroes) -> Void)
 }
@@ -42,7 +42,8 @@ final class CharacterListPresenter {
         view.removeSceneSpinner()
 
         switch result {
-        case .success(let items):
+        case .success(let (items, total)):
+            dataStore.totalAvailable = total
             dataStore.lastCellState = .none
             view.hideRetryOption()
 
@@ -80,7 +81,8 @@ extension CharacterListPresenter: CharacterListTableManagerDelegate {
 
     func tableDidReachRegionAroundTheEnd() {
 
-        if dataStore.lastCellState == .none {
+        if dataStore.lastCellState == .none,
+            dataStore.characters.count < dataStore.totalAvailable {
 
             dataStore.lastCellState = .loading
             dataStore.view?.reloadData()
