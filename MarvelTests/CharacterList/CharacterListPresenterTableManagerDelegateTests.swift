@@ -3,6 +3,8 @@ import XCTest
 
 final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresenterBaseTestCase {
 
+    // MARK: tableDidReachRegionAroundTheEnd
+
     func testWhenLastCellStateIsLoading() {
         dataStoreSpy.view = viewingSpy
         dataStoreSpy.lastCellState = .loading
@@ -56,6 +58,35 @@ final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresen
         XCTAssertEqual(fetcherSpy.skipPassed, dataStoreSpy.characters.count)
         XCTAssertEqual(viewingSpy.reloadDataCalled, true)
         XCTAssertEqual(dataStoreSpy.lastCellState, .loading)
+    }
+
+    // MARK: tableDidSelectAt
+
+    func testDidSelectAtForIndexLessThanZero() {
+        let hero = Hero(id: 999)
+        dataStoreSpy.characters = [hero]
+
+        sut.tableDidSelect(at: -1)
+
+        XCTAssertEqual(routerSpy.navigateToDetailCalled, false)
+    }
+
+    func testDidSelectAtForIndexOutOfBounds() {
+        dataStoreSpy.characters = []
+        
+        sut.tableDidSelect(at: 1)
+
+        XCTAssertEqual(routerSpy.navigateToDetailCalled, false)
+    }
+
+    func testNavigateToDetailScene() {
+        let hero = Hero(id: 999)
+        dataStoreSpy.characters = [hero]
+
+        sut.tableDidSelect(at: 0)
+
+        XCTAssertEqual(routerSpy.navigateToDetailCalled, true)
+        XCTAssertEqual(routerSpy.heroPassed, hero)
     }
 }
 

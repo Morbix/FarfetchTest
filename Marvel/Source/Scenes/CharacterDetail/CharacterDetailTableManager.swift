@@ -36,12 +36,10 @@ extension CharacterDetailTableManager: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard indexPath.section < tableStore.sections.count,
-            indexPath.row < tableStore.sections[indexPath.section].details.count else {
+        guard let detail = tableStore.sections[safe: indexPath.section]?.details[safe: indexPath.row] else {
             return UITableViewCell()
         }
-
-        let detail = tableStore.sections[indexPath.section].details[indexPath.row]
+        
         let identifier: Identifier = detail.subtitle == nil ? .cellWithoutSubtitle : .cellWithSubtitle
 
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier.rawValue) ??

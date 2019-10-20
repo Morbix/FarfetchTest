@@ -8,9 +8,9 @@ final class CharacterListTableManagerDelegateSpy: CharacterListTableManagerDeleg
     }
 
     private(set) var tableDidSelectCalled: Bool = false
-    private(set) var indexPathPassed: IndexPath? = nil
-    func tableDidSelect(at indexPath: IndexPath) {
+    private(set) var indexPassed: Int? = nil
+    func tableDidSelect(at index: Int) {
         tableDidSelectCalled = true
-        indexPathPassed = indexPath
+        indexPassed = index
     }
 }

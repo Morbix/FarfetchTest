@@ -49,8 +49,8 @@ extension CharacterListTableManager: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.cell.rawValue, for: indexPath)
 
         if indexPath.section == 0 {
-            if store.heroes.count > indexPath.row {
-                cell.textLabel?.text = store.heroes[indexPath.row].name
+            if let hero = store.heroes[safe: indexPath.row] {
+                cell.textLabel?.text = hero.name
                 cell.textLabel?.textColor = .black
                 cell.accessoryType = .disclosureIndicator
                 #warning("think if it worth open datail only if has descripion or content to show")
@@ -80,10 +80,8 @@ extension CharacterListTableManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         if indexPath.section == 0,
-            indexPath.row < store.heroes.count,
-            store.heroes[indexPath.row].hasDetail {
-            
-            delegate.tableDidSelect(at: indexPath)
+            store.heroes[safe: indexPath.row]?.hasDetail == true {
+            delegate.tableDidSelect(at: indexPath.row)
         }
     }
 }

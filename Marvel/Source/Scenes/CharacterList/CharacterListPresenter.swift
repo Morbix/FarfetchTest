@@ -79,8 +79,12 @@ extension CharacterListPresenter: CharacterListTableManagerDelegate {
         }
     }
 
-    func tableDidSelect(at: IndexPath) {
-        #warning("3 implement didSelect")
+    func tableDidSelect(at index: Int) {
+        guard let character = dataStore.characters[safe: index] else {
+            return
+        }
+
+        router.navigateToDetail(hero: character)
     }
 }
 
