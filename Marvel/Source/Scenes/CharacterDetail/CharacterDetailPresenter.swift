@@ -28,6 +28,8 @@ final class CharacterDetailPresenter {
     func viewDidLoad(view: CharacterDetailViewing) {
         dataStore.view = view
 
+        #warning("test this")
+        dataStore.view?.reloadData()
         dataStore.view?.setSceneTitle(dataStore.hero.name)
 
         let hero = dataStore.hero

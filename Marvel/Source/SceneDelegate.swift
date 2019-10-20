@@ -34,14 +34,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             name: "Dummy",
             comics: [Content(name: "comic 1", description: nil)],
             series: [Content(name: "serie 1", description: nil)],
-            stories: [Content(name: "story 1", description: nil)],
-            events: [Content(name: "event 1", description: nil)]
+            stories: [],
+            events: [
+                Content(name: "event 1", description: nil),
+                Content(name: "event 1", description: nil),
+                Content(name: "event 1", description: nil),
+                Content(name: "event 1", description: nil),
+                Content(name: "event 1", description: nil),
+                Content(name: "event 1", description: nil)
+            ]
         ))
         let presenter = CharacterDetailPresenter(
             dataStore: dataStore,
             fetcher: MarvelCharactersService()
         )
-        let tableManager = CharacterDetailTableManager()
+        let tableManager = CharacterDetailTableManager(
+            tableStore: dataStore
+        )
         let navigationController = UINavigationController(
             rootViewController: CharacterDetailViewController(
                 presenter: presenter,
