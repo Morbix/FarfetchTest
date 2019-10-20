@@ -1,14 +1,5 @@
 import UIKit
 
-protocol CharacterListTableStore: class {
-    var heroes: [HeroCellModel] { get }
-    var lastCellState: State { get }
-}
-
-protocol CharacterListTableManagerDelegate: class {
-    func tableDidReachRegionAroundTheEnd()
-}
-
 final class CharacterListTableManager: NSObject {
 
     unowned let store: CharacterListTableStore

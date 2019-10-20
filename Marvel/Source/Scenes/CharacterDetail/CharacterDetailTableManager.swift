@@ -1,9 +1,5 @@
 import UIKit
 
-protocol CharacterDetailTableStore: class {
-    var sections: [HeroDetailSectionModel] { get }
-}
-
 final class CharacterDetailTableManager: NSObject {
 
     unowned let tableStore: CharacterDetailTableStore

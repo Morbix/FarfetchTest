@@ -1,23 +1,5 @@
 import Foundation
 
-protocol CharacterListViewing {
-    func showSceneSpinner()
-    func removeSceneSpinner()
-    func showCharacteresTable()
-    func hideCharactersTable()
-    func showRetryOption()
-    func hideRetryOption()
-    func showEmptyFeeback()
-    func hideEmptyFeedback()
-    func reloadData()
-    func setSceneTitle(_ title: String)
-}
-
-typealias ResultHeroes = Result<([Hero], Int), Error>
-protocol CharacterListFetcher: class {
-    func getCharacters(skip: Int, completion: @escaping (ResultHeroes) -> Void)
-}
-
 final class CharacterListPresenter {
 
     private let dataStore: CharacterListDataStore

@@ -1,19 +1,5 @@
 import Foundation
 
-protocol CharacterDetailViewing {
-    func setSceneTitle(_ title: String)
-    func reloadData()
-}
-
-enum ContentType: String {
-    case comics, series, stories, events
-}
-
-typealias ResultContent = Result<[Content], Error>
-protocol CharacterDetailFetcher {
-    func getContent(type: ContentType, characterId: Int, completion: @escaping (ResultContent) -> Void)
-}
-
 final class CharacterDetailPresenter {
 
     private let dataStore: CharacterDetailDataStore
@@ -28,7 +14,6 @@ final class CharacterDetailPresenter {
     func viewDidLoad(view: CharacterDetailViewing) {
         dataStore.view = view
 
-        #warning("test this")
         dataStore.view?.reloadData()
         dataStore.view?.setSceneTitle(dataStore.hero.name)
 
