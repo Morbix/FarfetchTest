@@ -4,11 +4,14 @@ final class CharacterListPresenter {
 
     private let dataStore: CharacterListDataStore
     private let fetcher: CharacterListFetcher
+    private let router: CharacterListRoutering
 
     init(dataStore: CharacterListDataStore,
-         fetcher: CharacterListFetcher) {
+         fetcher: CharacterListFetcher,
+         router: CharacterListRoutering) {
         self.dataStore = dataStore
         self.fetcher = fetcher
+        self.router = router
     }
 
     func viewDidLoad(view: CharacterListViewing) {
@@ -74,6 +77,10 @@ extension CharacterListPresenter: CharacterListTableManagerDelegate {
                 completion: getCharactersHandler
             )
         }
+    }
+
+    func tableDidSelect(at: IndexPath) {
+        #warning("3 implement didSelect")
     }
 }
 

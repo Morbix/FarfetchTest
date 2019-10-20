@@ -58,10 +58,3 @@ final class CharacterListTableManagerScrollDelegateTests: CharacterListTableMana
     }
 
 }
-
-final class CharacterListTableManagerDelegateSpy: CharacterListTableManagerDelegate {
-    private(set) var tableDidReachRegionAroundTheEndCalled: Bool = false
-    func tableDidReachRegionAroundTheEnd() {
-        tableDidReachRegionAroundTheEndCalled = true
-    }
-}

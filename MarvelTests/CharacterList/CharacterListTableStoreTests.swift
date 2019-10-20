@@ -6,7 +6,8 @@ final class CharacterListTableStoreTests: XCTestCase {
     private let dataStore = CharacterListDataStore()
     private lazy var sut = CharacterListPresenter(
         dataStore: dataStore,
-        fetcher: CharacterListFetcherSpy()
+        fetcher: CharacterListFetcherSpy(),
+        router: CharacterListRouteringSpy()
     )
 
     func testLastCellState() throws {

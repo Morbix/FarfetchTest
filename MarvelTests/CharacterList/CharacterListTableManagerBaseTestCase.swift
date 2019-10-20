@@ -29,7 +29,6 @@ class CharacterListTableManagerBaseTestCase: XCTestCase {
         XCTAssertEqual(tableSpy.identifiers.contains("cell"), true)
     }
 
-    
 }
 
 // MARK: - HeroCellModel Fixtures

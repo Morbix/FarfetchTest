@@ -77,6 +77,15 @@ extension CharacterListTableManager: UITableViewDataSource {
 
 extension CharacterListTableManager: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        if indexPath.section == 0,
+            indexPath.row < store.heroes.count,
+            store.heroes[indexPath.row].hasDetail {
+            
+            delegate.tableDidSelect(at: indexPath)
+        }
+    }
 }
 
 // MARK: - UIScrollViewDelegate

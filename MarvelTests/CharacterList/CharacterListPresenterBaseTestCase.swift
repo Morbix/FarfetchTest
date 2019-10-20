@@ -6,10 +6,12 @@ class CharacterListPresenterBaseTestCase: XCTestCase {
     let fetcherSpy = CharacterListFetcherSpy()
     let dataStoreSpy = CharacterListDataStore()
     let viewingSpy = CharacterListViewingSpy()
+    let routerSpy = CharacterListRouteringSpy()
     
     lazy var sut = CharacterListPresenter(
         dataStore: dataStoreSpy,
-        fetcher: fetcherSpy
+        fetcher: fetcherSpy,
+        router: routerSpy
     )
 
     func testDataStorePassed() {

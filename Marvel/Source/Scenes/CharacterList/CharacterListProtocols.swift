@@ -25,4 +25,9 @@ protocol CharacterListTableStore: class {
 
 protocol CharacterListTableManagerDelegate: class {
     func tableDidReachRegionAroundTheEnd()
+    func tableDidSelect(at: IndexPath)
+}
+
+protocol CharacterListRoutering {
+    func navigateToDetail(hero: Hero)
 }
