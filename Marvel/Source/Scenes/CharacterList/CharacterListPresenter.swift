@@ -7,13 +7,10 @@ protocol CharacterListViewing {
     func hideCharactersTable()
     func showRetryOption()
     func hideRetryOption()
-    func showRetryCell()
-    func hideRetryCell()
     func showEmptyFeeback()
     func hideEmptyFeedback()
-    func includeCharacters(_ characters: [HeroCellModel])
+    func reloadData()
     func setSceneTitle(_ title: String)
-    func showLoadingCell()
 }
 
 typealias ResultHeroes = Result<[Hero], Error>
@@ -44,7 +41,8 @@ final class CharacterListPresenter {
 
             switch result {
             case .success(let items):
-                view.hideRetryCell()
+                #warning("test this")
+                dataStore.lastCellState = .none
                 view.hideRetryOption()
 
                 if items.isEmpty && dataStore.characters.isEmpty {
@@ -53,23 +51,19 @@ final class CharacterListPresenter {
                 } else {
                     view.showCharacteresTable()
                     dataStore.characters.append(contentsOf: items)
-                    view.includeCharacters(items.map(HeroCellModel.init))
                 }
             case .failure:
                 if dataStore.characters.isEmpty {
                     view.hideCharactersTable()
                     view.showRetryOption()
                 } else {
-                    view.showRetryCell()
+                    #warning("test this")
+                    dataStore.lastCellState = .retry
                 }
             }
-        }
-    }
 
-    func tableDidReachRegionAroundTheEnd() {
-        if dataStore.lastCellState == .hidden {
-            dataStore.lastCellState = .loading
-            dataStore.view?.showLoadingCell()
+            #warning("test this")
+            view.reloadData()
         }
     }
 
@@ -82,8 +76,14 @@ final class CharacterListPresenter {
     }
 }
 
-private extension HeroCellModel {
-    init(hero: Hero) {
-        self.init(name: hero.name)
+// MARK: - CharacterListTableManagerDelegate
+
+extension CharacterListPresenter: CharacterListTableManagerDelegate {
+
+    func tableDidReachRegionAroundTheEnd() {
+        if dataStore.lastCellState == .none {
+            dataStore.lastCellState = .loading
+            dataStore.view?.reloadData()
+        }
     }
 }

@@ -51,9 +51,8 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertFalse(viewingSpy.hideCharactersTableCalled)
         XCTAssertFalse(viewingSpy.hideRetryOptionCalled)
         XCTAssertFalse(viewingSpy.showRetryOptionCalled)
-        XCTAssertFalse(viewingSpy.showRetryCellCalled)
         XCTAssertFalse(viewingSpy.showEmptyFeebackCalled)
-        XCTAssertFalse(viewingSpy.hideRetryCellCalled)
+        XCTAssertFalse(viewingSpy.reloadDataCalled)
     }
 
     func testRemoveSpinnerWhenGetCharactersReturnsWithAnyResult() {
@@ -62,6 +61,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         fetcherSpy.getCharactersCompletionPassed?(.fixtureRamdom)
 
         XCTAssertEqual(viewingSpy.removeSceneSpinnerCalled, true)
+        XCTAssertEqual(viewingSpy.reloadDataCalled, true)
     }
 
     // MARK: GetCharacters Returns An Error
@@ -74,7 +74,6 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
         XCTAssertEqual(viewingSpy.hideCharactersTableCalled, true)
         XCTAssertEqual(viewingSpy.showRetryOptionCalled, true)
-        XCTAssertEqual(viewingSpy.showRetryCellCalled, false)
     }
 
     func testUpdateInterfaceWhenGetCharactersReturnsWithErrorAndDataStoreIsNotEmpty() {
@@ -83,7 +82,7 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
         fetcherSpy.getCharactersCompletionPassed?(.fixtureAnyFailure)
 
-        XCTAssertEqual(viewingSpy.showRetryCellCalled, true)
+        XCTAssertEqual(dataStoreSpy.lastCellState, .retry)
         XCTAssertEqual(viewingSpy.hideCharactersTableCalled, false)
         XCTAssertEqual(viewingSpy.showRetryOptionCalled, false)
     }
@@ -96,7 +95,6 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
         fetcherSpy.getCharactersCompletionPassed?(.fixtureAnySuccess)
 
-        XCTAssertEqual(viewingSpy.hideRetryCellCalled, true)
         XCTAssertEqual(viewingSpy.hideRetryOptionCalled, true)
     }
 
@@ -106,45 +104,34 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
         fetcherSpy.getCharactersCompletionPassed?(.fixtureEmptySuccess)
 
+        XCTAssertEqual(dataStoreSpy.lastCellState, .none)
+        XCTAssertEqual(dataStoreSpy.characters.isEmpty, true)
         XCTAssertEqual(viewingSpy.showEmptyFeebackCalled, true)
         XCTAssertEqual(viewingSpy.hideCharactersTableCalled, true)
     }
 
-    func testDataStoreWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsEmpty() {
-        dataStoreSpy.characters = []
-
-        fetcherSpy.getCharactersCompletionPassed?(.fixtureEmptySuccess)
-
-        XCTAssertEqual(dataStoreSpy.characters.isEmpty, true)
-    }
-
-    func testDataStoreWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsNotEmpty() {
+    func testUpdateInterfaceWhenGetCharactersReturnsWithEmptyResultAndDataStoreIsNotEmpty() {
         dataStoreSpy.characters = [.init()]
         let beforeCount = dataStoreSpy.characters.count
+        viewingSpy.reset()
 
         fetcherSpy.getCharactersCompletionPassed?(.fixtureEmptySuccess)
 
+        XCTAssertEqual(dataStoreSpy.lastCellState, .none)
         XCTAssertEqual(dataStoreSpy.characters.count, beforeCount)
         XCTAssertEqual(dataStoreSpy.characters.isEmpty, false)
+        XCTAssertEqual(viewingSpy.showCharacteresTableCalled, true)
     }
 
     func testUpdateInterfaceWhenGetCharactersReturnsWithCharactersAndDataStoreIsEmpty() {
         dataStoreSpy.characters = []
         let newItems: [Hero] = [.init()]
         let result: ResultHeroes = .success(newItems)
+        viewingSpy.reset()
 
         fetcherSpy.getCharactersCompletionPassed?(result)
 
         XCTAssertEqual(viewingSpy.showCharacteresTableCalled, true)
-    }
-
-    func testUpdateDataStoreWhenGetCharactersReturnsWithCharactersAndDataStoreIsEmpty() {
-        dataStoreSpy.characters = []
-        let newItems: [Hero] = [.init()]
-        let result: ResultHeroes = .success(newItems)
-
-        fetcherSpy.getCharactersCompletionPassed?(result)
-
         XCTAssertEqual(dataStoreSpy.characters.count, newItems.count)
         XCTAssertEqual(dataStoreSpy.characters, newItems)
     }
@@ -157,48 +144,9 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
 
         fetcherSpy.getCharactersCompletionPassed?(result)
 
+        XCTAssertEqual(viewingSpy.showCharacteresTableCalled, true)
         XCTAssertEqual(dataStoreSpy.characters.count, beforeCount + newItems.count)
         XCTAssertEqual(Array(dataStoreSpy.characters.dropFirst(beforeCount)), newItems)
-    }
-
-    // MARK: Update Table With Characteres
-
-    func testUpdateTableWith1Character() {
-        let newItems: [Hero] = [
-            .init(name: "item 1")
-        ]
-        let result: ResultHeroes = .success(newItems)
-
-        fetcherSpy.getCharactersCompletionPassed?(result)
-
-        XCTAssertEqual(viewingSpy.includeCharactersCalled, true)
-        XCTAssertEqual(viewingSpy.charactersPassed?.count, 1)
-
-        let item1 = viewingSpy.charactersPassed?.first
-        XCTAssertEqual(item1?.name, "item 1")
-    }
-
-    func testUpdateTableWith3Characteres() {
-        let newItems: [Hero] = [
-            .init(name: "item 1"),
-            .init(name: "item 2"),
-            .init(name: "item 3")
-        ]
-        let result: ResultHeroes = .success(newItems)
-
-        fetcherSpy.getCharactersCompletionPassed?(result)
-
-        XCTAssertEqual(viewingSpy.includeCharactersCalled, true)
-        XCTAssertEqual(viewingSpy.charactersPassed?.count, 3)
-
-        let item1 = viewingSpy.charactersPassed?[safe: 0]
-        XCTAssertEqual(item1?.name, "item 1")
-
-        let item2 = viewingSpy.charactersPassed?[safe: 1]
-        XCTAssertEqual(item2?.name, "item 2")
-
-        let item3 = viewingSpy.charactersPassed?[safe: 2]
-        XCTAssertEqual(item3?.name, "item 3")
     }
 }
 

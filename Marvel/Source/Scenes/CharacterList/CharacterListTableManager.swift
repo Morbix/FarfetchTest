@@ -1,18 +1,24 @@
 import UIKit
 
+protocol CharacterListTableStore: class {
+    var heroes: [HeroCellModel] { get }
+    var lastCellState: State { get }
+}
+
 protocol CharacterListTableManagerDelegate: class {
     func tableDidReachRegionAroundTheEnd()
 }
 
 final class CharacterListTableManager: NSObject {
 
-    enum State {
-        case loading, retry, hidden
-    }
+    unowned let store: CharacterListTableStore
+    unowned let delegate: CharacterListTableManagerDelegate
 
-    var lastCellState: State = .hidden
-    var heroes: [HeroCellModel] = .init()
-    weak var delegate: CharacterListTableManagerDelegate?
+    init(store: CharacterListTableStore,
+         delegate: CharacterListTableManagerDelegate) {
+        self.store = store
+        self.delegate = delegate
+    }
 
     /**
     Receives the UITableView that this manager will implement the Delegate & DataSource and will register all the cells.
@@ -37,12 +43,12 @@ extension CharacterListTableManager: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return heroes.count
+            return store.heroes.count
         } else {
-            switch lastCellState {
+            switch store.lastCellState {
             case .loading, .retry:
                 return 1
-            case .hidden:
+            case .none:
                 return 0
             }
         }
@@ -53,15 +59,15 @@ extension CharacterListTableManager: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         if indexPath.section == 0 {
-            if heroes.count > indexPath.row {
-                cell.textLabel?.text = heroes[indexPath.row].name
+            if store.heroes.count > indexPath.row {
+                cell.textLabel?.text = store.heroes[indexPath.row].name
             }
         } else {
-            if lastCellState == .loading {
+            if store.lastCellState == .loading {
                 cell.textLabel?.text = "loading_cell_message".localized()
             }
 
-            if lastCellState == .retry {
+            if store.lastCellState == .retry {
                 cell.textLabel?.text = "retry_cell_message".localized()
             }
         }
@@ -92,7 +98,7 @@ extension CharacterListTableManager: UIScrollViewDelegate {
         let target = scrollView.frame.height/10
 
         if position < target {
-            delegate?.tableDidReachRegionAroundTheEnd()
+            delegate.tableDidReachRegionAroundTheEnd()
         }
     }
 }

@@ -9,10 +9,13 @@ final class CharacterListViewingSpy: CharacterListViewing {
         hideCharactersTableCalled = false
         hideRetryOptionCalled = false
         showRetryOptionCalled = false
-        showRetryCellCalled = false
-        hideRetryCellCalled = false
         showEmptyFeebackCalled = false
-        showLoadingCellCalled = false
+        reloadDataCalled = false
+    }
+
+    private(set) var reloadDataCalled: Bool = false
+    func reloadData() {
+        reloadDataCalled = true
     }
 
     private(set) var showSceneSpinnerCalled: Bool = false
@@ -45,16 +48,6 @@ final class CharacterListViewingSpy: CharacterListViewing {
         hideRetryOptionCalled = true
     }
 
-    private(set) var showRetryCellCalled: Bool = false
-    func showRetryCell() {
-        showRetryCellCalled = true
-    }
-
-    private(set) var hideRetryCellCalled: Bool = false
-    func hideRetryCell() {
-        hideRetryCellCalled = true
-    }
-
     private(set) var showEmptyFeebackCalled: Bool = false
     func showEmptyFeeback() {
         showEmptyFeebackCalled = true
@@ -65,22 +58,10 @@ final class CharacterListViewingSpy: CharacterListViewing {
         hideEmptyFeedbackCalled = true
     }
 
-    private(set) var includeCharactersCalled: Bool = false
-    private(set) var charactersPassed: [HeroCellModel]? = nil
-    func includeCharacters(_ characters: [HeroCellModel]) {
-        includeCharactersCalled = true
-        charactersPassed = characters
-    }
-
     private(set) var setSceneTitleCalled: Bool = false
     private(set) var titlePassed: String? = nil
     func setSceneTitle(_ title: String) {
         setSceneTitleCalled = true
         titlePassed = title
-    }
-
-    private(set) var showLoadingCellCalled: Bool = false
-    func showLoadingCell() {
-        showLoadingCellCalled = true
     }
 }

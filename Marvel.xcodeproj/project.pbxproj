@@ -10,16 +10,17 @@
 		E916937678ED7B212AA2A8B3B8103F57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B436106910741B9B153E520E2363CD /* AppDelegate.swift */; };
 		96BD24956AC23E5499F91D246EC56ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D97B5BA107906286D5E25E1A62BA718F /* Assets.xcassets */; };
 		E6FB0C367DD1F847FCBE2FE5FB7C6C8F /* CharacterListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC44529E74B565FF10ECC13570A729C /* CharacterListDataStore.swift */; };
-		57587E65BD756DC3CBAEFE650A6FF8AC /* CharacterListDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEE5BB58D5B10EEF88E23FC7F28D121 /* CharacterListDataStoreTests.swift */; };
+		F959993A1CEACE23709F285CE733A93B /* CharacterListDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3DADF6539F189DDEF2573F0F3C2B98 /* CharacterListDataStoreTests.swift */; };
 		C5490790175609B0D311DB2C3241FE96 /* CharacterListFetcherSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43E5D3C5F0A57F715E680DB69ACC10 /* CharacterListFetcherSpy.swift */; };
 		C2E51A0F594CA1767A3C659D1C61077D /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11DB871CDBB53FFAEE643B6633D9F3F /* CharacterListPresenter.swift */; };
 		E0C9DD87320455DC6B87F01579A55FAC /* CharacterListPresenterBaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7245838078F4A096B2007228145A5C19 /* CharacterListPresenterBaseTestCase.swift */; };
-		352E06E225FB6D4419526BD4F224275E /* CharacterListPresenterEndOfTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C5F1D2F2DC5D4B8AB201B2FD5AA33 /* CharacterListPresenterEndOfTableTests.swift */; };
+		94E7A672A5EE9B92F01C9E295E025DD4 /* CharacterListPresenterTableManagerDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C46DFA6DA048F68907E05C78EAB67F /* CharacterListPresenterTableManagerDelegateTests.swift */; };
 		0C525E2D6830F37CE4D405399EC1F0FE /* CharacterListPresenterViewDidLoadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC936E963B0644E992D3999153A06D /* CharacterListPresenterViewDidLoadTests.swift */; };
 		83449BB97D08323A1BB5D9F511F2058A /* CharacterListTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B381D9E60A69ECC16CE39C84442ECE /* CharacterListTableManager.swift */; };
 		55075A4E3652F8685AA755F5E8EBE1A1 /* CharacterListTableManagerBaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F9832F61327F6E0C826FADC6659B9C /* CharacterListTableManagerBaseTestCase.swift */; };
 		B33359D055112F285EAE1EDEEC0296AC /* CharacterListTableManagerDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C40FCA8572FAA63D5E5870BD17516 /* CharacterListTableManagerDataSourceTests.swift */; };
 		AA3EF3F871B4688DEAB4804D27B7D725 /* CharacterListTableManagerScrollDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12704F506E7EB35E5E9E67EFB53E5C /* CharacterListTableManagerScrollDelegateTests.swift */; };
+		3911F9866B50DA3216EB340480A5D163 /* CharacterListTableStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEB3E86B2D9676FDD4D2708437C9373 /* CharacterListTableStoreSpy.swift */; };
 		50F2B3DD4945855082369C42B8C5B962 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935071F9AF1CE8AD9BF599869D1911C3 /* CharacterListViewController.swift */; };
 		D1BFB0791213CE99B95024DBCA2DC5D4 /* CharacterListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC36150481A64A0A13AA90BCF00E42 /* CharacterListViewControllerTests.swift */; };
 		E25D518B97AA175154F5EA9D2749F18D /* CharacterListViewElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588B22D2847B307E855AE0E066DC905B /* CharacterListViewElements.swift */; };
@@ -79,16 +80,17 @@
 		D97B5BA107906286D5E25E1A62BA718F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEA3D059A8A3491E60434EED58FB8147 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DC44529E74B565FF10ECC13570A729C /* CharacterListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataStore.swift; sourceTree = "<group>"; };
-		EEEE5BB58D5B10EEF88E23FC7F28D121 /* CharacterListDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataStoreTests.swift; sourceTree = "<group>"; };
+		1F3DADF6539F189DDEF2573F0F3C2B98 /* CharacterListDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataStoreTests.swift; sourceTree = "<group>"; };
 		8C43E5D3C5F0A57F715E680DB69ACC10 /* CharacterListFetcherSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListFetcherSpy.swift; sourceTree = "<group>"; };
 		C11DB871CDBB53FFAEE643B6633D9F3F /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
 		7245838078F4A096B2007228145A5C19 /* CharacterListPresenterBaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterBaseTestCase.swift; sourceTree = "<group>"; };
-		FB9C5F1D2F2DC5D4B8AB201B2FD5AA33 /* CharacterListPresenterEndOfTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterEndOfTableTests.swift; sourceTree = "<group>"; };
+		D0C46DFA6DA048F68907E05C78EAB67F /* CharacterListPresenterTableManagerDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterTableManagerDelegateTests.swift; sourceTree = "<group>"; };
 		79BC936E963B0644E992D3999153A06D /* CharacterListPresenterViewDidLoadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterViewDidLoadTests.swift; sourceTree = "<group>"; };
 		98B381D9E60A69ECC16CE39C84442ECE /* CharacterListTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableManager.swift; sourceTree = "<group>"; };
 		70F9832F61327F6E0C826FADC6659B9C /* CharacterListTableManagerBaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableManagerBaseTestCase.swift; sourceTree = "<group>"; };
 		A26C40FCA8572FAA63D5E5870BD17516 /* CharacterListTableManagerDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableManagerDataSourceTests.swift; sourceTree = "<group>"; };
 		DD12704F506E7EB35E5E9E67EFB53E5C /* CharacterListTableManagerScrollDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableManagerScrollDelegateTests.swift; sourceTree = "<group>"; };
+		FDEB3E86B2D9676FDD4D2708437C9373 /* CharacterListTableStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableStoreSpy.swift; sourceTree = "<group>"; };
 		935071F9AF1CE8AD9BF599869D1911C3 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		0EFC36150481A64A0A13AA90BCF00E42 /* CharacterListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewControllerTests.swift; sourceTree = "<group>"; };
 		588B22D2847B307E855AE0E066DC905B /* CharacterListViewElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewElements.swift; sourceTree = "<group>"; };
@@ -170,13 +172,15 @@
 		0AA0023FAAF918CE441919A17726E080 /* CharacterList */ = {
 			isa = PBXGroup;
 			children = (
+				1F3DADF6539F189DDEF2573F0F3C2B98 /* CharacterListDataStoreTests.swift */,
 				8C43E5D3C5F0A57F715E680DB69ACC10 /* CharacterListFetcherSpy.swift */,
 				7245838078F4A096B2007228145A5C19 /* CharacterListPresenterBaseTestCase.swift */,
-				FB9C5F1D2F2DC5D4B8AB201B2FD5AA33 /* CharacterListPresenterEndOfTableTests.swift */,
+				D0C46DFA6DA048F68907E05C78EAB67F /* CharacterListPresenterTableManagerDelegateTests.swift */,
 				79BC936E963B0644E992D3999153A06D /* CharacterListPresenterViewDidLoadTests.swift */,
 				70F9832F61327F6E0C826FADC6659B9C /* CharacterListTableManagerBaseTestCase.swift */,
 				A26C40FCA8572FAA63D5E5870BD17516 /* CharacterListTableManagerDataSourceTests.swift */,
 				DD12704F506E7EB35E5E9E67EFB53E5C /* CharacterListTableManagerScrollDelegateTests.swift */,
+				FDEB3E86B2D9676FDD4D2708437C9373 /* CharacterListTableStoreSpy.swift */,
 				0EFC36150481A64A0A13AA90BCF00E42 /* CharacterListViewControllerTests.swift */,
 				0B91ED5E0C26190475521CBCB8BE56CC /* CharacterListViewElementsTests.swift */,
 				5EF66FF2BDC84BEA8810BF509EBE50B5 /* CharacterListViewingSpy.swift */,
@@ -236,7 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				1DC44529E74B565FF10ECC13570A729C /* CharacterListDataStore.swift */,
-				EEEE5BB58D5B10EEF88E23FC7F28D121 /* CharacterListDataStoreTests.swift */,
 				C11DB871CDBB53FFAEE643B6633D9F3F /* CharacterListPresenter.swift */,
 				98B381D9E60A69ECC16CE39C84442ECE /* CharacterListTableManager.swift */,
 				935071F9AF1CE8AD9BF599869D1911C3 /* CharacterListViewController.swift */,
@@ -500,14 +503,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57587E65BD756DC3CBAEFE650A6FF8AC /* CharacterListDataStoreTests.swift in Sources */,
+				F959993A1CEACE23709F285CE733A93B /* CharacterListDataStoreTests.swift in Sources */,
 				C5490790175609B0D311DB2C3241FE96 /* CharacterListFetcherSpy.swift in Sources */,
 				E0C9DD87320455DC6B87F01579A55FAC /* CharacterListPresenterBaseTestCase.swift in Sources */,
-				352E06E225FB6D4419526BD4F224275E /* CharacterListPresenterEndOfTableTests.swift in Sources */,
+				94E7A672A5EE9B92F01C9E295E025DD4 /* CharacterListPresenterTableManagerDelegateTests.swift in Sources */,
 				0C525E2D6830F37CE4D405399EC1F0FE /* CharacterListPresenterViewDidLoadTests.swift in Sources */,
 				55075A4E3652F8685AA755F5E8EBE1A1 /* CharacterListTableManagerBaseTestCase.swift in Sources */,
 				B33359D055112F285EAE1EDEEC0296AC /* CharacterListTableManagerDataSourceTests.swift in Sources */,
 				AA3EF3F871B4688DEAB4804D27B7D725 /* CharacterListTableManagerScrollDelegateTests.swift in Sources */,
+				3911F9866B50DA3216EB340480A5D163 /* CharacterListTableStoreSpy.swift in Sources */,
 				D1BFB0791213CE99B95024DBCA2DC5D4 /* CharacterListViewControllerTests.swift in Sources */,
 				4AD737F21D8B5E1DBF1771ECEE00E92F /* CharacterListViewElementsTests.swift in Sources */,
 				C09298CA8E658D31C327CBB6676ADC99 /* CharacterListViewingSpy.swift in Sources */,

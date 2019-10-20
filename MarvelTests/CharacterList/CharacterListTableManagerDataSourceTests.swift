@@ -13,7 +13,7 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
 
     func testNumberOfRowsInFirstSection() {
         let viewModels = HeroCellModel.fixtureRamdomList
-        sut.heroes.append(contentsOf: viewModels)
+        tableStoreSpy.heroes.append(contentsOf: viewModels)
 
         let result = sut.tableView(tableSpy, numberOfRowsInSection: 0)
 
@@ -22,8 +22,8 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
 
     func testNumberOfRowsInSecondSectionWithStateHidden() {
         let viewModels = HeroCellModel.fixtureRamdomList
-        sut.heroes.append(contentsOf: viewModels)
-        sut.lastCellState = .hidden
+        tableStoreSpy.heroes.append(contentsOf: viewModels)
+        tableStoreSpy.lastCellState = .none
 
         let result = sut.tableView(tableSpy, numberOfRowsInSection: 1)
 
@@ -32,8 +32,8 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
 
     func testNumberOfRowsInSecondSectionWithStateLoading() {
         let viewModels = HeroCellModel.fixtureRamdomList
-        sut.heroes.append(contentsOf: viewModels)
-        sut.lastCellState = .loading
+        tableStoreSpy.heroes.append(contentsOf: viewModels)
+        tableStoreSpy.lastCellState = .loading
 
         let result = sut.tableView(tableSpy, numberOfRowsInSection: 1)
 
@@ -42,8 +42,8 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
 
     func testNumberOfRowsInSecondSectionWithStateRetry() {
         let viewModels = HeroCellModel.fixtureRamdomList
-        sut.heroes.append(contentsOf: viewModels)
-        sut.lastCellState = .retry
+        tableStoreSpy.heroes.append(contentsOf: viewModels)
+        tableStoreSpy.lastCellState = .retry
 
         let result = sut.tableView(tableSpy, numberOfRowsInSection: 1)
 
@@ -68,7 +68,7 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
 
     func testCellForRowInFirstSection() {
         let viewModels = HeroCellModel.fixtureList
-        sut.heroes.append(contentsOf: viewModels)
+        tableStoreSpy.heroes.append(contentsOf: viewModels)
 
         let cell1 = sut.tableView(tableSpy, cellForRowAt: IndexPath(
             row: 0, section: 0)
@@ -98,8 +98,8 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
 
     func testCellForRowAtInSecondSectionWithStateHidden() {
         let viewModels = HeroCellModel.fixtureRamdomList
-        sut.heroes.append(contentsOf: viewModels)
-        sut.lastCellState = .hidden
+        tableStoreSpy.heroes.append(contentsOf: viewModels)
+        tableStoreSpy.lastCellState = .none
 
         let cell = sut.tableView(tableSpy, cellForRowAt: IndexPath(row: 0, section: 1))
         XCTAssertNil(cell.textLabel?.text)
@@ -107,8 +107,8 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
 
     func testCellForRowAtInSecondSectionWithStateLoading() {
         let viewModels = HeroCellModel.fixtureRamdomList
-        sut.heroes.append(contentsOf: viewModels)
-        sut.lastCellState = .loading
+        tableStoreSpy.heroes.append(contentsOf: viewModels)
+        tableStoreSpy.lastCellState = .loading
 
         let cell = sut.tableView(tableSpy, cellForRowAt: IndexPath(row: 0, section: 1))
         XCTAssertEqual(cell.textLabel?.text, "Loading...")
@@ -116,8 +116,8 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
 
     func testCellForRowAtInSecondSectionWithStateRetry() {
         let viewModels = HeroCellModel.fixtureRamdomList
-        sut.heroes.append(contentsOf: viewModels)
-        sut.lastCellState = .retry
+        tableStoreSpy.heroes.append(contentsOf: viewModels)
+        tableStoreSpy.lastCellState = .retry
 
         let cell = sut.tableView(tableSpy, cellForRowAt: IndexPath(row: 0, section: 1))
         XCTAssertEqual(cell.textLabel?.text, "Touch here to try again!")

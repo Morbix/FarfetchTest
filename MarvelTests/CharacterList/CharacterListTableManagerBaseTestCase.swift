@@ -5,11 +5,11 @@ class CharacterListTableManagerBaseTestCase: XCTestCase {
 
     let delegateSpy = CharacterListTableManagerDelegateSpy()
     let tableSpy = UITableViewMock()
-    let sut = CharacterListTableManager()
-
-    func testStartWithEmptyHeroes() {
-        XCTAssertEqual(sut.heroes.isEmpty, true)
-    }
+    let tableStoreSpy = CharacterListTableStoreSpy()
+    lazy var sut = CharacterListTableManager(
+        store: tableStoreSpy,
+        delegate: delegateSpy
+    )
 
     func testAttachShouldSetProtocols() {
         XCTAssertNil(tableSpy.dataSource)

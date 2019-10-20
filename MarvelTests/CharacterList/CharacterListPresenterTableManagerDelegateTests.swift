@@ -1,35 +1,35 @@
 import XCTest
 @testable import Marvel
 
-final class CharacterListPresenterEndOfTableTests: CharacterListPresenterBaseTestCase {
+final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresenterBaseTestCase {
 
-    func testWhenLastCellIsHidden() {
+    func testWhenLastCellStateIsNone() {
         dataStoreSpy.view = viewingSpy
-        dataStoreSpy.lastCellState = .hidden
+        dataStoreSpy.lastCellState = .none
 
         sut.tableDidReachRegionAroundTheEnd()
 
-        XCTAssertEqual(viewingSpy.showLoadingCellCalled, true)
+        XCTAssertEqual(viewingSpy.reloadDataCalled, true)
         XCTAssertEqual(dataStoreSpy.lastCellState, .loading)
     }
 
-    func testWhenLastCellIsLoading() {
+    func testWhenLastCellStateIsLoading() {
         dataStoreSpy.view = viewingSpy
         dataStoreSpy.lastCellState = .loading
 
         sut.tableDidReachRegionAroundTheEnd()
 
-        XCTAssertEqual(viewingSpy.showLoadingCellCalled, false)
+        XCTAssertEqual(viewingSpy.reloadDataCalled, false)
         XCTAssertEqual(dataStoreSpy.lastCellState, .loading)
     }
 
-    func testWhenLastCellIsRetry() {
+    func testWhenLastCellStateIsRetry() {
         dataStoreSpy.view = viewingSpy
         dataStoreSpy.lastCellState = .retry
 
         sut.tableDidReachRegionAroundTheEnd()
 
-        XCTAssertEqual(viewingSpy.showLoadingCellCalled, false)
+        XCTAssertEqual(viewingSpy.reloadDataCalled, false)
         XCTAssertEqual(dataStoreSpy.lastCellState, .retry)
     }
 

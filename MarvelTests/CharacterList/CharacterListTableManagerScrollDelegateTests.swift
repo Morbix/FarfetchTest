@@ -3,12 +3,6 @@ import XCTest
 
 final class CharacterListTableManagerScrollDelegateTests: CharacterListTableManagerBaseTestCase {
 
-    override func setUp() {
-        super.setUp()
-
-        sut.delegate = delegateSpy
-    }
-
     func testWhenContentSizeIsLessThanTable() throws {
         let contentHeight = try XCTUnwrap((0..<100).randomElement())
         tableSpy.frame = CGRect(x: 0, y: 0, width: 10, height: 100)

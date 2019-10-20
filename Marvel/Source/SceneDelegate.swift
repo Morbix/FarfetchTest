@@ -13,12 +13,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let scene = scene as? UIWindowScene else { return }
 
+        let dataStore = CharacterListDataStore()
+        let presenter = CharacterListPresenter(
+            dataStore: dataStore,
+            fetcher: MarvelCharactersService()
+        )
+        let tableManager = CharacterListTableManager(
+            store: dataStore,
+            delegate: presenter
+        )
         let navigationController = UINavigationController(
             rootViewController: CharacterListViewController(
-                presenter: CharacterListPresenter(
-                    dataStore: CharacterListDataStore(),
-                    fetcher: MarvelCharactersService()
-                )
+                presenter: presenter,
+                tableManager: tableManager
             )
         )
 

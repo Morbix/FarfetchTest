@@ -1,12 +1,28 @@
 import Foundation
 
-final class CharacterListDataStore {
+#warning("move to structures folder")
+enum State {
+    case loading, retry, none
+}
 
-    enum State {
-        case loading, retry, hidden
-    }
+final class CharacterListDataStore {
 
     var view: CharacterListViewing?
     var characters: [Hero] = .init()
-    var lastCellState: State = .hidden
+    var lastCellState: State = .none
+}
+
+// MARK: - CharacterListTableStore
+
+extension CharacterListDataStore: CharacterListTableStore {
+
+    var heroes: [HeroCellModel] {
+        characters.map(HeroCellModel.init)
+    }
+}
+
+private extension HeroCellModel {
+    init(hero: Hero) {
+        self.init(name: hero.name)
+    }
 }

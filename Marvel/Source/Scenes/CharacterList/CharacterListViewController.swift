@@ -3,15 +3,16 @@ import UIKit
 final class CharacterListViewController: UIViewController {
 
     private let presenter: CharacterListPresenter
-    private let tableManager: CharacterListTableManager = .init()
+    private let tableManager: CharacterListTableManager
     private lazy var elements: CharacterListViewElements = CharacterListViewElements(
         parentFrame: view.frame
     )
 
-    init(presenter: CharacterListPresenter) {
+    init(presenter: CharacterListPresenter,
+         tableManager: CharacterListTableManager) {
         self.presenter = presenter
+        self.tableManager = tableManager
         super.init(nibName: nil, bundle: nil)
-        tableManager.delegate = self
     }
 
     required init?(coder: NSCoder) { return nil }
@@ -56,6 +57,10 @@ final class CharacterListViewController: UIViewController {
 
 extension CharacterListViewController: CharacterListViewing {
 
+    func reloadData() {
+        elements.tableView.reloadData()
+    }
+
     func setSceneTitle(_ title: String) {
         self.title = title
     }
@@ -84,19 +89,19 @@ extension CharacterListViewController: CharacterListViewing {
         elements.retryStack.isHidden = true
     }
 
-    func showRetryCell() {
-        tableManager.lastCellState = .retry
-        elements.tableView.reloadData()
-        //elements.tableView.reloadSections([1], with: .automatic)
-        #warning("implement this")
-    }
-
-    func hideRetryCell() {
-        tableManager.lastCellState = .hidden
-        elements.tableView.reloadData()
-        //elements.tableView.reloadSections([1], with: .automatic)
-        #warning("implement this")
-    }
+//    func showRetryCell() {
+//        //tableManager.lastCellState = .retry
+//        elements.tableView.reloadData()
+//        //elements.tableView.reloadSections([1], with: .automatic)
+//        #warning("implement this")
+//    }
+//
+//    func hideRetryCell() {
+//        //tableManager.lastCellState = .none
+//        elements.tableView.reloadData()
+//        //elements.tableView.reloadSections([1], with: .automatic)
+//        #warning("implement this")
+//    }
 
     func showEmptyFeeback() {
         elements.emptyFeedbackLabel.isHidden = false
@@ -106,24 +111,10 @@ extension CharacterListViewController: CharacterListViewing {
         elements.emptyFeedbackLabel.isHidden = true
     }
 
-    func includeCharacters(_ characters: [HeroCellModel]) {
-        tableManager.heroes.append(contentsOf: characters)
-        elements.tableView.reloadData()
-        //elements.tableView.reloadSections([0], with: .automatic)
-    }
-
-    func showLoadingCell() {
-        tableManager.lastCellState = .loading
-        elements.tableView.reloadData()
-        //elements.tableView.reloadSections([1], with: .automatic)
-        #warning("think if it is worth move reloading logic to manager")
-    }
-}
-
-// MARK: - CharacterListTableManagerDelegate
-
-extension CharacterListViewController: CharacterListTableManagerDelegate {
-    func tableDidReachRegionAroundTheEnd() {
-        presenter.tableDidReachRegionAroundTheEnd()
-    }
+//    func showLoadingCell() {
+//        //tableManager.lastCellState = .loading
+//        elements.tableView.reloadData()
+//        //elements.tableView.reloadSections([1], with: .automatic)
+//        #warning("think if it is worth move reloading logic to manager")
+//    }
 }
