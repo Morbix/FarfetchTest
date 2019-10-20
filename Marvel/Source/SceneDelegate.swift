@@ -49,7 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fetcher: MarvelCharactersService()
         )
         let tableManager = CharacterDetailTableManager(
-            tableStore: dataStore
+            tableStore: presenter
         )
         let navigationController = UINavigationController(
             rootViewController: CharacterDetailViewController(

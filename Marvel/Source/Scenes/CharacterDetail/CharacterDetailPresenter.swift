@@ -72,12 +72,42 @@ final class CharacterDetailPresenter {
     }
 }
 
+// MARK: - Array needFetchDescriptions
+
 private extension Array where Element == Content {
-    var hasSomeWithDescription: Bool {
+    private var hasSomeWithDescription: Bool {
         return contains { $0.description != nil }
     }
 
     var needFetchDescriptions: Bool {
         return !isEmpty && !hasSomeWithDescription
+    }
+}
+
+// MARK: - CharacterDetailTableStore
+
+extension CharacterDetailPresenter: CharacterDetailTableStore {
+    var sections: [HeroDetailSectionModel] {
+        return [
+            (dataStore.hero.comics, "appearance_in_comics".localized()),
+            (dataStore.hero.series, "appearance_in_series".localized()),
+            (dataStore.hero.stories, "appearance_in_stories".localized()),
+            (dataStore.hero.events, "appearance_in_events".localized())
+        ].compactMap { (list, title) in
+            guard !list.isEmpty else { return nil }
+
+            let first3Items: [HeroDetailCellModel] = list
+                .map(HeroDetailCellModel.init)
+                .dropLast(max(list.count-3, 0))
+
+            return .init(title:  title, details: first3Items)
+        }
+    }
+}
+
+private extension HeroDetailCellModel {
+    init(content: Content) {
+        self.title = content.name
+        self.subtitle = content.description
     }
 }
