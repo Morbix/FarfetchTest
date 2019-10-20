@@ -111,6 +111,40 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
         XCTAssertEqual(hero3?.name, "item 3")
     }
 
+    func testSuccessWithHeroAndContent() {
+        senderSpy.successToReturn = CharactersResponse(
+            data: .init(
+                offset: .init(),
+                total: .init(),
+                count: .init(),
+                results: [
+                    .init(
+                        id: 9,
+                        name: "name 1",
+                        description: nil,
+                        comics: .init(items: [.init(name: "comics 1")]),
+                        series: .init(items: [.init(name: "series 1")]),
+                        stories: .init(items: [.init(name: "stories 1")]),
+                        events: .init(items: [.init(name: "events 1")])
+                    )
+                ]
+            )
+        ) as Any
+
+        sut.getCharacters(completion: completionSpy.completion)
+
+        wait(for: [completionSpy.testExpectation], timeout: 3)
+
+        XCTAssertEqual(completionSpy.heroesPassed?.count, 1)
+        let hero = completionSpy.heroesPassed?.first
+        XCTAssertEqual(hero?.name, "name 1")
+        XCTAssertEqual(hero?.id, 9)
+        XCTAssertEqual(hero?.comics.first?.name, "comics 1")
+        XCTAssertEqual(hero?.series.first?.name, "series 1")
+        XCTAssertEqual(hero?.stories.first?.name, "stories 1")
+        XCTAssertEqual(hero?.events.first?.name, "events 1")
+    }
+
 }
 
 // MARK: - CompletionSpy
