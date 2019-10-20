@@ -30,8 +30,27 @@ final class CharacterDetailPresenter {
         dataStore.view?.setSceneTitle(dataStore.hero.name)
 
         let hero = dataStore.hero
+
         if hero.comics.needFetchDescriptions {
             fetcher.getContent(type: .comics, characterId: hero.id) { result in
+                print(result)
+            }
+        }
+
+        if hero.series.needFetchDescriptions {
+            fetcher.getContent(type: .series, characterId: hero.id) { result in
+                print(result)
+            }
+        }
+
+        if hero.stories.needFetchDescriptions {
+            fetcher.getContent(type: .stories, characterId: hero.id) { result in
+                print(result)
+            }
+        }
+
+        if hero.events.needFetchDescriptions {
+            fetcher.getContent(type: .events, characterId: hero.id) { result in
                 print(result)
             }
         }
