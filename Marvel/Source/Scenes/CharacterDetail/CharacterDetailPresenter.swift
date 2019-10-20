@@ -71,7 +71,6 @@ private extension Array where Element == Content {
 
 // MARK: - CharacterDetailTableStore
 
-#warning("1 cover mapping")
 extension CharacterDetailPresenter: CharacterDetailTableStore {
     var sections: [HeroDetailSectionModel] {
         return [
