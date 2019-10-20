@@ -76,3 +76,21 @@ extension CharacterListPresenter: CharacterListTableManagerDelegate {
         }
     }
 }
+
+// MARK: - CharacterListTableStore
+
+extension CharacterListPresenter: CharacterListTableStore {
+    var lastCellState: State {
+        return dataStore.lastCellState
+    }
+
+    var heroes: [HeroCellModel] {
+        dataStore.characters.map(HeroCellModel.init)
+    }
+}
+
+private extension HeroCellModel {
+    init(hero: Hero) {
+        self.init(name: hero.name)
+    }
+}

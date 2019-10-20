@@ -3,10 +3,14 @@ import XCTest
 
 final class CharacterListTableStoreTests: XCTestCase {
 
-    private let sut = CharacterListDataStore()
+    private let dataStore = CharacterListDataStore()
+    private lazy var sut = CharacterListPresenter(
+        dataStore: dataStore,
+        fetcher: CharacterListFetcherSpy()
+    )
 
     func testHeroesFor1Character() {
-        sut.characters = [
+        dataStore.characters = [
             .init(id: 1)
         ]
 
@@ -16,7 +20,7 @@ final class CharacterListTableStoreTests: XCTestCase {
     }
 
     func testHeroesFor3Characteres() {
-        sut.characters = [
+        dataStore.characters = [
             .init(id: 1),
             .init(id: 2),
             .init(id: 3)
