@@ -11,7 +11,6 @@ final class CharacterListViewController: UIViewController {
     init(presenter: CharacterListPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        #warning("test this")
         tableManager.delegate = self
     }
 
@@ -87,15 +86,15 @@ extension CharacterListViewController: CharacterListViewing {
 
     func showRetryCell() {
         tableManager.lastCellState = .retry
-        //elements.tableView.reloadData()
-        elements.tableView.reloadSections([1], with: .automatic)
+        elements.tableView.reloadData()
+        //elements.tableView.reloadSections([1], with: .automatic)
         #warning("implement this")
     }
 
     func hideRetryCell() {
         tableManager.lastCellState = .hidden
-        //elements.tableView.reloadData()
-        elements.tableView.reloadSections([1], with: .automatic)
+        elements.tableView.reloadData()
+        //elements.tableView.reloadSections([1], with: .automatic)
         #warning("implement this")
     }
 
@@ -109,13 +108,14 @@ extension CharacterListViewController: CharacterListViewing {
 
     func includeCharacters(_ characters: [HeroCellModel]) {
         tableManager.heroes.append(contentsOf: characters)
-        //elements.tableView.reloadData()
-        elements.tableView.reloadSections([0], with: .automatic)
+        elements.tableView.reloadData()
+        //elements.tableView.reloadSections([0], with: .automatic)
     }
 
     func showLoadingCell() {
         tableManager.lastCellState = .loading
-        elements.tableView.reloadSections([1], with: .automatic)
+        elements.tableView.reloadData()
+        //elements.tableView.reloadSections([1], with: .automatic)
         #warning("think if it is worth move reloading logic to manager")
     }
 }

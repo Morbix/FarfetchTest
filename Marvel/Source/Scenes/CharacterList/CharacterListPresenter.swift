@@ -67,10 +67,8 @@ final class CharacterListPresenter {
     }
 
     func tableDidReachRegionAroundTheEnd() {
-        add tests for it
-        #warning("validate if it is not already loading or retry is not already appearing")
-        if !dataStore.isLoading {
-            dataStore.isLoading = true
+        if dataStore.lastCellState == .hidden {
+            dataStore.lastCellState = .loading
             dataStore.view?.showLoadingCell()
         }
     }

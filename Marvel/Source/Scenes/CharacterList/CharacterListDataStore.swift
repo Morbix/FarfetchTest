@@ -1,7 +1,12 @@
 import Foundation
 
 final class CharacterListDataStore {
+
+    enum State {
+        case loading, retry, hidden
+    }
+
     var view: CharacterListViewing?
     var characters: [Hero] = .init()
-    var isLoading: Bool = false
+    var lastCellState: State = .hidden
 }

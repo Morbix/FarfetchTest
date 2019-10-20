@@ -19,7 +19,7 @@ final class URLSessionRequestSenderTests: XCTestCase {
 
         sut.sendRequest(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
 
-        wait(for: [completionSpy.testExpectation], timeout: 1)
+        wait(for: [completionSpy.testExpectation], timeout: 3)
 
         XCTAssertEqual(completionSpy.completionCalled, true)
         let error = completionSpy.errorPassed as NSError?
@@ -34,7 +34,7 @@ final class URLSessionRequestSenderTests: XCTestCase {
 
         sut.sendRequest(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
 
-        wait(for: [completionSpy.testExpectation], timeout: 1)
+        wait(for: [completionSpy.testExpectation], timeout: 3)
 
         XCTAssertEqual(completionSpy.completionCalled, true)
         let error = completionSpy.errorPassed as NSError?
@@ -48,7 +48,7 @@ final class URLSessionRequestSenderTests: XCTestCase {
 
         sut.sendRequest(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
 
-        wait(for: [completionSpy.testExpectation], timeout: 1)
+        wait(for: [completionSpy.testExpectation], timeout: 3)
 
         XCTAssertEqual(completionSpy.completionCalled, true)
         let error = completionSpy.errorPassed as NSError?
@@ -64,7 +64,7 @@ final class URLSessionRequestSenderTests: XCTestCase {
 
         sut.sendRequest(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
 
-        wait(for: [completionSpy.testExpectation], timeout: 1)
+        wait(for: [completionSpy.testExpectation], timeout: 3)
 
         XCTAssertEqual(completionSpy.completionCalled, true)
         let error = completionSpy.errorPassed as NSError?
@@ -80,7 +80,7 @@ final class URLSessionRequestSenderTests: XCTestCase {
 
         sut.sendRequest(with: request, returnType: DecodableStub.self, completion: completionSpy.completion)
 
-        wait(for: [completionSpy.testExpectation], timeout: 1)
+        wait(for: [completionSpy.testExpectation], timeout: 3)
 
         XCTAssertEqual(completionSpy.completionCalled, true)
         XCTAssertEqual(completionSpy.decodablePassed?.foo, 1)

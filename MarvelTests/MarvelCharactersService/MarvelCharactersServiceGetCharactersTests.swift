@@ -27,7 +27,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
 
         sut.getCharacters(completionSpy.completion)
 
-        wait(for: [completionSpy.testExpectation], timeout: 1)
+        wait(for: [completionSpy.testExpectation], timeout: 3)
 
         XCTAssertEqual(completionSpy.isMainThread, true)
         XCTAssertEqual(completionSpy.completionCalled, true)
@@ -48,7 +48,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
 
         sut.getCharacters(completionSpy.completion)
 
-        wait(for: [completionSpy.testExpectation], timeout: 1)
+        wait(for: [completionSpy.testExpectation], timeout: 3)
 
         XCTAssertEqual(completionSpy.isMainThread, true)
         XCTAssertEqual(completionSpy.completionCalled, true)
@@ -69,7 +69,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
 
         sut.getCharacters(completionSpy.completion)
 
-        wait(for: [completionSpy.testExpectation], timeout: 1)
+        wait(for: [completionSpy.testExpectation], timeout: 3)
 
         XCTAssertEqual(completionSpy.isMainThread, true)
         XCTAssertEqual(completionSpy.completionCalled, true)
@@ -94,7 +94,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
 
         sut.getCharacters(completionSpy.completion)
 
-        wait(for: [completionSpy.testExpectation], timeout: 1)
+        wait(for: [completionSpy.testExpectation], timeout: 3)
 
         XCTAssertEqual(completionSpy.isMainThread, true)
         XCTAssertEqual(completionSpy.completionCalled, true)
