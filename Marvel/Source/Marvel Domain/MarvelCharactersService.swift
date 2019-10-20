@@ -103,6 +103,6 @@ extension MarvelCharactersService: CharacterDetailFetcher {
 
 private extension Content {
     init(response: ContentResponse.Data.Item) {
-        self.init(name: response.name, description: response.description)
+        self.init(name: response.title, description: response.description)
     }
 }

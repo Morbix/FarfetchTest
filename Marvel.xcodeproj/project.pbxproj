@@ -16,6 +16,7 @@
 		331AFAAAA3062B50550A810C318DBF77 /* CharacterDetailPresenterBaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554838AFDF886F500B1C57758516933D /* CharacterDetailPresenterBaseTestCase.swift */; };
 		D42238EF4C7D3B0C8D33D215C79F7360 /* CharacterDetailPresenterViewDidLoadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E55E6C8642791C715BC4E23AB5D07F1 /* CharacterDetailPresenterViewDidLoadTests.swift */; };
 		CFBCBA77C6E4636844BB7F3B5CD099FE /* CharacterDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93375D06F14F9CD2D6BE76141CFF84B /* CharacterDetailProtocols.swift */; };
+		4699554BACD0F6253083AEE8B0AB215C /* CharacterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB3E6CCBAA9A73E41BF375C724F356 /* CharacterDetailRouter.swift */; };
 		A24093FB2FA760D9ACB0D6ACC0B3CEBA /* CharacterDetailTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93524143384E4E089A46B20F0737BED /* CharacterDetailTableManager.swift */; };
 		2F6E484762462976F865514439926685 /* CharacterDetailTableManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C45F13AC110CD7CB1054060DF5606A5 /* CharacterDetailTableManagerTests.swift */; };
 		9A6212F3A690D9285AA893885006E643 /* CharacterDetailTableStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F20783AF927A0B4F159A28AFC9EC28 /* CharacterDetailTableStoreSpy.swift */; };
@@ -31,6 +32,8 @@
 		94E7A672A5EE9B92F01C9E295E025DD4 /* CharacterListPresenterTableManagerDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C46DFA6DA048F68907E05C78EAB67F /* CharacterListPresenterTableManagerDelegateTests.swift */; };
 		0C525E2D6830F37CE4D405399EC1F0FE /* CharacterListPresenterViewDidLoadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC936E963B0644E992D3999153A06D /* CharacterListPresenterViewDidLoadTests.swift */; };
 		FBAD29C252F339F3B381BE175C46FF06 /* CharacterListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E7DACAEFB8B6A57F2F4A96F1A58F47 /* CharacterListProtocols.swift */; };
+		72E3B781ED1A649F49A11E32468847B0 /* CharacterListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27331731400CB01CA89982849DAA8D2 /* CharacterListRouter.swift */; };
+		495B5D30A468A63F76DAA009693C79FA /* CharacterListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1799046D5C9330471F57C8360CCDFBEB /* CharacterListRouter.swift */; };
 		7AA918A57E47898006C4857FE8B4E690 /* CharacterListRouteringSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A527CD8A3636DC86C84EC196B7E5E06 /* CharacterListRouteringSpy.swift */; };
 		83449BB97D08323A1BB5D9F511F2058A /* CharacterListTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B381D9E60A69ECC16CE39C84442ECE /* CharacterListTableManager.swift */; };
 		55075A4E3652F8685AA755F5E8EBE1A1 /* CharacterListTableManagerBaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F9832F61327F6E0C826FADC6659B9C /* CharacterListTableManagerBaseTestCase.swift */; };
@@ -64,6 +67,7 @@
 		5326E8E24AE754197CB52DB15A6297C3 /* MarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2377804697935BAF351A31C4E4B09C /* MarvelUITests.swift */; };
 		2882F69F1120FB4C6BF1FA1697A2F2FE /* MirrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69AE2A38C3D0501AAA347D7DC3098C6 /* MirrorExtension.swift */; };
 		A790B10DA215FCEB74ED95855F0FBCE5 /* NSError+UnexpectedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECF9339B9EE3F1A11FE6BDFEE364AA /* NSError+UnexpectedError.swift */; };
+		7B38F8D89F411552FE244A0F050923A9 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CA8386014D1972777C5CED21EE442 /* Navigation.swift */; };
 		7A6565489F6754E404938B1C2342E29B /* RequestSenderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BC44A78ED86ACA63B5CCE4736FFD08 /* RequestSenderSpy.swift */; };
 		7CF34EE50C2A6F0E2A933BD20B242F93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E109A7E6FCC87D5C5EE861559C66D8 /* SceneDelegate.swift */; };
 		28CB092F88205835F2AEACB91C557DB2 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581AA625C28904E3AD8EA446080F290 /* State.swift */; };
@@ -111,6 +115,7 @@
 		554838AFDF886F500B1C57758516933D /* CharacterDetailPresenterBaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresenterBaseTestCase.swift; sourceTree = "<group>"; };
 		5E55E6C8642791C715BC4E23AB5D07F1 /* CharacterDetailPresenterViewDidLoadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresenterViewDidLoadTests.swift; sourceTree = "<group>"; };
 		A93375D06F14F9CD2D6BE76141CFF84B /* CharacterDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailProtocols.swift; sourceTree = "<group>"; };
+		09BB3E6CCBAA9A73E41BF375C724F356 /* CharacterDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailRouter.swift; sourceTree = "<group>"; };
 		E93524143384E4E089A46B20F0737BED /* CharacterDetailTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailTableManager.swift; sourceTree = "<group>"; };
 		8C45F13AC110CD7CB1054060DF5606A5 /* CharacterDetailTableManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailTableManagerTests.swift; sourceTree = "<group>"; };
 		A9F20783AF927A0B4F159A28AFC9EC28 /* CharacterDetailTableStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailTableStoreSpy.swift; sourceTree = "<group>"; };
@@ -126,6 +131,8 @@
 		D0C46DFA6DA048F68907E05C78EAB67F /* CharacterListPresenterTableManagerDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterTableManagerDelegateTests.swift; sourceTree = "<group>"; };
 		79BC936E963B0644E992D3999153A06D /* CharacterListPresenterViewDidLoadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterViewDidLoadTests.swift; sourceTree = "<group>"; };
 		C8E7DACAEFB8B6A57F2F4A96F1A58F47 /* CharacterListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListProtocols.swift; sourceTree = "<group>"; };
+		C27331731400CB01CA89982849DAA8D2 /* CharacterListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRouter.swift; sourceTree = "<group>"; };
+		1799046D5C9330471F57C8360CCDFBEB /* CharacterListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRouter.swift; sourceTree = "<group>"; };
 		3A527CD8A3636DC86C84EC196B7E5E06 /* CharacterListRouteringSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRouteringSpy.swift; sourceTree = "<group>"; };
 		98B381D9E60A69ECC16CE39C84442ECE /* CharacterListTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableManager.swift; sourceTree = "<group>"; };
 		70F9832F61327F6E0C826FADC6659B9C /* CharacterListTableManagerBaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableManagerBaseTestCase.swift; sourceTree = "<group>"; };
@@ -165,6 +172,7 @@
 		A571187D80972BE2ECD556FC51037607 /* MarvelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E69AE2A38C3D0501AAA347D7DC3098C6 /* MirrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorExtension.swift; sourceTree = "<group>"; };
 		3EECF9339B9EE3F1A11FE6BDFEE364AA /* NSError+UnexpectedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+UnexpectedError.swift"; sourceTree = "<group>"; };
+		9A2CA8386014D1972777C5CED21EE442 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		14BC44A78ED86ACA63B5CCE4736FFD08 /* RequestSenderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSenderSpy.swift; sourceTree = "<group>"; };
 		F8E109A7E6FCC87D5C5EE861559C66D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A581AA625C28904E3AD8EA446080F290 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -315,6 +323,7 @@
 				1DC44529E74B565FF10ECC13570A729C /* CharacterListDataStore.swift */,
 				C11DB871CDBB53FFAEE643B6633D9F3F /* CharacterListPresenter.swift */,
 				C8E7DACAEFB8B6A57F2F4A96F1A58F47 /* CharacterListProtocols.swift */,
+				1799046D5C9330471F57C8360CCDFBEB /* CharacterListRouter.swift */,
 				98B381D9E60A69ECC16CE39C84442ECE /* CharacterListTableManager.swift */,
 				935071F9AF1CE8AD9BF599869D1911C3 /* CharacterListViewController.swift */,
 				588B22D2847B307E855AE0E066DC905B /* CharacterListViewElements.swift */,
@@ -330,6 +339,7 @@
 				D7F1CB94AE01DF997A1112410D17AB5E /* MarvelCharactersService */,
 				2F782D8470CEC4C600A15A89B40F68A2 /* _DoubleObjects */,
 				027A4AF6D4F42258C9B64F59EB6C728A /* _Utils */,
+				C27331731400CB01CA89982849DAA8D2 /* CharacterListRouter.swift */,
 				0C2C13C4D255DA1D0683D3C586C260EC /* Info.plist */,
 				CEBAE9A6293D17E3DBA7F91DCCC03326 /* MD5Tests.swift */,
 				12DD1B56BAF7451527D81FCD56F0A4D5 /* URLDomainMarvelDomainTests.swift */,
@@ -363,6 +373,7 @@
 				C2B436106910741B9B153E520E2363CD /* AppDelegate.swift */,
 				19C6F379953F1660E88C3A52D199889C /* Localizable.strings */,
 				1D2FC26DB51C7ECA76BC640E404A1D8E /* Marvel-Bridging-Header.h */,
+				9A2CA8386014D1972777C5CED21EE442 /* Navigation.swift */,
 				F8E109A7E6FCC87D5C5EE861559C66D8 /* SceneDelegate.swift */,
 			);
 			path = Source;
@@ -416,6 +427,7 @@
 				C2B6D9CEB4E2F3C0108EE42C10ECD50F /* CharacterDetailDataStore.swift */,
 				F6CD5F26F2B5F63A679DACCBA698AA1D /* CharacterDetailPresenter.swift */,
 				A93375D06F14F9CD2D6BE76141CFF84B /* CharacterDetailProtocols.swift */,
+				09BB3E6CCBAA9A73E41BF375C724F356 /* CharacterDetailRouter.swift */,
 				E93524143384E4E089A46B20F0737BED /* CharacterDetailTableManager.swift */,
 				7525A47E19062C3A4D48F112FA95FB67 /* CharacterDetailViewController.swift */,
 			);
@@ -608,6 +620,7 @@
 				6EA008CD39FCD08DD98D8D5E59218C7E /* CharacterListPresenterGetCharactersTests.swift in Sources */,
 				94E7A672A5EE9B92F01C9E295E025DD4 /* CharacterListPresenterTableManagerDelegateTests.swift in Sources */,
 				0C525E2D6830F37CE4D405399EC1F0FE /* CharacterListPresenterViewDidLoadTests.swift in Sources */,
+				72E3B781ED1A649F49A11E32468847B0 /* CharacterListRouter.swift in Sources */,
 				7AA918A57E47898006C4857FE8B4E690 /* CharacterListRouteringSpy.swift in Sources */,
 				55075A4E3652F8685AA755F5E8EBE1A1 /* CharacterListTableManagerBaseTestCase.swift in Sources */,
 				B33359D055112F285EAE1EDEEC0296AC /* CharacterListTableManagerDataSourceTests.swift in Sources */,
@@ -644,11 +657,13 @@
 				0FCBC92DB5607F56262ABF8506DAF2C5 /* CharacterDetailDataStore.swift in Sources */,
 				28326B6B5CB55E8F99ED611B1D2CF335 /* CharacterDetailPresenter.swift in Sources */,
 				CFBCBA77C6E4636844BB7F3B5CD099FE /* CharacterDetailProtocols.swift in Sources */,
+				4699554BACD0F6253083AEE8B0AB215C /* CharacterDetailRouter.swift in Sources */,
 				A24093FB2FA760D9ACB0D6ACC0B3CEBA /* CharacterDetailTableManager.swift in Sources */,
 				6579D29C8B9D350B5A706231A323B177 /* CharacterDetailViewController.swift in Sources */,
 				E6FB0C367DD1F847FCBE2FE5FB7C6C8F /* CharacterListDataStore.swift in Sources */,
 				C2E51A0F594CA1767A3C659D1C61077D /* CharacterListPresenter.swift in Sources */,
 				FBAD29C252F339F3B381BE175C46FF06 /* CharacterListProtocols.swift in Sources */,
+				495B5D30A468A63F76DAA009693C79FA /* CharacterListRouter.swift in Sources */,
 				83449BB97D08323A1BB5D9F511F2058A /* CharacterListTableManager.swift in Sources */,
 				50F2B3DD4945855082369C42B8C5B962 /* CharacterListViewController.swift in Sources */,
 				E25D518B97AA175154F5EA9D2749F18D /* CharacterListViewElements.swift in Sources */,
@@ -662,6 +677,7 @@
 				D9531C1F4A1AF4823CDDD93321707DB6 /* MarvelCharactersService.swift in Sources */,
 				15A2CAFDE61F2F46894BEA93DCD7ADB0 /* MarvelKeys.swift in Sources */,
 				A790B10DA215FCEB74ED95855F0FBCE5 /* NSError+UnexpectedError.swift in Sources */,
+				7B38F8D89F411552FE244A0F050923A9 /* Navigation.swift in Sources */,
 				7CF34EE50C2A6F0E2A933BD20B242F93 /* SceneDelegate.swift in Sources */,
 				28CB092F88205835F2AEACB91C557DB2 /* State.swift in Sources */,
 				FF340974A4170612E0F6064BCCBD4EB3 /* String+Localizable.swift in Sources */,

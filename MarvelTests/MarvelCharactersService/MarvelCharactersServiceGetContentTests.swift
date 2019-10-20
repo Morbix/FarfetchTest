@@ -188,7 +188,7 @@ private class CompletionSpy {
 
 extension ContentResponse.Data.Item {
     init(id: Int) {
-        self.init(id: id, name: "item \(id)", description: "description \(id)")
+        self.init(id: id, title: "item \(id)", description: "description \(id)")
     }
 }
 

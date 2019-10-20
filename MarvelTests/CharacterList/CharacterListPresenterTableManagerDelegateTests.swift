@@ -73,7 +73,7 @@ final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresen
 
     func testDidSelectAtForIndexOutOfBounds() {
         dataStoreSpy.characters = []
-        
+
         sut.tableDidSelect(at: 1)
 
         XCTAssertEqual(routerSpy.navigateToDetailCalled, false)

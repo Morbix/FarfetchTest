@@ -16,7 +16,7 @@ extension ContentResponse {
 extension ContentResponse.Data {
     struct Item: Decodable {
         let id: Int
-        let name: String
+        let title: String
         let description: String?
     }
 }

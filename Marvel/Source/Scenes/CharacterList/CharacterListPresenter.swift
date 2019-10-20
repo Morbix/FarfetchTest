@@ -102,6 +102,14 @@ extension CharacterListPresenter: CharacterListTableStore {
 
 private extension HeroCellModel {
     init(hero: Hero) {
-        self.init(name: hero.name)
+        #warning("test hasDetail")
+        let totalOfContent = [
+            hero.comics.count,
+            hero.series.count,
+            hero.stories.count,
+            hero.events.count
+        ].reduce(0,+)
+
+        self.init(name: hero.name, hasDetail: totalOfContent > 0)
     }
 }

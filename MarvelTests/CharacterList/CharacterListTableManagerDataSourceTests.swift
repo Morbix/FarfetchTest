@@ -76,21 +76,18 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
         )
         XCTAssertEqual(cell1.textLabel?.text, "Hero 0")
         XCTAssertEqual(cell1.textLabel?.textColor, .black)
-        XCTAssertEqual(cell1.accessoryType, .disclosureIndicator)
 
         let cell2 = sut.tableView(tableSpy, cellForRowAt: IndexPath(
             row: 1, section: 0)
         )
         XCTAssertEqual(cell2.textLabel?.text, "Hero 1")
         XCTAssertEqual(cell2.textLabel?.textColor, .black)
-        XCTAssertEqual(cell2.accessoryType, .disclosureIndicator)
 
         let cell3 = sut.tableView(tableSpy, cellForRowAt: IndexPath(
             row: 2, section: 0)
         )
         XCTAssertEqual(cell3.textLabel?.text, "Hero 2")
         XCTAssertEqual(cell3.textLabel?.textColor, .black)
-        XCTAssertEqual(cell3.accessoryType, .disclosureIndicator)
 
         let cell4 = sut.tableView(tableSpy, cellForRowAt: IndexPath(
             row: 3, section: 0)

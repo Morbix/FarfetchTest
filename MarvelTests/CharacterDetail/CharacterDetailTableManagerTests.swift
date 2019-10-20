@@ -19,13 +19,10 @@ final class CharacterDetailTableManagerBaseTestCase: XCTestCase {
         XCTAssertTrue(tableSpy.dataSource === sut)
     }
 
-    func testAttachShouldRegisterCells() {
+    func testAttachShouldSetRowHeigth() {
         sut.attach(on: tableSpy)
 
-        XCTAssertEqual(tableSpy.registerCalled, true)
-        XCTAssertEqual(tableSpy.cellClasses.containsClass(UITableViewCell.self), true)
-        XCTAssertEqual(tableSpy.identifiers.contains("cellWithSubtitle"), true)
-        XCTAssertEqual(tableSpy.identifiers.contains("cellWithoutSubtitle"), true)
+        XCTAssertEqual(tableSpy.rowHeight, 58)
     }
 
     // MARK: NumberOfSections

@@ -2,7 +2,7 @@ import UIKit
 
 final class CharacterDetailTableManager: NSObject {
 
-    private enum Identifier: String {
+    fileprivate enum Identifier: String {
         case cellWithSubtitle, cellWithoutSubtitle
     }
 
@@ -14,8 +14,8 @@ final class CharacterDetailTableManager: NSObject {
 
     func attach(on tableView: UITableView) {
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier.cellWithSubtitle.rawValue)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier.cellWithoutSubtitle.rawValue)
+        #warning("test this")
+        tableView.rowHeight = 58
     }
 }
 
@@ -42,8 +42,7 @@ extension CharacterDetailTableManager: UITableViewDataSource {
         
         let identifier: Identifier = detail.subtitle == nil ? .cellWithoutSubtitle : .cellWithSubtitle
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier.rawValue) ??
-            UITableViewCell(style: .subtitle, reuseIdentifier: identifier.rawValue)
+        let cell = tableView.dequeueReusableCell(for: identifier)
 
         cell.selectionStyle = .none
 
@@ -59,5 +58,20 @@ extension CharacterDetailTableManager: UITableViewDataSource {
         }
 
         return tableStore.sections[section].title
+    }
+}
+
+private extension UITableView {
+    func dequeueReusableCell(for identifier: CharacterDetailTableManager.Identifier) -> UITableViewCell {
+        let cell = self.dequeueReusableCell(withIdentifier: identifier.rawValue)
+
+        if let cell = cell { return cell }
+
+        switch identifier {
+        case .cellWithSubtitle:
+            return UITableViewCell(style: .subtitle, reuseIdentifier: identifier.rawValue)
+        case .cellWithoutSubtitle:
+            return UITableViewCell(style: .default, reuseIdentifier: identifier.rawValue)
+        }
     }
 }
