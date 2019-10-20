@@ -15,6 +15,8 @@
 		EE96553E401231D85F67821427C22900 /* CharacterDetailPresenterAskForContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C728814B34C2A8A9EFFEA88C6FA1E /* CharacterDetailPresenterAskForContentTests.swift */; };
 		331AFAAAA3062B50550A810C318DBF77 /* CharacterDetailPresenterBaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554838AFDF886F500B1C57758516933D /* CharacterDetailPresenterBaseTestCase.swift */; };
 		D42238EF4C7D3B0C8D33D215C79F7360 /* CharacterDetailPresenterViewDidLoadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E55E6C8642791C715BC4E23AB5D07F1 /* CharacterDetailPresenterViewDidLoadTests.swift */; };
+		A24093FB2FA760D9ACB0D6ACC0B3CEBA /* CharacterDetailTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93524143384E4E089A46B20F0737BED /* CharacterDetailTableManager.swift */; };
+		6579D29C8B9D350B5A706231A323B177 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525A47E19062C3A4D48F112FA95FB67 /* CharacterDetailViewController.swift */; };
 		ECE137238993E93CD0F82367D06D4009 /* CharacterDetailViewingSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D70E40A39465B995D7A9EA6EC059F4A /* CharacterDetailViewingSpy.swift */; };
 		E6FB0C367DD1F847FCBE2FE5FB7C6C8F /* CharacterListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC44529E74B565FF10ECC13570A729C /* CharacterListDataStore.swift */; };
 		F959993A1CEACE23709F285CE733A93B /* CharacterListDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3DADF6539F189DDEF2573F0F3C2B98 /* CharacterListDataStoreTests.swift */; };
@@ -96,6 +98,8 @@
 		BA8C728814B34C2A8A9EFFEA88C6FA1E /* CharacterDetailPresenterAskForContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresenterAskForContentTests.swift; sourceTree = "<group>"; };
 		554838AFDF886F500B1C57758516933D /* CharacterDetailPresenterBaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresenterBaseTestCase.swift; sourceTree = "<group>"; };
 		5E55E6C8642791C715BC4E23AB5D07F1 /* CharacterDetailPresenterViewDidLoadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresenterViewDidLoadTests.swift; sourceTree = "<group>"; };
+		E93524143384E4E089A46B20F0737BED /* CharacterDetailTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailTableManager.swift; sourceTree = "<group>"; };
+		7525A47E19062C3A4D48F112FA95FB67 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		4D70E40A39465B995D7A9EA6EC059F4A /* CharacterDetailViewingSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewingSpy.swift; sourceTree = "<group>"; };
 		1DC44529E74B565FF10ECC13570A729C /* CharacterListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataStore.swift; sourceTree = "<group>"; };
 		1F3DADF6539F189DDEF2573F0F3C2B98 /* CharacterListDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataStoreTests.swift; sourceTree = "<group>"; };
@@ -376,6 +380,8 @@
 			children = (
 				C2B6D9CEB4E2F3C0108EE42C10ECD50F /* CharacterDetailDataStore.swift */,
 				F6CD5F26F2B5F63A679DACCBA698AA1D /* CharacterDetailPresenter.swift */,
+				E93524143384E4E089A46B20F0737BED /* CharacterDetailTableManager.swift */,
+				7525A47E19062C3A4D48F112FA95FB67 /* CharacterDetailViewController.swift */,
 			);
 			path = CharacterDetail;
 			sourceTree = "<group>";
@@ -594,6 +600,8 @@
 				E916937678ED7B212AA2A8B3B8103F57 /* AppDelegate.swift in Sources */,
 				0FCBC92DB5607F56262ABF8506DAF2C5 /* CharacterDetailDataStore.swift in Sources */,
 				28326B6B5CB55E8F99ED611B1D2CF335 /* CharacterDetailPresenter.swift in Sources */,
+				A24093FB2FA760D9ACB0D6ACC0B3CEBA /* CharacterDetailTableManager.swift in Sources */,
+				6579D29C8B9D350B5A706231A323B177 /* CharacterDetailViewController.swift in Sources */,
 				E6FB0C367DD1F847FCBE2FE5FB7C6C8F /* CharacterListDataStore.swift in Sources */,
 				C2E51A0F594CA1767A3C659D1C61077D /* CharacterListPresenter.swift in Sources */,
 				83449BB97D08323A1BB5D9F511F2058A /* CharacterListTableManager.swift in Sources */,

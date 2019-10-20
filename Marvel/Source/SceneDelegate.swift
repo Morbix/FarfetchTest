@@ -13,17 +13,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let scene = scene as? UIWindowScene else { return }
 
-        let dataStore = CharacterListDataStore()
-        let presenter = CharacterListPresenter(
+//        let dataStore = CharacterListDataStore()
+//        let presenter = CharacterListPresenter(
+//            dataStore: dataStore,
+//            fetcher: MarvelCharactersService()
+//        )
+//        let tableManager = CharacterListTableManager(
+//            store: dataStore,
+//            delegate: presenter
+//        )
+//        let navigationController = UINavigationController(
+//            rootViewController: CharacterListViewController(
+//                presenter: presenter,
+//                tableManager: tableManager
+//            )
+//        )
+
+        let dataStore = CharacterDetailDataStore(hero: Hero(
+            id: 1011334,
+            name: "Dummy",
+            comics: [Content(name: "comic 1", description: nil)],
+            series: [Content(name: "serie 1", description: nil)],
+            stories: [Content(name: "story 1", description: nil)],
+            events: [Content(name: "event 1", description: nil)]
+        ))
+        let presenter = CharacterDetailPresenter(
             dataStore: dataStore,
             fetcher: MarvelCharactersService()
         )
-        let tableManager = CharacterListTableManager(
-            store: dataStore,
-            delegate: presenter
-        )
+        let tableManager = CharacterDetailTableManager()
         let navigationController = UINavigationController(
-            rootViewController: CharacterListViewController(
+            rootViewController: CharacterDetailViewController(
                 presenter: presenter,
                 tableManager: tableManager
             )

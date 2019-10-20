@@ -20,11 +20,6 @@ final class CharacterListTableManager: NSObject {
         self.delegate = delegate
     }
 
-    /**
-    Receives the UITableView that this manager will implement the Delegate & DataSource and will register all the cells.
-
-    - Parameter UITableView: The UITableView that will be handle by this manager.
-    */
     func attach(on tableView: UITableView) {
         tableView.dataSource = self
         tableView.delegate = self
@@ -63,6 +58,7 @@ extension CharacterListTableManager: UITableViewDataSource {
                 cell.textLabel?.text = store.heroes[indexPath.row].name
                 cell.textLabel?.textColor = .black
                 cell.accessoryType = .disclosureIndicator
+                #warning("think if it worth open datail only if has descripion or content to show")
             }
         } else {
             if store.lastCellState == .loading {
