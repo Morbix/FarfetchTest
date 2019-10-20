@@ -21,6 +21,13 @@ final class UITableViewMock: UITableView {
         dequeueReusableCellCalled = true
         identifierPassed = identifier
         indexPathPassed = indexPath
-        return UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        return UITableViewCell(style: .default, reuseIdentifier: "")
+    }
+
+    override func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell? {
+        dequeueReusableCellCalled = true
+        identifierPassed = identifier
+        indexPathPassed = nil
+        return nil
     }
 }

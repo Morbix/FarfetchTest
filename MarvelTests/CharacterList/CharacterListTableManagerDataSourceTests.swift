@@ -62,6 +62,7 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
 
         XCTAssertEqual(tableSpy.indexPathPassed?.row, expectedRow)
         XCTAssertEqual(tableSpy.indexPathPassed?.section, expectedSection)
+        XCTAssertEqual(tableSpy.identifierPassed, "cell")
     }
 
     // MARK: cellForRowAt for First Section
@@ -73,7 +74,6 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
         let cell1 = sut.tableView(tableSpy, cellForRowAt: IndexPath(
             row: 0, section: 0)
         )
-        XCTAssertEqual(cell1.reuseIdentifier, "Cell")
         XCTAssertEqual(cell1.textLabel?.text, "Hero 0")
         XCTAssertEqual(cell1.textLabel?.textColor, .black)
         XCTAssertEqual(cell1.accessoryType, .disclosureIndicator)
@@ -81,7 +81,6 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
         let cell2 = sut.tableView(tableSpy, cellForRowAt: IndexPath(
             row: 1, section: 0)
         )
-        XCTAssertEqual(cell2.reuseIdentifier, "Cell")
         XCTAssertEqual(cell2.textLabel?.text, "Hero 1")
         XCTAssertEqual(cell2.textLabel?.textColor, .black)
         XCTAssertEqual(cell2.accessoryType, .disclosureIndicator)
@@ -89,7 +88,6 @@ final class CharacterListTableManagerDataSourceTests: CharacterListTableManagerB
         let cell3 = sut.tableView(tableSpy, cellForRowAt: IndexPath(
             row: 2, section: 0)
         )
-        XCTAssertEqual(cell3.reuseIdentifier, "Cell")
         XCTAssertEqual(cell3.textLabel?.text, "Hero 2")
         XCTAssertEqual(cell3.textLabel?.textColor, .black)
         XCTAssertEqual(cell3.accessoryType, .disclosureIndicator)

@@ -2,6 +2,10 @@ import UIKit
 
 final class CharacterListTableManager: NSObject {
 
+    private enum Identifier: String {
+        case cell
+    }
+
     unowned let store: CharacterListTableStore
     unowned let delegate: CharacterListTableManagerDelegate
 
@@ -14,7 +18,7 @@ final class CharacterListTableManager: NSObject {
     func attach(on tableView: UITableView) {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier.cell.rawValue)
     }
 
 }
@@ -42,7 +46,7 @@ extension CharacterListTableManager: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.cell.rawValue, for: indexPath)
 
         if indexPath.section == 0 {
             if store.heroes.count > indexPath.row {

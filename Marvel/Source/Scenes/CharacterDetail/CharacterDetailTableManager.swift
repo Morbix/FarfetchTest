@@ -1,7 +1,10 @@
 import UIKit
 
-#warning("2 cover table manager")
 final class CharacterDetailTableManager: NSObject {
+
+    private enum Identifier: String {
+        case cellWithSubtitle, cellWithoutSubtitle
+    }
 
     unowned let tableStore: CharacterDetailTableStore
 
@@ -11,7 +14,8 @@ final class CharacterDetailTableManager: NSObject {
 
     func attach(on tableView: UITableView) {
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier.cellWithSubtitle.rawValue)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier.cellWithoutSubtitle.rawValue)
     }
 }
 
@@ -32,16 +36,18 @@ extension CharacterDetailTableManager: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        cell.selectionStyle = .none
-
         guard indexPath.section < tableStore.sections.count,
             indexPath.row < tableStore.sections[indexPath.section].details.count else {
-            return cell
+            return UITableViewCell()
         }
 
         let detail = tableStore.sections[indexPath.section].details[indexPath.row]
+        let identifier: Identifier = detail.subtitle == nil ? .cellWithoutSubtitle : .cellWithSubtitle
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier.rawValue) ??
+            UITableViewCell(style: .subtitle, reuseIdentifier: identifier.rawValue)
+
+        cell.selectionStyle = .none
 
         cell.textLabel?.text = detail.title
         cell.detailTextLabel?.text = detail.subtitle

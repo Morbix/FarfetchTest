@@ -26,7 +26,7 @@ class CharacterListTableManagerBaseTestCase: XCTestCase {
 
         XCTAssertEqual(tableSpy.registerCalled, true)
         XCTAssertEqual(tableSpy.cellClasses.containsClass(UITableViewCell.self), true)
-        XCTAssertEqual(tableSpy.identifiers.contains("Cell"), true)
+        XCTAssertEqual(tableSpy.identifiers.contains("cell"), true)
     }
 
     

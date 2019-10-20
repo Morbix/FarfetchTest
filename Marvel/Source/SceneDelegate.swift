@@ -39,7 +39,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         #warning("implement retry cell on main list")
         #warning("readme")
 
-
         let dataStore = CharacterDetailDataStore(hero: Hero(
             id: 1011334,
             name: "Dummy",
