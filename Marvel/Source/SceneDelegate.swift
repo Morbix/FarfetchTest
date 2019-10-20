@@ -29,6 +29,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            )
 //        )
 
+        #warning("3 implement router")
+
+        #warning("implement image on main list")
+        #warning("implement star hero on main scene")
+        #warning("implement star hero on detail scene")
+        #warning("implement custom transition")
+        #warning("implement search on main list")
+        #warning("implement retry cell on main list")
+        #warning("readme")
+
+
         let dataStore = CharacterDetailDataStore(hero: Hero(
             id: 1011334,
             name: "Dummy",

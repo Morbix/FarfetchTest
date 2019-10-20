@@ -25,5 +25,5 @@ That's all. Open Xcode and Run.
 ### README TODO
 - Badges
 - Describe architecture
-- Describe highlight points
+- Describe highlight points (error feedbacks)
 - Muter

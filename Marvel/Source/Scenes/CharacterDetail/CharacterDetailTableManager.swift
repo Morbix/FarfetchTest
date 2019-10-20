@@ -1,5 +1,6 @@
 import UIKit
 
+#warning("2 cover table manager")
 final class CharacterDetailTableManager: NSObject {
 
     unowned let tableStore: CharacterDetailTableStore
