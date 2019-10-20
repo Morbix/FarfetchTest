@@ -5,7 +5,6 @@ protocol Scene {
 }
 
 extension Scene where Self: UIViewController {
-    #warning("test this")
     func makeViewController() -> UIViewController {
         return self
     }
@@ -20,7 +19,6 @@ protocol Navigator: class {
 }
 
 extension UINavigationController: Navigator {
-    #warning("test this")
     func pushRouter(_ router: Router, animated: Bool = true) {
         pushViewController(router.makeScene().makeViewController(), animated: animated)
     }
