@@ -17,6 +17,7 @@ extension CharactersResponse.Data {
     struct Item: Decodable {
         let id: Int
         let name: String
+        let description: String?
         let comics: Content
         let series: Content
         let stories: Content

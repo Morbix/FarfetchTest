@@ -149,6 +149,7 @@ extension CharactersResponse.Data.Item {
         self.init(
             id: id,
             name: "item \(id)",
+            description: nil,
             comics: .init(items: []),
             series: .init(items: []),
             stories: .init(items: []),

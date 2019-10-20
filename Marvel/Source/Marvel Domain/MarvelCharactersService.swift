@@ -84,8 +84,25 @@ extension MarvelCharactersService: CharacterDetailFetcher {
             .appendMarvelAuth()
             .build()
 
-        sender.sendRequest(with: request!, returnType: WrapperResponse.self) { taskResult in
-            print(taskResult)
+        sender.sendRequest(with: request!, returnType: ContentResponse.self) { taskResult in
+            let finalResult: ResultContent
+
+            switch taskResult {
+            case .success(let response):
+                finalResult = .success(response.data.results.map(Content.init))
+            case .failure(let error):
+                finalResult = .failure(error)
+            }
+
+            DispatchQueue.main.async {
+                completion(finalResult)
+            }
         }
+    }
+}
+
+private extension Content {
+    init(response: ContentResponse.Data.Item) {
+        self.init(name: response.name, description: response.description)
     }
 }
