@@ -14,7 +14,7 @@ final class CharacterListTableManagerScrollDelegateTests: CharacterListTableMana
     }
 
     func testWhenOffsetIsNotCloseToTheContentEnd1() throws {
-        let scrollPosition = try XCTUnwrap((0..<90).randomElement())
+        let scrollPosition = try XCTUnwrap((0..<80).randomElement())
         tableSpy.frame = CGRect(x: 0, y: 0, width: 10, height: 100)
         tableSpy.contentSize = CGSize(width: 10, height: 200)
         tableSpy.contentOffset = CGPoint(x: 0, y: scrollPosition)
@@ -25,7 +25,7 @@ final class CharacterListTableManagerScrollDelegateTests: CharacterListTableMana
     }
 
     func testWhenOffsetIsNotCloseToTheContentEnd2() throws {
-        let scrollPosition = try XCTUnwrap((0..<900).randomElement())
+        let scrollPosition = try XCTUnwrap((0..<800).randomElement())
         tableSpy.frame = CGRect(x: 0, y: 0, width: 10, height: 1000)
         tableSpy.contentSize = CGSize(width: 10, height: 2000)
         tableSpy.contentOffset = CGPoint(x: 0, y: scrollPosition)
@@ -36,7 +36,7 @@ final class CharacterListTableManagerScrollDelegateTests: CharacterListTableMana
     }
 
     func testWhenOffsetIsCloseToTheContentEnd1() throws {
-        let scrollPosition = try XCTUnwrap((90..<100).randomElement())
+        let scrollPosition = try XCTUnwrap((80..<100).randomElement())
         tableSpy.frame = CGRect(x: 0, y: 0, width: 10, height: 100)
         tableSpy.contentSize = CGSize(width: 10, height: 200)
         tableSpy.contentOffset = CGPoint(x: 0, y: scrollPosition)
@@ -47,7 +47,7 @@ final class CharacterListTableManagerScrollDelegateTests: CharacterListTableMana
     }
 
     func testWhenOffsetIsCloseToTheContentEnd2() throws {
-        let scrollPosition = try XCTUnwrap((900..<1000).randomElement())
+        let scrollPosition = try XCTUnwrap((800..<1000).randomElement())
         tableSpy.frame = CGRect(x: 0, y: 0, width: 10, height: 1000)
         tableSpy.contentSize = CGSize(width: 10, height: 2000)
         tableSpy.contentOffset = CGPoint(x: 0, y: scrollPosition)

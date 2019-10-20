@@ -97,8 +97,7 @@ extension CharacterListTableManager: UIScrollViewDelegate {
         position -= scrollView.frame.height
         position -= scrollView.contentOffset.y
 
-        //let target = scrollView.contentSize.height/10
-        let target = scrollView.frame.height/10
+        let target = scrollView.frame.height/5
 
         if position <= target {
             delegate.tableDidReachRegionAroundTheEnd()
