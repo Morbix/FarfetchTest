@@ -128,8 +128,15 @@ final class CharacterListPresenterGetCharactersTests: CharacterListPresenterBase
 }
 // MARK: - Hero Dummy
 extension Hero {
-    init() {
-        self.init(name: .init())
+    convenience init() {
+        self.init(
+            id: 0,
+            name: .init(),
+            comics: [],
+            series: [],
+            stories: [],
+            events: []
+        )
     }
 }
 

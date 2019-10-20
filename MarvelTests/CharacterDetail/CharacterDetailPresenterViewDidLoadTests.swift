@@ -14,4 +14,8 @@ final class CharacterDetailPresenterViewDidLoadTests: CharacterDetailPresenterBa
         XCTAssertTrue(dataStoreSpy.view as? CharacterDetailViewingSpy === viewingSpy)
     }
 
+    func testSetSceneTitle() {
+        XCTAssertEqual(viewingSpy.setSceneTitleCalled, true)
+        XCTAssertEqual(viewingSpy.titlePassed, hero.name)
+    }
 }

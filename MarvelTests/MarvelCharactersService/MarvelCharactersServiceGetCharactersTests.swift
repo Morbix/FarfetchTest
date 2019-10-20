@@ -63,7 +63,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
                 total: .init(),
                 count: .init(),
                 results: [
-                    .init(id: 1, name: "name")
+                    .init(id: 1)
                 ]
             )
         ) as Any
@@ -76,7 +76,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
         XCTAssertEqual(completionSpy.completionCalled, true)
         XCTAssertEqual(completionSpy.heroesPassed?.count, 1)
         let hero = completionSpy.heroesPassed?.first
-        XCTAssertEqual(hero?.name, "name")
+        XCTAssertEqual(hero?.name, "item 1")
     }
 
     func testSuccessWithHeroes() {
@@ -86,9 +86,9 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
                 total: .init(),
                 count: .init(),
                 results: [
-                    .init(id: 1, name: "name1"),
-                    .init(id: 2, name: "name2"),
-                    .init(id: 3, name: "name3"),
+                    .init(id: 1),
+                    .init(id: 2),
+                    .init(id: 3),
                 ]
             )
         ) as Any
@@ -102,13 +102,13 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
         XCTAssertEqual(completionSpy.heroesPassed?.count, 3)
 
         let hero1 = completionSpy.heroesPassed?[safe: 0]
-        XCTAssertEqual(hero1?.name, "name1")
+        XCTAssertEqual(hero1?.name, "item 1")
 
         let hero2 = completionSpy.heroesPassed?[safe: 1]
-        XCTAssertEqual(hero2?.name, "name2")
+        XCTAssertEqual(hero2?.name, "item 2")
 
         let hero3 = completionSpy.heroesPassed?[safe: 2]
-        XCTAssertEqual(hero3?.name, "name3")
+        XCTAssertEqual(hero3?.name, "item 3")
     }
 
 }
@@ -139,5 +139,20 @@ private class CompletionSpy {
         }
 
         testExpectation.fulfill()
+    }
+}
+
+// MARK: CharactersResponse.Data.Item Dummy
+
+extension CharactersResponse.Data.Item {
+    init(id: Int) {
+        self.init(
+            id: id,
+            name: "item \(id)",
+            comics: .init(items: []),
+            series: .init(items: []),
+            stories: .init(items: []),
+            events: .init(items: [])
+        )
     }
 }

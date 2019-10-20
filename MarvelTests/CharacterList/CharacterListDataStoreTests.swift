@@ -25,7 +25,7 @@ final class CharacterListDataStoreTests: XCTestCase {
 
     func testHeroesFor1Character() {
         sut.characters = [
-            .init(name: "item 1")
+            .init(id: 1)
         ]
 
 
@@ -35,9 +35,9 @@ final class CharacterListDataStoreTests: XCTestCase {
 
     func testHeroesFor3Characteres() {
         sut.characters = [
-            .init(name: "item 1"),
-            .init(name: "item 2"),
-            .init(name: "item 3")
+            .init(id: 1),
+            .init(id: 2),
+            .init(id: 3)
         ]
 
 
@@ -54,3 +54,16 @@ final class CharacterListDataStoreTests: XCTestCase {
     }
 }
 
+// MARK: - Hero Dummy
+extension Hero {
+    convenience init(id: Int) {
+        self.init(
+            id: id,
+            name: "item \(id)",
+            comics: [],
+            series: [],
+            stories: [],
+            events: []
+        )
+    }
+}

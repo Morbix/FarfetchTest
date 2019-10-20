@@ -9,13 +9,29 @@ extension CharactersResponse {
         let offset: Int
         let total: Int
         let count: Int
-        let results: [Hero]
+        let results: [Item]
     }
 }
 
-extension CharactersResponse {
-    struct Hero: Decodable {
+extension CharactersResponse.Data {
+    struct Item: Decodable {
         let id: Int
+        let name: String
+        let comics: Content
+        let series: Content
+        let stories: Content
+        let events: Content
+    }
+}
+
+extension CharactersResponse.Data {
+    struct Content: Decodable {
+        let items: [Item]
+    }
+}
+
+extension CharactersResponse.Data.Content {
+    struct Item: Decodable {
         let name: String
     }
 }

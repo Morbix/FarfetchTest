@@ -48,7 +48,20 @@ extension MarvelCharactersService: CharacterListFetcher {
 }
 
 private extension Hero {
-    init(response: CharactersResponse.Hero) {
-        self.name = response.name
+    convenience init(response: CharactersResponse.Data.Item) {
+        self.init(
+            id: response.id,
+            name: response.name,
+            comics: response.comics.items.map(Content.init),
+            series: response.series.items.map(Content.init),
+            stories: response.stories.items.map(Content.init),
+            events: response.events.items.map(Content.init)
+        )
+    }
+}
+
+private extension Content {
+    init(response: CharactersResponse.Data.Content.Item) {
+        self.init(name: response.name)
     }
 }
