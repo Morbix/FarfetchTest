@@ -12,7 +12,6 @@ final class Hero: Equatable {
         return lhs.id == rhs.id
     }
 
-    #warning("test constructor")
     init(id: Int,
          name: String,
          comics: [Content],
