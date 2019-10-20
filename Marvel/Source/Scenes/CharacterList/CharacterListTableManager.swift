@@ -61,6 +61,7 @@ extension CharacterListTableManager: UITableViewDataSource {
         if indexPath.section == 0 {
             if store.heroes.count > indexPath.row {
                 cell.textLabel?.text = store.heroes[indexPath.row].name
+                cell.textLabel?.textColor = .black
             }
         } else {
             if store.lastCellState == .loading {
@@ -70,6 +71,8 @@ extension CharacterListTableManager: UITableViewDataSource {
             if store.lastCellState == .retry {
                 cell.textLabel?.text = "retry_cell_message".localized()
             }
+
+            cell.textLabel?.textColor = .lightGray
         }
 
         return cell
@@ -97,7 +100,7 @@ extension CharacterListTableManager: UIScrollViewDelegate {
         //let target = scrollView.contentSize.height/10
         let target = scrollView.frame.height/10
 
-        if position < target {
+        if position <= target {
             delegate.tableDidReachRegionAroundTheEnd()
         }
     }

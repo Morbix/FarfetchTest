@@ -8,7 +8,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
     func testRequestPassed() throws {
         senderSpy.errorToReturn = NSError.unexpectedFailure
 
-        sut.getCharacters(skip: 10, completionSpy.completion)
+        sut.getCharacters(skip: 10, completion: completionSpy.completion)
 
         XCTAssertEqual(senderSpy.requestPassed?.httpMethod, "GET")
         let url = try XCTUnwrap(senderSpy.requestPassed?.url)
@@ -26,7 +26,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
             domain: "domain", code: 999, userInfo: nil
         )
 
-        sut.getCharacters(completionSpy.completion)
+        sut.getCharacters(completion: completionSpy.completion)
 
         wait(for: [completionSpy.testExpectation], timeout: 3)
 
@@ -47,7 +47,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
             )
         ) as Any
 
-        sut.getCharacters(completionSpy.completion)
+        sut.getCharacters(completion: completionSpy.completion)
 
         wait(for: [completionSpy.testExpectation], timeout: 3)
 
@@ -68,7 +68,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
             )
         ) as Any
 
-        sut.getCharacters(completionSpy.completion)
+        sut.getCharacters(completion: completionSpy.completion)
 
         wait(for: [completionSpy.testExpectation], timeout: 3)
 
@@ -93,7 +93,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
             )
         ) as Any
 
-        sut.getCharacters(completionSpy.completion)
+        sut.getCharacters(completion: completionSpy.completion)
 
         wait(for: [completionSpy.testExpectation], timeout: 3)
 

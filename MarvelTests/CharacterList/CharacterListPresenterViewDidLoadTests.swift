@@ -150,9 +150,8 @@ final class CharacterListPresenterViewDidLoadTests: CharacterListPresenterBaseTe
         XCTAssertEqual(Array(dataStoreSpy.characters.dropFirst(beforeCount)), newItems)
     }
 }
-
 // MARK: - Hero Dummy
-private extension Hero {
+extension Hero {
     init() {
         self.init(name: .init())
     }

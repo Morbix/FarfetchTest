@@ -33,4 +33,27 @@ final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresen
         XCTAssertEqual(dataStoreSpy.lastCellState, .retry)
     }
 
+    func testAskForMoreCharacters() {
+        dataStoreSpy.view = viewingSpy
+        dataStoreSpy.lastCellState = .none
+        dataStoreSpy.characters = .fixtureRamdomList
+
+        sut.tableDidReachRegionAroundTheEnd()
+
+        XCTAssertEqual(fetcherSpy.getCharactersCalled, true)
+        XCTAssertEqual(fetcherSpy.skipPassed, dataStoreSpy.characters.count)
+    }
+
+}
+
+private extension Array where Element == Hero {
+    static var fixtureRamdomList: [Hero] {
+        var times = (0..<3).randomElement() ?? 0
+        var heroes = [Hero]()
+        while times > 0 {
+            heroes.append(Hero())
+            times -= 1
+        }
+        return heroes
+    }
 }

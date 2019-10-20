@@ -16,7 +16,7 @@ final class MarvelCharactersService {
 
 extension MarvelCharactersService: CharacterListFetcher {
 
-    func getCharacters(skip: Int = 0, _ completion: @escaping (ResultHeroes) -> Void) {
+    func getCharacters(skip: Int = 0, completion: @escaping (ResultHeroes) -> Void) {
 
         #warning("return the count and save to avoid enter in loop in the end")
         let request = URLRequestBuilder(with: .marvelDomainAPI)
@@ -40,11 +40,8 @@ extension MarvelCharactersService: CharacterListFetcher {
                 finalResult = .failure(error)
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                completion(finalResult)
-            }
             DispatchQueue.main.async {
-                //completion(finalResult)
+                completion(finalResult)
             }
         }
     }

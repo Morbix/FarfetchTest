@@ -15,7 +15,7 @@ protocol CharacterListViewing {
 
 typealias ResultHeroes = Result<[Hero], Error>
 protocol CharacterListFetcher: class {
-    func getCharacters(skip: Int, _ completion: @escaping (ResultHeroes) -> Void)
+    func getCharacters(skip: Int, completion: @escaping (ResultHeroes) -> Void)
 }
 
 final class CharacterListPresenter {
@@ -33,35 +33,36 @@ final class CharacterListPresenter {
         dataStore.view = view
 
         setupInitialState()
+        fetcher.getCharacters(skip: 0, completion: getCharactersHandler)
+    }
 
-        fetcher.getCharacters(skip: 0) { [dataStore] result in
-            guard let view = dataStore.view else { return }
+    private func getCharactersHandler(result: ResultHeroes) {
+        guard let view = dataStore.view else { return }
 
-            view.removeSceneSpinner()
+        view.removeSceneSpinner()
 
-            switch result {
-            case .success(let items):
-                dataStore.lastCellState = .none
-                view.hideRetryOption()
+        switch result {
+        case .success(let items):
+            dataStore.lastCellState = .none
+            view.hideRetryOption()
 
-                if items.isEmpty && dataStore.characters.isEmpty {
-                    view.showEmptyFeeback()
-                    view.hideCharactersTable()
-                } else {
-                    view.showCharacteresTable()
-                    dataStore.characters.append(contentsOf: items)
-                }
-            case .failure:
-                if dataStore.characters.isEmpty {
-                    view.hideCharactersTable()
-                    view.showRetryOption()
-                } else {
-                    dataStore.lastCellState = .retry
-                }
+            if items.isEmpty && dataStore.characters.isEmpty {
+                view.showEmptyFeeback()
+                view.hideCharactersTable()
+            } else {
+                view.showCharacteresTable()
+                dataStore.characters.append(contentsOf: items)
             }
-
-            view.reloadData()
+        case .failure:
+            if dataStore.characters.isEmpty {
+                view.hideCharactersTable()
+                view.showRetryOption()
+            } else {
+                dataStore.lastCellState = .retry
+            }
         }
+
+        view.reloadData()
     }
 
     private func setupInitialState() {
@@ -78,9 +79,16 @@ final class CharacterListPresenter {
 extension CharacterListPresenter: CharacterListTableManagerDelegate {
 
     func tableDidReachRegionAroundTheEnd() {
+
         if dataStore.lastCellState == .none {
+
             dataStore.lastCellState = .loading
             dataStore.view?.reloadData()
+
+            fetcher.getCharacters(
+                skip: dataStore.characters.count,
+                completion: getCharactersHandler
+            )
         }
     }
 }

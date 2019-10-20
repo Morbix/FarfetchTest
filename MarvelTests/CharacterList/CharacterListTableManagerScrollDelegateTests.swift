@@ -21,7 +21,7 @@ final class CharacterListTableManagerScrollDelegateTests: CharacterListTableMana
 
         sut.scrollViewDidScroll(tableSpy)
 
-        XCTAssertEqual(delegateSpy.tableDidReachRegionAroundTheEndCalled, false)
+        XCTAssertEqual(delegateSpy.tableDidReachRegionAroundTheEndCalled, false, "scrollPosition: \(scrollPosition)")
     }
 
     func testWhenOffsetIsNotCloseToTheContentEnd2() throws {
@@ -32,7 +32,7 @@ final class CharacterListTableManagerScrollDelegateTests: CharacterListTableMana
 
         sut.scrollViewDidScroll(tableSpy)
 
-        XCTAssertEqual(delegateSpy.tableDidReachRegionAroundTheEndCalled, false)
+        XCTAssertEqual(delegateSpy.tableDidReachRegionAroundTheEndCalled, false, "scrollPosition: \(scrollPosition)")
     }
 
     func testWhenOffsetIsCloseToTheContentEnd1() throws {
@@ -43,7 +43,7 @@ final class CharacterListTableManagerScrollDelegateTests: CharacterListTableMana
 
         sut.scrollViewDidScroll(tableSpy)
 
-        XCTAssertEqual(delegateSpy.tableDidReachRegionAroundTheEndCalled, true)
+        XCTAssertEqual(delegateSpy.tableDidReachRegionAroundTheEndCalled, true, "scrollPosition: \(scrollPosition)")
     }
 
     func testWhenOffsetIsCloseToTheContentEnd2() throws {
@@ -54,7 +54,7 @@ final class CharacterListTableManagerScrollDelegateTests: CharacterListTableMana
 
         sut.scrollViewDidScroll(tableSpy)
 
-        XCTAssertEqual(delegateSpy.tableDidReachRegionAroundTheEndCalled, true)
+        XCTAssertEqual(delegateSpy.tableDidReachRegionAroundTheEndCalled, true, "scrollPosition: \(scrollPosition)")
     }
 
 }
