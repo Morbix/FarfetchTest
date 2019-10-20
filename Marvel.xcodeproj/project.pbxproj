@@ -43,6 +43,7 @@
 		A790B10DA215FCEB74ED95855F0FBCE5 /* NSError+UnexpectedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECF9339B9EE3F1A11FE6BDFEE364AA /* NSError+UnexpectedError.swift */; };
 		7A6565489F6754E404938B1C2342E29B /* RequestSenderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BC44A78ED86ACA63B5CCE4736FFD08 /* RequestSenderSpy.swift */; };
 		7CF34EE50C2A6F0E2A933BD20B242F93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E109A7E6FCC87D5C5EE861559C66D8 /* SceneDelegate.swift */; };
+		28CB092F88205835F2AEACB91C557DB2 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581AA625C28904E3AD8EA446080F290 /* State.swift */; };
 		FF340974A4170612E0F6064BCCBD4EB3 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369A2983A3D4BCB4AB8D91EB1DA6EFF /* String+Localizable.swift */; };
 		7D7A357A43C2458CA150C68C404BC500 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8B88A17580618BED5938810D367010 /* String+MD5.swift */; };
 		8147DFE3AAFD2DC673EF557789F72E1A /* UITableViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801E87B316805A3958E07330E258CAE /* UITableViewMock.swift */; };
@@ -119,6 +120,7 @@
 		3EECF9339B9EE3F1A11FE6BDFEE364AA /* NSError+UnexpectedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+UnexpectedError.swift"; sourceTree = "<group>"; };
 		14BC44A78ED86ACA63B5CCE4736FFD08 /* RequestSenderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSenderSpy.swift; sourceTree = "<group>"; };
 		F8E109A7E6FCC87D5C5EE861559C66D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A581AA625C28904E3AD8EA446080F290 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		6369A2983A3D4BCB4AB8D91EB1DA6EFF /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		AD8B88A17580618BED5938810D367010 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		D801E87B316805A3958E07330E258CAE /* UITableViewMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewMock.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			children = (
 				49723C9B82766E5759EFC40B9C44AFC5 /* Hero.swift */,
 				7148C357121CFC580666D2336D5294D7 /* HeroCellModel.swift */,
+				A581AA625C28904E3AD8EA446080F290 /* State.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				15A2CAFDE61F2F46894BEA93DCD7ADB0 /* MarvelKeys.swift in Sources */,
 				A790B10DA215FCEB74ED95855F0FBCE5 /* NSError+UnexpectedError.swift in Sources */,
 				7CF34EE50C2A6F0E2A933BD20B242F93 /* SceneDelegate.swift in Sources */,
+				28CB092F88205835F2AEACB91C557DB2 /* State.swift in Sources */,
 				FF340974A4170612E0F6064BCCBD4EB3 /* String+Localizable.swift in Sources */,
 				7D7A357A43C2458CA150C68C404BC500 /* String+MD5.swift in Sources */,
 				0EC4AF83D92AD5D54FD0C34A9C3F87FE /* URLDomain+MarvelDomainAPI.swift in Sources */,

@@ -41,7 +41,6 @@ final class CharacterListPresenter {
 
             switch result {
             case .success(let items):
-                #warning("test this")
                 dataStore.lastCellState = .none
                 view.hideRetryOption()
 
@@ -57,12 +56,10 @@ final class CharacterListPresenter {
                     view.hideCharactersTable()
                     view.showRetryOption()
                 } else {
-                    #warning("test this")
                     dataStore.lastCellState = .retry
                 }
             }
 
-            #warning("test this")
             view.reloadData()
         }
     }

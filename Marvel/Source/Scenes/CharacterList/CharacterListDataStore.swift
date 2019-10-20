@@ -1,12 +1,6 @@
 import Foundation
 
-#warning("move to structures folder")
-enum State {
-    case loading, retry, none
-}
-
 final class CharacterListDataStore {
-
     var view: CharacterListViewing?
     var characters: [Hero] = .init()
     var lastCellState: State = .none
