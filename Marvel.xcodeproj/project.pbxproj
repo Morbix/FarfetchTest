@@ -31,6 +31,7 @@
 		B33359D055112F285EAE1EDEEC0296AC /* CharacterListTableManagerDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C40FCA8572FAA63D5E5870BD17516 /* CharacterListTableManagerDataSourceTests.swift */; };
 		AA3EF3F871B4688DEAB4804D27B7D725 /* CharacterListTableManagerScrollDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12704F506E7EB35E5E9E67EFB53E5C /* CharacterListTableManagerScrollDelegateTests.swift */; };
 		0527716EB7853C7B3E03D7EEC2017832 /* CharacterListTableStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B31FB70E46A178B31863735A39231 /* CharacterListTableStoreSpy.swift */; };
+		CBF366B680DF122215B29C0497B6D89D /* CharacterListTableStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763D54CCAB7D1410979F2C4CB2F498A7 /* CharacterListTableStoreTests.swift */; };
 		50F2B3DD4945855082369C42B8C5B962 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935071F9AF1CE8AD9BF599869D1911C3 /* CharacterListViewController.swift */; };
 		D1BFB0791213CE99B95024DBCA2DC5D4 /* CharacterListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC36150481A64A0A13AA90BCF00E42 /* CharacterListViewControllerTests.swift */; };
 		E25D518B97AA175154F5EA9D2749F18D /* CharacterListViewElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588B22D2847B307E855AE0E066DC905B /* CharacterListViewElements.swift */; };
@@ -116,6 +117,7 @@
 		A26C40FCA8572FAA63D5E5870BD17516 /* CharacterListTableManagerDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableManagerDataSourceTests.swift; sourceTree = "<group>"; };
 		DD12704F506E7EB35E5E9E67EFB53E5C /* CharacterListTableManagerScrollDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableManagerScrollDelegateTests.swift; sourceTree = "<group>"; };
 		C22B31FB70E46A178B31863735A39231 /* CharacterListTableStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableStoreSpy.swift; sourceTree = "<group>"; };
+		763D54CCAB7D1410979F2C4CB2F498A7 /* CharacterListTableStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableStoreTests.swift; sourceTree = "<group>"; };
 		935071F9AF1CE8AD9BF599869D1911C3 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		0EFC36150481A64A0A13AA90BCF00E42 /* CharacterListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewControllerTests.swift; sourceTree = "<group>"; };
 		588B22D2847B307E855AE0E066DC905B /* CharacterListViewElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewElements.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				70F9832F61327F6E0C826FADC6659B9C /* CharacterListTableManagerBaseTestCase.swift */,
 				A26C40FCA8572FAA63D5E5870BD17516 /* CharacterListTableManagerDataSourceTests.swift */,
 				DD12704F506E7EB35E5E9E67EFB53E5C /* CharacterListTableManagerScrollDelegateTests.swift */,
+				763D54CCAB7D1410979F2C4CB2F498A7 /* CharacterListTableStoreTests.swift */,
 				0EFC36150481A64A0A13AA90BCF00E42 /* CharacterListViewControllerTests.swift */,
 				0B91ED5E0C26190475521CBCB8BE56CC /* CharacterListViewElementsTests.swift */,
 			);
@@ -579,6 +582,7 @@
 				B33359D055112F285EAE1EDEEC0296AC /* CharacterListTableManagerDataSourceTests.swift in Sources */,
 				AA3EF3F871B4688DEAB4804D27B7D725 /* CharacterListTableManagerScrollDelegateTests.swift in Sources */,
 				0527716EB7853C7B3E03D7EEC2017832 /* CharacterListTableStoreSpy.swift in Sources */,
+				CBF366B680DF122215B29C0497B6D89D /* CharacterListTableStoreTests.swift in Sources */,
 				D1BFB0791213CE99B95024DBCA2DC5D4 /* CharacterListViewControllerTests.swift in Sources */,
 				4AD737F21D8B5E1DBF1771ECEE00E92F /* CharacterListViewElementsTests.swift in Sources */,
 				BCFAF2660AC357ADE645DA089EEBE949 /* CharacterListViewingSpy.swift in Sources */,
