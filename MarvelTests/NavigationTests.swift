@@ -15,25 +15,12 @@ final class NavigationTests: XCTestCase {
 
     func testUINavigationControllerPushRouter() {
         let viewController = UIViewControllerMock()
-        let routerStub = RouterStub(scene: viewController)
+        let routerStub = RouterStub()
+        routerStub.sceneToReturn = viewController
         let navigationController = UINavigationController()
-
+        
         navigationController.pushRouter(routerStub, animated: false)
 
         XCTAssertTrue(navigationController.viewControllers.first === viewController)
-    }
-}
-
-private class UIViewControllerMock: UIViewController, Scene {}
-
-private class RouterStub: Router {
-
-    private let scene: Scene
-    init(scene: Scene) {
-        self.scene = scene
-    }
-
-    func makeScene() -> Scene {
-        return scene
     }
 }
