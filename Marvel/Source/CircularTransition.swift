@@ -12,7 +12,7 @@ final class CircularTransition: NSObject {
         case present, dismiss
     }
 
-    var startingPoint = CGPoint.init(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+    var startingPoint = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
     var duration = 0.6
     var timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
 

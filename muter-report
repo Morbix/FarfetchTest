@@ -1,0 +1,116 @@
++-----------------+
+Muter finished running!
+
+Here's your test report:
+
+--------------------------
+Applied Mutation Operators
+--------------------------
+
+These are all of the ways that Muter introduced changes into your code.
+
+In total, Muter introduced 72 mutants in 14 files.
+
+File                                     Applied Mutation Operator   Mutation Test Result
+----                                     -------------------------   --------------------
+Bootstrap.swift:18                       RemoveSideEffects           mutant killed (test failure)
+Bootstrap.swift:22                       RemoveSideEffects           mutant survived
+CircularTransition.swift:34              NegateConditionals          mutant survived
+CircularTransition.swift:48              NegateConditionals          mutant survived
+CircularTransition.swift:65              NegateConditionals          mutant survived
+CircularTransition.swift:38              RemoveSideEffects           mutant survived
+CircularTransition.swift:56              RemoveSideEffects           mutant survived
+CircularTransition.swift:60              RemoveSideEffects           mutant survived
+MarvelCharactersService.swift:48         RemoveSideEffects           mutant killed (test failure)
+MarvelCharactersService.swift:105        RemoveSideEffects           mutant killed (test failure)
+Navigation.swift:19                      RemoveSideEffects           mutant survived
+UIImageView+LoadUri.swift:25             NegateConditionals          mutant survived
+UIImageView+LoadUri.swift:30             RemoveSideEffects           mutant survived
+UIImageView+LoadUri.swift:41             NegateConditionals          mutant survived
+UIImageView+LoadUri.swift:51             RemoveSideEffects           mutant survived
+UIImageView+LoadUri.swift:52             RemoveSideEffects           mutant survived
+UIImageView+LoadUri.swift:54             RemoveSideEffects           mutant survived
+URLSession+RequestSender.swift:29        RemoveSideEffects           mutant killed (test failure)
+CharacterDetailPresenter.swift:17        RemoveSideEffects           mutant killed (test failure)
+CharacterDetailPresenter.swift:64        NegateConditionals          mutant killed (test failure)
+CharacterDetailPresenter.swift:18        RemoveSideEffects           mutant killed (test failure)
+CharacterDetailPresenter.swift:68        ChangeLogicalConnector      mutant killed (test failure)
+CharacterDetailTableManager.swift:30     NegateConditionals          mutant killed (runtime error)
+CharacterDetailTableManager.swift:42     NegateConditionals          mutant killed (test failure)
+CharacterDetailTableManager.swift:55     NegateConditionals          mutant killed (runtime error)
+CharacterDetailViewController.swift:18   RemoveSideEffects           mutant survived
+CharacterDetailViewController.swift:22   RemoveSideEffects           mutant survived
+CharacterDetailViewController.swift:24   RemoveSideEffects           mutant survived
+CharacterDetailViewController.swift:34   RemoveSideEffects           mutant survived
+CharacterDetailViewController.swift:43   RemoveSideEffects           mutant survived
+CharacterListPresenter.swift:20          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:63          NegateConditionals          mutant killed (test failure)
+CharacterListPresenter.swift:80          NegateConditionals          mutant killed (test failure)
+CharacterListPresenter.swift:92          NegateConditionals          mutant killed (test failure)
+CharacterListPresenter.swift:120         NegateConditionals          mutant killed (test failure)
+CharacterListPresenter.swift:21          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:27          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:51          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:55          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:56          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:57          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:58          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:59          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:66          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:71          RemoveSideEffects           mutant killed (test failure)
+CharacterListPresenter.swift:35          ChangeLogicalConnector      mutant killed (test failure)
+CharacterListPresenter.swift:88          RemoveSideEffects           mutant killed (test failure)
+CharacterListRouter.swift:34             RemoveSideEffects           mutant killed (test failure)
+CharacterListTableManager.swift:35       NegateConditionals          mutant killed (test failure)
+CharacterListTableManager.swift:52       NegateConditionals          mutant killed (test failure)
+CharacterListTableManager.swift:64       NegateConditionals          mutant killed (test failure)
+CharacterListTableManager.swift:69       NegateConditionals          mutant killed (test failure)
+CharacterListTableManager.swift:88       NegateConditionals          mutant killed (test failure)
+CharacterListTableManager.swift:89       NegateConditionals          mutant killed (test failure)
+CharacterListTableManager.swift:91       NegateConditionals          mutant killed (test failure)
+CharacterListTableManager.swift:101      NegateConditionals          mutant killed (test failure)
+CharacterListTableManager.swift:111      NegateConditionals          mutant killed (test failure)
+CharacterListTableManager.swift:21       RemoveSideEffects           mutant killed (test failure)
+CharacterListViewController.swift:21     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:25     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:27     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:28     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:29     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:31     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:37     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:38     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:39     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:40     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:61     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:69     RemoveSideEffects           mutant survived
+CharacterListViewController.swift:73     RemoveSideEffects           mutant survived
+Hero.swift:13                            NegateConditionals          mutant killed (test failure)
+
+
+--------------------
+Mutation Test Scores
+--------------------
+
+These are the mutation scores for your test suite, as well as the files that had mutants introduced into them.
+
+Mutation scores ignore build errors.
+
+Of the 72 mutants introduced into your code, your test suite killed 40.
+Mutation Score of Test Suite: 55%
+
+File                                  # of Introduced Mutants   Mutation Score
+----                                  -----------------------   --------------
+Bootstrap.swift                       2                         50
+CircularTransition.swift              6                         0
+MarvelCharactersService.swift         2                         100
+Navigation.swift                      1                         0
+UIImageView+LoadUri.swift             6                         0
+URLSession+RequestSender.swift        1                         100
+CharacterDetailPresenter.swift        4                         100
+CharacterDetailTableManager.swift     3                         100
+CharacterDetailViewController.swift   5                         0
+CharacterListPresenter.swift          17                        100
+CharacterListRouter.swift             1                         100
+CharacterListTableManager.swift       10                        100
+CharacterListViewController.swift     13                        0
+Hero.swift                            1                         100

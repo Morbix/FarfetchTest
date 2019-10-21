@@ -30,7 +30,6 @@ extension UIImageView {
         }
     }
 
-    #warning("test it")
     // https://stackoverflow.com/questions/31314412/how-to-resize-image-in-swift
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
         let size = image.size

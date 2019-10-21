@@ -50,7 +50,7 @@ extension MarvelCharactersService: CharacterListFetcher {
 }
 
 private extension Hero {
-    #warning("test it")
+    
     convenience init(response: CharactersResponse.Data.Item) {
         let thumbnail = response.thumbnail.map {
             "\($0.path).\($0.extension)".replacingOccurrences(of: "http://", with: "https://")

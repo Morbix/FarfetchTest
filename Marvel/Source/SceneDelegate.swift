@@ -18,9 +18,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = Bootstrap().getWindow(for: scene, isTestingMode: isTestingMode)
     }
 }
-
-#warning("implement star hero on main scene")
-#warning("implement star hero on detail scene")
-#warning("implement custom transition")
-#warning("implement search on main list")
-#warning("readme")
