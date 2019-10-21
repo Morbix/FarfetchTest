@@ -26,6 +26,7 @@ protocol CharacterListTableStore: class {
 protocol CharacterListTableManagerDelegate: class {
     func tableDidReachRegionAroundTheEnd()
     func tableDidSelect(at: Int)
+    func tableDidRetry()
 }
 
 protocol CharacterListRoutering {

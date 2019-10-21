@@ -5,7 +5,7 @@ final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresen
 
     // MARK: tableDidReachRegionAroundTheEnd
 
-    func testWhenLastCellStateIsLoading() {
+    func testDidReachTheEndWhenLastCellStateIsLoading() {
         dataStoreSpy.view = viewingSpy
         dataStoreSpy.lastCellState = .loading
         dataStoreSpy.characters = .fixtureRamdomList
@@ -18,7 +18,7 @@ final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresen
         XCTAssertEqual(fetcherSpy.getCharactersCalled, false)
     }
 
-    func testWhenLastCellStateIsRetry() {
+    func testDidReachTheEndWhenLastCellStateIsRetry() {
         dataStoreSpy.view = viewingSpy
         dataStoreSpy.lastCellState = .retry
         dataStoreSpy.characters = .fixtureRamdomList
@@ -31,7 +31,7 @@ final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresen
         XCTAssertEqual(fetcherSpy.getCharactersCalled, false)
     }
 
-    func testWhenCurrentCountIsNotLessThanAvailable() {
+    func testDidReachTheEndWhenLastCellStateIsNoneAndCurrentCountIsNotLessThanAvailable() {
         dataStoreSpy.view = viewingSpy
         dataStoreSpy.lastCellState = .none
         dataStoreSpy.totalAvailable = 2
@@ -46,7 +46,7 @@ final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresen
         XCTAssertEqual(fetcherSpy.getCharactersCalled, false)
     }
 
-    func testAskForMoreCharacters() {
+    func testDidReachTheEndWhenLastCellStateIsNoneAndCurrentCountIsLessThanAvailable() {
         dataStoreSpy.view = viewingSpy
         dataStoreSpy.lastCellState = .none
         dataStoreSpy.characters = .fixtureRamdomList
@@ -79,7 +79,7 @@ final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresen
         XCTAssertEqual(routerSpy.navigateToDetailCalled, false)
     }
 
-    func testNavigateToDetailScene() {
+    func testDidSelectWhenIndexCorrespondToHero() {
         let hero = Hero(id: 999)
         dataStoreSpy.characters = [hero]
 
@@ -87,6 +87,59 @@ final class CharacterListPresenterTableManagerDelegateTests: CharacterListPresen
 
         XCTAssertEqual(routerSpy.navigateToDetailCalled, true)
         XCTAssertEqual(routerSpy.heroPassed, hero)
+    }
+
+    // MARK: tableDidRetry
+
+    func testDidRetryWhenLastCellStateIsNone() {
+        dataStoreSpy.view = viewingSpy
+        dataStoreSpy.lastCellState = .none
+
+        sut.tableDidRetry()
+
+        XCTAssertEqual(dataStoreSpy.lastCellState, .none)
+        XCTAssertEqual(viewingSpy.reloadDataCalled, false)
+        XCTAssertEqual(fetcherSpy.getCharactersCalled, false)
+    }
+
+    func testDidRetryWhenLastCellStateIsLoading() {
+        dataStoreSpy.view = viewingSpy
+        dataStoreSpy.lastCellState = .loading
+
+        sut.tableDidRetry()
+
+        XCTAssertEqual(dataStoreSpy.lastCellState, .loading)
+        XCTAssertEqual(viewingSpy.reloadDataCalled, false)
+        XCTAssertEqual(fetcherSpy.getCharactersCalled, false)
+    }
+
+    func testDidRetryWhenLastCellStateIsRetryButCurrentCountIsNotLessThanAvailable() {
+        dataStoreSpy.view = viewingSpy
+        dataStoreSpy.lastCellState = .retry
+        dataStoreSpy.totalAvailable = 2
+        dataStoreSpy.characters.append(.init())
+        dataStoreSpy.characters.append(.init())
+
+
+        sut.tableDidRetry()
+
+        XCTAssertEqual(viewingSpy.reloadDataCalled, false)
+        XCTAssertEqual(dataStoreSpy.lastCellState, .retry)
+        XCTAssertEqual(fetcherSpy.getCharactersCalled, false)
+    }
+
+    func testDidRetryWhenLastCellStateIsRetryAndCurrentCountIsLessThanAvailable() {
+        dataStoreSpy.view = viewingSpy
+        dataStoreSpy.characters = .fixtureRamdomList
+        dataStoreSpy.lastCellState = .retry
+        dataStoreSpy.totalAvailable = 100
+
+        sut.tableDidRetry()
+
+        XCTAssertEqual(dataStoreSpy.lastCellState, .loading)
+        XCTAssertEqual(viewingSpy.reloadDataCalled, true)
+        XCTAssertEqual(fetcherSpy.getCharactersCalled, true)
+        XCTAssertEqual(fetcherSpy.skipPassed, dataStoreSpy.characters.count)
     }
 }
 

@@ -58,6 +58,18 @@ final class CharacterListPresenter {
         dataStore.view?.showSceneSpinner()
         dataStore.view?.hideEmptyFeedback()
     }
+
+    private func askMoreCharacters() {
+        guard dataStore.characters.count < dataStore.totalAvailable else { return }
+
+        dataStore.lastCellState = .loading
+        dataStore.view?.reloadData()
+
+        fetcher.getCharacters(
+            skip: dataStore.characters.count,
+            completion: getCharactersHandler
+        )
+    }
 }
 
 // MARK: - CharacterListTableManagerDelegate
@@ -65,26 +77,21 @@ final class CharacterListPresenter {
 extension CharacterListPresenter: CharacterListTableManagerDelegate {
 
     func tableDidReachRegionAroundTheEnd() {
-
-        if dataStore.lastCellState == .none,
-            dataStore.characters.count < dataStore.totalAvailable {
-
-            dataStore.lastCellState = .loading
-            dataStore.view?.reloadData()
-
-            fetcher.getCharacters(
-                skip: dataStore.characters.count,
-                completion: getCharactersHandler
-            )
+        if dataStore.lastCellState == .none {
+            askMoreCharacters()
         }
     }
 
     func tableDidSelect(at index: Int) {
-        guard let character = dataStore.characters[safe: index] else {
-            return
-        }
+        guard let character = dataStore.characters[safe: index] else { return }
 
         router.navigateToDetail(hero: character)
+    }
+
+    func tableDidRetry() {
+        if dataStore.lastCellState == .retry {
+            askMoreCharacters()
+        }
     }
 }
 

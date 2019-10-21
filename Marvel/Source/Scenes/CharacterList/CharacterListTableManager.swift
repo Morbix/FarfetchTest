@@ -88,9 +88,9 @@ extension CharacterListTableManager: UITableViewDelegate {
         if indexPath.section == 0,
             store.heroes[safe: indexPath.row]?.hasDetail == true {
             delegate.tableDidSelect(at: indexPath.row)
+        } else if store.lastCellState == .retry {
+            delegate.tableDidRetry()
         }
-
-        #warning("don't forget to implement the retry touch")
     }
 }
 

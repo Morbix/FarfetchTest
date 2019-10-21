@@ -2,6 +2,7 @@ import Foundation
 @testable import Marvel
 
 final class CharacterListTableManagerDelegateSpy: CharacterListTableManagerDelegate {
+    
     private(set) var tableDidReachRegionAroundTheEndCalled: Bool = false
     func tableDidReachRegionAroundTheEnd() {
         tableDidReachRegionAroundTheEndCalled = true
@@ -12,5 +13,10 @@ final class CharacterListTableManagerDelegateSpy: CharacterListTableManagerDeleg
     func tableDidSelect(at index: Int) {
         tableDidSelectCalled = true
         indexPassed = index
+    }
+
+    private(set) var tableDidRetryCalled: Bool = false
+    func tableDidRetry() {
+        tableDidRetryCalled = true
     }
 }

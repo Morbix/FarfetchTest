@@ -10,6 +10,7 @@ final class CharacterListTableManagerDelegateTests: CharacterListTableManagerBas
         sut.tableView(tableSpy, didSelectRowAt: indexPath)
 
         XCTAssertEqual(delegateSpy.tableDidSelectCalled, false)
+        XCTAssertEqual(delegateSpy.tableDidRetryCalled, true)
     }
 
     func testDidSelectRowAtLoadingCell() {
@@ -19,6 +20,7 @@ final class CharacterListTableManagerDelegateTests: CharacterListTableManagerBas
         sut.tableView(tableSpy, didSelectRowAt: indexPath)
 
         XCTAssertEqual(delegateSpy.tableDidSelectCalled, false)
+        XCTAssertEqual(delegateSpy.tableDidRetryCalled, false)
     }
 
     func testDidSelectRowAtForRowOutOfBounds() {
@@ -28,6 +30,7 @@ final class CharacterListTableManagerDelegateTests: CharacterListTableManagerBas
         sut.tableView(tableSpy, didSelectRowAt: indexPath)
 
         XCTAssertEqual(delegateSpy.tableDidSelectCalled, false)
+        XCTAssertEqual(delegateSpy.tableDidRetryCalled, false)
     }
 
     func testDidSelectRowAtForSectionOutOfBounds1() {
@@ -38,6 +41,7 @@ final class CharacterListTableManagerDelegateTests: CharacterListTableManagerBas
         sut.tableView(tableSpy, didSelectRowAt: indexPath)
 
         XCTAssertEqual(delegateSpy.tableDidSelectCalled, false)
+        XCTAssertEqual(delegateSpy.tableDidRetryCalled, false)
     }
 
     func testDidSelectRowAtForSectionOutOfBounds2() {
@@ -48,6 +52,7 @@ final class CharacterListTableManagerDelegateTests: CharacterListTableManagerBas
         sut.tableView(tableSpy, didSelectRowAt: indexPath)
 
         XCTAssertEqual(delegateSpy.tableDidSelectCalled, false)
+        XCTAssertEqual(delegateSpy.tableDidRetryCalled, true)
     }
 
     func testDidSelectRowAtHeroWithoutDetails() {
@@ -57,6 +62,7 @@ final class CharacterListTableManagerDelegateTests: CharacterListTableManagerBas
         sut.tableView(tableSpy, didSelectRowAt: indexPath)
 
         XCTAssertEqual(delegateSpy.tableDidSelectCalled, false)
+        XCTAssertEqual(delegateSpy.tableDidRetryCalled, false)
     }
 
     func testDidSelectRowAtHeroWithDetails() {
@@ -66,5 +72,6 @@ final class CharacterListTableManagerDelegateTests: CharacterListTableManagerBas
         sut.tableView(tableSpy, didSelectRowAt: indexPath)
 
         XCTAssertEqual(delegateSpy.tableDidSelectCalled, true)
+        XCTAssertEqual(delegateSpy.tableDidRetryCalled, false)
     }
 }

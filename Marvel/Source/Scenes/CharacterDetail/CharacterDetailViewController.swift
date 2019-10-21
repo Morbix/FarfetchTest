@@ -27,7 +27,6 @@ final class CharacterDetailViewController: UITableViewController, Scene {
 
 // MARK: - CharacterDetailViewing
 
-#warning("Cover CharacterDetailViewing")
 extension CharacterDetailViewController: CharacterDetailViewing {
 
     func reloadData() {

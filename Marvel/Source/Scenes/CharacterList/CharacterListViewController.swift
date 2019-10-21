@@ -55,7 +55,6 @@ final class CharacterListViewController: UIViewController, Scene {
     }
 }
 
-#warning("Cover CharacterListViewing")
 extension CharacterListViewController: CharacterListViewing {
 
     func reloadData() {
