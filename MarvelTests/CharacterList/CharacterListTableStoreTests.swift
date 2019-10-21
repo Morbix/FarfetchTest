@@ -50,10 +50,10 @@ final class CharacterListTableStoreTests: XCTestCase {
     func testHasDetailForHeroes() {
         dataStore.characters = [
             .init(id: 1),
-            .init(id: 2, name: "", comics: [.init(name: "", description: "")], series: [], stories: [], events: []),
-            .init(id: 3, name: "", comics: [], series: [.init(name: "", description: "")], stories: [], events: []),
-            .init(id: 4, name: "", comics: [], series: [], stories: [.init(name: "", description: "")], events: []),
-            .init(id: 5, name: "", comics: [], series: [], stories: [], events: [.init(name: "", description: "")])
+            .init(id: 2, name: "", thumbnail: nil, comics: [.init(name: "", description: "")], series: [], stories: [], events: []),
+            .init(id: 3, name: "", thumbnail: nil, comics: [], series: [.init(name: "", description: "")], stories: [], events: []),
+            .init(id: 4, name: "", thumbnail: nil, comics: [], series: [], stories: [.init(name: "", description: "")], events: []),
+            .init(id: 5, name: "", thumbnail: nil, comics: [], series: [], stories: [], events: [.init(name: "", description: "")])
         ]
 
 
@@ -72,6 +72,7 @@ extension Hero {
         self.init(
             id: id,
             name: "item \(id)",
+            thumbnail: nil,
             comics: [],
             series: [],
             stories: [],

@@ -121,7 +121,7 @@ final class MarvelCharactersServiceGetCharactersTests: MarvelCharactersServiceBa
                     .init(
                         id: 9,
                         name: "name 1",
-                        description: nil,
+                        thumbnail: nil,
                         comics: .init(items: [.init(name: "comics 1")]),
                         series: .init(items: [.init(name: "series 1")]),
                         stories: .init(items: [.init(name: "stories 1")]),
@@ -183,7 +183,7 @@ extension CharactersResponse.Data.Item {
         self.init(
             id: id,
             name: "item \(id)",
-            description: nil,
+            thumbnail: nil,
             comics: .init(items: []),
             series: .init(items: []),
             stories: .init(items: []),

@@ -47,6 +47,7 @@ extension CharacterListTableManager: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.cell.rawValue, for: indexPath)
+        cell.imageView?.image = nil
 
         if indexPath.section == 0 {
             if let hero = store.heroes[safe: indexPath.row] {
@@ -54,6 +55,10 @@ extension CharacterListTableManager: UITableViewDataSource {
                 cell.textLabel?.textColor = .black
                 cell.accessoryType = hero.hasDetail ? .disclosureIndicator : .none
                 cell.selectionStyle = hero.hasDetail ? .gray : .none
+                if let thumbnail = hero.thumbnail {
+                    let resize = CGSize(width: 58, height: 58)
+                    cell.imageView?.load(urlString: thumbnail, resize: resize, completion: cell.setNeedsLayout)
+                }
             }
         } else {
             if store.lastCellState == .loading {

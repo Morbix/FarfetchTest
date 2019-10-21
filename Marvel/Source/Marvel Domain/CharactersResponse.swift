@@ -17,11 +17,18 @@ extension CharactersResponse.Data {
     struct Item: Decodable {
         let id: Int
         let name: String
-        let description: String?
+        let thumbnail: Thumbnail?
         let comics: Content
         let series: Content
         let stories: Content
         let events: Content
+    }
+}
+
+extension CharactersResponse.Data {
+    struct Thumbnail: Decodable {
+        let path: String
+        let `extension`: String
     }
 }
 

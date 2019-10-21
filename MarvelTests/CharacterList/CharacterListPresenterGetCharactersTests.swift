@@ -132,6 +132,7 @@ extension Hero {
         self.init(
             id: 0,
             name: .init(),
+            thumbnail: nil,
             comics: [],
             series: [],
             stories: [],
