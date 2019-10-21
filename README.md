@@ -43,3 +43,9 @@ That's all. Open Xcode and Run.
 - The code is preventing present the first real scene during the test executions; This lock is to avoid increasing the code coverage without having any test written.
 - I used reflection (Mirror class) to perform some validation into private properties to avoid exposing unnecessarily;
 - I executed the Muter after finish the project, and the report is available here: [muter-report](./muter-report).
+
+## Muter
+1. Install Muter (if you don't have yet);
+> https://github.com/SeanROlszewski/muter#installation
+2. On terminal, in the project's folder, run the command `muter`:
+> $ muter
