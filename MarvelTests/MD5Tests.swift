@@ -9,15 +9,4 @@ final class MD5Tests: XCTestCase {
 
         XCTAssertEqual(hashGenerated, hashExpected)
     }
-
-    func testPrintHash() {
-        let timestamp = Int(Date().timeIntervalSince1970)
-        let privateKey = MarvelKeys.private
-        let publicKey = MarvelKeys.public
-
-        let hash = "\(timestamp)\(privateKey)\(publicKey)".md5
-
-        print(timestamp, hash)
-        print("hash=\(hash)&ts=\(timestamp)")
-    }
 }

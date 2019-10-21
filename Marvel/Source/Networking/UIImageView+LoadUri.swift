@@ -22,7 +22,7 @@ extension UIImageView {
             } ?? downloadedImage
 
             DispatchQueue.main.async {
-                guard self?.restorationIdentifier == urlString else { return print("exit") }
+                guard self?.restorationIdentifier == urlString else { return }
                 self?.image = image
                 imageCache.setObject(image, forKey: NSString(string: urlString))
                 completion?()
