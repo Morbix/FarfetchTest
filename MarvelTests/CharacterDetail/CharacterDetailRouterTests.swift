@@ -6,16 +6,15 @@ final class CharacterDetailRouterTests: XCTestCase {
     private let navigatorSpy = NavigatorSpy()
     private let hero = Hero(id: 999)
     private lazy var sut = CharacterDetailRouter(
-        navigator: navigatorSpy,
         hero: hero
     )
 
-    func testMakeScene() throws {
-        let scene = sut.makeScene()
+    func testMakeViewController() throws {
+        let viewController = sut.makeViewController()
 
-        XCTAssertTrue(scene is CharacterDetailViewController)
+        XCTAssertTrue(viewController is CharacterDetailViewController)
 
-        let sceneMirror = Mirror(reflecting: scene)
+        let sceneMirror = Mirror(reflecting: viewController)
         let presenterProperty = try XCTUnwrap(sceneMirror.firstChild(of: CharacterDetailPresenter.self))
         let tableManagerProperty = try XCTUnwrap(sceneMirror.firstChild(of: CharacterDetailTableManager.self))
 

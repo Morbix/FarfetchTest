@@ -14,7 +14,8 @@ final class Bootstrap {
         guard let scene = scene as? UIWindowScene else { return nil }
 
         let navigationController = UINavigationController()
-        navigationController.pushRouter(factory.createRouter(with: navigationController), animated: false)
+        let router = factory.createRouter(with: navigationController)
+        navigationController.pushViewController(router.makeViewController(), animated: false)
 
         let window = UIWindow(windowScene: scene)
         window.rootViewController = navigationController

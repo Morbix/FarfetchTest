@@ -1,6 +1,6 @@
 import UIKit
 
-final class CharacterListViewController: UIViewController, Scene {
+final class CharacterListViewController: UIViewController {
 
     private let presenter: CharacterListPresenter
     private let tableManager: CharacterListTableManager

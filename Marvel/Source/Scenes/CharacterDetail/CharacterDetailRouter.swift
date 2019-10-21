@@ -1,16 +1,14 @@
-import Foundation
+import UIKit
 
 final class CharacterDetailRouter: Router {
 
-    private weak var navigator: Navigator?
     private let hero: Hero
 
-    init(navigator: Navigator, hero: Hero) {
-        self.navigator = navigator
+    init(hero: Hero) {
         self.hero = hero
     }
 
-    func makeScene() -> Scene {
+    func makeViewController() -> UIViewController {
         let presenter = CharacterDetailPresenter(
             dataStore: CharacterDetailDataStore(hero: hero),
             fetcher: MarvelCharactersService()

@@ -8,12 +8,12 @@ final class CharacterListRouterTests: XCTestCase {
         navigator: navigatorSpy
     )
 
-    func testMakeScene() throws {
-        let scene = sut.makeScene()
+    func testMakeViewController() throws {
+        let viewController = sut.makeViewController()
 
-        XCTAssertTrue(scene is CharacterListViewController)
+        XCTAssertTrue(viewController is CharacterListViewController)
 
-        let sceneMirror = Mirror(reflecting: scene)
+        let sceneMirror = Mirror(reflecting: viewController)
         let presenterProperty = try XCTUnwrap(sceneMirror.firstChild(of: CharacterListPresenter.self))
         let tableManagerProperty = try XCTUnwrap(sceneMirror.firstChild(of: CharacterListTableManager.self))
 
@@ -32,17 +32,11 @@ final class CharacterListRouterTests: XCTestCase {
     }
 
     func testNavigateToDetail() throws {
-        let hero = Hero(id: 999)
+        sut.navigateToDetail(hero: Hero())
 
-        sut.navigateToDetail(hero: hero)
+        XCTAssertEqual(navigatorSpy.presentViewControllerCalled, true)
 
-        XCTAssertEqual(navigatorSpy.pushRouterCalled, true)
-        XCTAssertEqual(navigatorSpy.routerPassed is CharacterDetailRouter, true)
-
-        let routerMirror = Mirror(reflecting: try XCTUnwrap(navigatorSpy.routerPassed))
-        let navigatorProperty = try XCTUnwrap(routerMirror.firstChild(of: Navigator.self))
-        XCTAssertEqual(navigatorProperty === navigatorSpy, true)
-        let heroProperty = try XCTUnwrap(routerMirror.firstChild(of: Hero.self))
-        XCTAssertEqual(heroProperty === hero, true)
+        let navigationController = try XCTUnwrap(navigatorSpy.viewControllerPassed as? UINavigationController)
+        XCTAssertNotNil(navigationController.viewControllers.first as? CharacterDetailViewController)
     }
 }

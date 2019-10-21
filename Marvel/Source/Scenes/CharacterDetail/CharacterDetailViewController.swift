@@ -1,6 +1,6 @@
 import UIKit
 
-final class CharacterDetailViewController: UITableViewController, Scene {
+final class CharacterDetailViewController: UITableViewController {
 
     private let presenter: CharacterDetailPresenter
     private let tableManager: CharacterDetailTableManager
@@ -22,6 +22,16 @@ final class CharacterDetailViewController: UITableViewController, Scene {
         tableManager.attach(on: tableView)
 
         presenter.viewDidLoad(view: self)
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .close,
+            target: self,
+            action: #selector(close)
+        )
+    }
+
+    @objc func close() {
+        dismiss(animated: true, completion: nil)
     }
 }
 

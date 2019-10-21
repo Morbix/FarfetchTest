@@ -1,25 +1,19 @@
 import UIKit
 
-protocol Scene {
+protocol Router {
     func makeViewController() -> UIViewController
 }
 
-extension Scene where Self: UIViewController {
-    func makeViewController() -> UIViewController {
-        return self
-    }
-}
-
-protocol Router {
-    func makeScene() -> Scene
-}
-
 protocol Navigator: class {
-    func pushRouter(_ router: Router, animated: Bool)
+    func pushViewController(_ viewController: UIViewController, animated: Bool)
+    func presentViewController(_ viewController: UIViewController, transitionDelegate transition: UIViewControllerTransitioningDelegate)
 }
 
 extension UINavigationController: Navigator {
-    func pushRouter(_ router: Router, animated: Bool = true) {
-        pushViewController(router.makeScene().makeViewController(), animated: animated)
+    func presentViewController(_ viewControllerToShow: UIViewController, transitionDelegate transition: UIViewControllerTransitioningDelegate) {
+        viewControllerToShow.transitioningDelegate = transition
+        viewControllerToShow.modalPresentationStyle = .custom
+
+        present(viewControllerToShow, animated: true)
     }
 }

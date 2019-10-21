@@ -1,4 +1,4 @@
 @testable import Marvel
 import UIKit
 
-final class UIViewControllerMock: UIViewController, Scene {}
+final class UIViewControllerMock: UIViewController {}
