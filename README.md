@@ -21,4 +21,4 @@ That's all. Open Xcode and Run.
 ### README TODO
 - Badges (coverage, muter)
 - Describe architecture (mvp, draw)
-- Describe highlight points (error feedbacks, datastore vs tablestore, strings localizable, avoid re-fetch content, navigate only if has detail, router testable, UIKitless)
+- Describe highlight points (error feedbacks, datastore vs tablestore, strings localizable, avoid re-fetch content, navigate only if has detail, router testable, UIKitless, bootstrap)
