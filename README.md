@@ -40,6 +40,7 @@ That's all. Open Xcode and Run.
 - The Hero object was implemented as a Class to hold the state about fetched content (such as comics, series, stories, and events);
 - The Details scene is accessible only if the Here has content available to present;
 - I tried to import UIKit only where it was indispensable.
+- I wrapped up all the UI elements in a separated class to clean up the ViewController.
 - A Bootstrap class is enabling testing for the  boilerplate code around the launch;
 - The code is preventing present the first real scene during the test executions; This lock is to avoid increasing the code coverage without having any test written.
 - I used reflection (Mirror class) to perform some validation into private properties to avoid exposing unnecessarily;
