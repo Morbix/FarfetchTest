@@ -23,11 +23,19 @@ final class CharacterDetailViewController: UITableViewController {
 
         presenter.viewDidLoad(view: self)
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .close,
-            target: self,
-            action: #selector(close)
-        )
+        if #available(iOS 13.0, *) {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(
+                barButtonSystemItem: .close,
+                target: self,
+                action: #selector(close)
+            )
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(
+                barButtonSystemItem: .stop,
+                target: self,
+                action: #selector(close)
+            )
+        }
     }
 
     @objc func close() {

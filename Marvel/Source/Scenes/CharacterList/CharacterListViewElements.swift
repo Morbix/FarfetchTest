@@ -16,7 +16,12 @@ final class CharacterListViewElements {
     }()
 
     lazy var spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView.init(style: .large)
+        let spinner: UIActivityIndicatorView
+        if #available(iOS 13.0, *) {
+            spinner = UIActivityIndicatorView(style: .large)
+        } else {
+            spinner = UIActivityIndicatorView(style: .gray)
+        }
         spinner.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         spinner.frame = frame
         spinner.hidesWhenStopped = true
