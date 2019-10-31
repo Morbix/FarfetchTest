@@ -4,18 +4,15 @@ import XCTest
 final class BootstrapTests: XCTestCase {
 
     private let factoryMock = FirstRouterFactoryMock()
-    private let currentScene = UIApplication.shared.connectedScenes.first
     private lazy var sut = Bootstrap(factory: factoryMock)
 
     func testInTestMode() throws {
-        let scene = try XCTUnwrap(currentScene)
-        let window = sut.getWindow(for: scene, isTestingMode: true)
+        let window = sut.getWindow(for: UIApplication.shared, isTestingMode: true)
         XCTAssertNil(window)
     }
 
     func testRootViewController() throws {
-        let scene = try XCTUnwrap(currentScene)
-        let window = sut.getWindow(for: scene, isTestingMode: false)
+        let window = sut.getWindow(for: UIApplication.shared, isTestingMode: false)
 
         XCTAssertNotNil(window)
         let navController = try XCTUnwrap(window?.rootViewController as? UINavigationController)

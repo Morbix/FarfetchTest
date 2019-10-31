@@ -8,16 +8,14 @@ final class Bootstrap {
         self.factory = factory
     }
 
-    func getWindow(for scene: UIScene, isTestingMode: Bool) -> UIWindow? {
+    func getWindow(for application: UIApplication, isTestingMode: Bool) -> UIWindow? {
         guard !isTestingMode else { return nil }
-
-        guard let scene = scene as? UIWindowScene else { return nil }
 
         let navigationController = UINavigationController()
         let router = factory.createRouter(with: navigationController)
         navigationController.pushViewController(router.makeViewController(), animated: false)
 
-        let window = UIWindow(windowScene: scene)
+        let window = UIWindow()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
 
