@@ -48,6 +48,6 @@ That's all. Open Xcode and Run.
 
 ## Muter
 1. Install Muter (if you don't have yet);
-> https://github.com/SeanROlszewski/muter#installation
+> https://github.com/muter-mutation-testing/muter#installation
 2. On terminal, in the project's folder, run the command `muter`:
 > $ muter
